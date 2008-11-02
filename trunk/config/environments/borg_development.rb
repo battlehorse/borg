@@ -31,5 +31,5 @@ BorgConfig = {
   :google_analytics => "UA-123456-1",
   
   # Googla chatback. Paste here the content as generated from http://www.google.com/talk/service/badge/New, if you want to use it.
-  :google_chatback => 's'
+  :google_chatback => ''
 }
