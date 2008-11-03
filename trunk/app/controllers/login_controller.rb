@@ -1,7 +1,7 @@
 class LoginController < ApplicationController
   
   def index
-    redirect_to "/" if session[:user_id]
+    redirect_to root_path if session[:user_id]
   end
   
   def login
