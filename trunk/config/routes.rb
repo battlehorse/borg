@@ -3,8 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Website root
   map.root :controller => "list",
-    :action => "welcome",
-    :path => [ Time.now.year.to_s ]
+    :action => "welcome"
   
   # Main URLs
   map.page "page/*path" ,

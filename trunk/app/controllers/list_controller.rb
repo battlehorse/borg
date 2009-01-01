@@ -10,18 +10,16 @@ class ListController < ApplicationController
     params["path"] = path.compact
     
     # recursive listing
-    @pages = Page.allFromPath(params["path"] || []).each { |page| page.summarize }
-    @pages = apply_blog_time_ordering(@pages)
+    @pages = get_blog_pages
     
     render :action => "list"
   end
     
   def welcome
     @welcome = Page.fromPath(["index.html"])
+    params["path"] =  [ Time.now.year.to_s ]
     
-    @pages = Page.allFromPath(params["path"] || []).each { |page| page.summarize } 
-    @pages = apply_blog_time_ordering(@pages)[0..9] # only 10 items in the homepage
-    
+    @pages = get_blog_pages[0..9] # only 10 items in the homepage
     render :action => "list"
   end
   
@@ -30,11 +28,33 @@ class ListController < ApplicationController
     @comments = Comment.allFromPath(params["path"] || [])[0..19]
   end
   
+  def get_blog_pages
+    pages = Page.allFromPath(params["path"]).each { |page| page.summarize }
+    
+    # If a year-like path has been requested (like /2009 ) and not enough
+    # pages where returned, fall back to the previous year.
+    #
+    # This is a dirty trick to avoid having the homepage and blog sections
+    # empty at the beginning of every new year.
+    if pages.size < 10 && yearly_path? 
+      pages << Page.allFromPath([ (Time.now.year - 1).to_s ]).each { |page| page.summarize }
+      pages.flatten!
+    end
+    apply_blog_time_ordering(pages)
+    return pages
+  end
+  private :get_blog_pages
+  
   # For blog entries, order items by blog folder (aka, blog entry time)
   # rather than modification date  
   def apply_blog_time_ordering(pages)
     pages.sort_by { |page| page.path.join('') }.reverse
   end
   private :apply_blog_time_ordering
-      
+  
+  def yearly_path?
+    params["path"].size == 1 && params["path"][0] =~ /(19|20)\d\d/
+  end
+  private :yearly_path?
+  
 end
