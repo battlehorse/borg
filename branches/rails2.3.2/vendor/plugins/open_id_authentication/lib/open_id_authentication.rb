@@ -3,8 +3,10 @@ require 'openid/extensions/sreg'
 require 'openid/extensions/ax'
 require 'openid/store/filesystem'
 
-require File.dirname(__FILE__) + '/open_id_authentication/association'
-require File.dirname(__FILE__) + '/open_id_authentication/nonce'
+if defined?(ActiveRecord)
+  require File.dirname(__FILE__) + '/open_id_authentication/association'
+  require File.dirname(__FILE__) + '/open_id_authentication/nonce'
+end
 require File.dirname(__FILE__) + '/open_id_authentication/db_store'
 require File.dirname(__FILE__) + '/open_id_authentication/mem_cache_store'
 require File.dirname(__FILE__) + '/open_id_authentication/request'
