@@ -1,6 +1,8 @@
 require 'borg/util'
 
 class ApplicationController < ActionController::Base
+  include Borg::Util
+
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -9,7 +11,7 @@ class ApplicationController < ActionController::Base
   private
   
   def load_configs
-    require 'environments/borg_' + RAILS_ENV
+    require 'config/environments/borg_' + RAILS_ENV
   end
   
   def load_sidebar_and_toolbar
