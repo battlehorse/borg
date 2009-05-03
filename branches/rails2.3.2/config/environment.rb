@@ -1,5 +1,9 @@
 # Be sure to restart your server when you modify this file
 
+# Uncomment below to force Rails into production mode when
+# you don't control web/app server and can't set it the proper way
+# ENV['RAILS_ENV'] ||= 'production'
+
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
@@ -15,10 +19,6 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'ruby-openid', :lib => 'openid', :version => '2.1.6'
   config.gem "rubytree", :lib => 'tree', :version => "0.5.2"
   config.gem "RedCloth", :version => "4.1.9"
@@ -42,3 +42,9 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+# store OpenId sessions to file instead of database
+OpenIdAuthentication.store = :file
+
+# Change this parameter if your application is being served from a subdomain
+# ActionController::Base.relative_url_root = '/subdomain'

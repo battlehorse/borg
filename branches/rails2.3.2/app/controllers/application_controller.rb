@@ -1,10 +1,22 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
+require 'borg/util'
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  
+  before_filter :load_configs, :load_sidebar_and_toolbar  
+  
+  private
+  
+  def load_configs
+    require 'environments/borg_' + RAILS_ENV
+  end
+  
+  def load_sidebar_and_toolbar
+    path = params["path"] || []
+    path = path[0..(path.length-2)] if is_content?(path) 
+    
+    @sidebar = Page.fromPath(path.clone << "sidebar.html")
+    @toolbar = Page.fromPath(path.clone << "toolbar.html")    
+  end  
 end

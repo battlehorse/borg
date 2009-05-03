@@ -1,0 +1,27 @@
+.cloud0, .cloud1, .cloud2, .cloud3, .cloud4, .cloud5 {
+	margin: 1em;
+}
+
+.cloud0 {
+	font-size: 90%;
+}
+
+.cloud1 {
+	font-size: 110%;	
+}
+
+.cloud2 {
+	font-size: 130%;	
+}
+
+.cloud3 {
+	font-size: 150%;
+}
+
+.cloud4 {
+	font-size: 200%;	
+}
+
+.cloud5 {
+	font-size: 250%;	
+}
