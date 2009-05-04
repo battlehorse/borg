@@ -34,4 +34,18 @@ module ApplicationHelper
     File.new(page.rpath).mtime.to_s(:rfc822)
   end
   
+  def strip_tags(content)
+    content.gsub(/<\/?[^>]*>/, "")
+  end
+  
+  def kind(obj)
+    if obj.respond_to?(:date) && obj.respond_to?(:titleless_content) && obj.date && !obj.titleless_content.blank?
+      :page_with_date
+    elsif obj.respond_to?(:content) && !obj.content.blank?
+      :page
+    else
+      :generic
+    end
+  end
+
 end

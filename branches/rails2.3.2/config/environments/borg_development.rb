@@ -12,6 +12,9 @@ BorgConfig = {
   # DIrectory where all the comments are stored
   :comment_dir => "/path/to/comment/dir/",
   
+  # CSS Template: 'InternetSharing', 'CoolWater'
+  :css_template => "InternetSharing",  
+  
   # DEFIMG url
   :default_img_url => "http://url.for.default.images",
   

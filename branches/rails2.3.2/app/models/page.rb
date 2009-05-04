@@ -1,3 +1,5 @@
+require 'chronic'
+
 class Page < Resource
   
   def self.base_folder
@@ -69,7 +71,12 @@ class Page < Resource
     parse if fresh?
     @title
   end
-
+  
+  def date
+    parse if fresh?
+    @date
+  end
+  
   # Returns the page content, stripping the first heading
   def titleless_content
     parse if fresh?
@@ -99,15 +106,53 @@ class Page < Resource
       raw_headers << l.chomp if l =~ /^#/ && !headers_finished
       
       @content << l if headers_finished
-      @title = $1.strip if @title.nil? && l.strip =~ /^h\d\.(.+)/
+      @title = $1.strip  if @title.nil? && l.strip =~ /^h\d\.(.+)/
     end
     
     @headers = parse_headers(raw_headers)
+    parse_date
     @summary = parse_summary(@content)
     @fresh = false    
   end
   
   private
+  
+  # Parses the 'posting' date associated to this page. 
+  # This is used for display purposes only, to create a small calendar tag
+  # beside the article title.
+  #
+  # The date can be read in 3 ways:
+  # - from a 'date' header, using Chronic (http://chronic.rubyforge.org/) syntax
+  # - from within the title, using Chronic syntax.
+  # - from within the title, using the deprecated syntax MMM-dd (e.g.: Apr-29)
+  #
+  # When read from within the title, the title is expected to be formatted in
+  # this way:
+  # <textile heading> <date> : <title>
+  # Example:
+  # h1. July 7 2009 : Hello world
+  #
+  # This has nothing to do with the filesystem date of the underlying resource
+  # (last-modified date), although some parts of borg use the last-modified date
+  # to sort pages and site entries.
+  def parse_date
+    # must access headers via @headers. Using h() would case a stack overflow
+    # because parsing isn't yet complete, the page is still 'fresh'.
+    if @headers[:date]  
+      @date = Chronic.parse(@headers[:date])
+    elsif @title =~ /:/ && @date.nil?
+      plausible_date = @title.split(':').first
+      @date = Chronic.parse(plausible_date)
+      unless @date
+        date_regexp = /\s*(\d\d?)-([a-zA-Z]{3})\s*/
+        match = date_regexp.match(plausible_date)
+        @date = Chronic.parse("#{match[2]} #{match[1]}") if match
+      end
+      if @date
+        @title.sub!(/^[^:]*:/, '')
+      end
+    end
+  end  
   
   # Parse headers from their raw reading
   def parse_headers(raw_headers)

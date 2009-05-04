@@ -1,1 +1,9 @@
-<%= textile(content) %>
+<% if kind(content) == :page_with_date -%>
+  <div class="calendar"><p class="calendar-month"><%= content.date.strftime('%b').upcase %></p><p class="calendar-day"><%= content.date.day.ordinalize %></p></div>
+  <h1 class="article-title"><%= link_to content.title , page_path({ :path => content.path }) %></h1>
+  <div class='article-content'>
+    <%= textile(content.titleless_content)%>
+  </div>
+<% else -%>
+  <%= textile(content) %>
+<% end -%>

@@ -398,6 +398,39 @@ input.button {
    BATTLEHORSE ADDITIONS
 ********************************************/
 
+.article-title {
+  padding-top: 5px;
+}
+
+.article-content {
+  clear: both;
+}
+
+.article-title a, .article-title a:hover {
+  text-decoration: none;
+  color: #555;
+}
+
+.calendar { 
+	border: 1px solid #306bc1;  
+  height: 44px; 
+  float: left; 
+  background: #fff url(../images/CoolWater/calendar.gif) no-repeat bottom left;
+  width: 40px; 
+  margin: 5px 5px 0 15px;
+  color: #000;
+}
+
+#main .calendar p.calendar-day {
+  color: #fff;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+#main .calendar p {
+  margin: 5px 0 0 6px;
+}
+
 #flash_error, .formError {
   color: red;
   font-weight: bold;
@@ -428,4 +461,12 @@ input.button {
 object {
 	margin: 10px 15px;
 	padding: 0;
+}
+
+#translateLink {
+  float:right; margin-right: 15px;
+}
+
+#translateBox {
+  float:right; margin-right: 15px;
 }

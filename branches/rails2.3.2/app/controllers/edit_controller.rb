@@ -38,7 +38,8 @@ class EditController < ApplicationController
   end
   
   def preview
-    render :partial => "shared/content" , :object => params["content"]
+    p = Page.fromRawData(params["path"], params["content"])
+    render :partial => "shared/content" , :object => p
   end
   
   private

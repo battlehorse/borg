@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem 'ruby-openid', :lib => 'openid', :version => '2.1.6'
   config.gem "rubytree", :lib => 'tree', :version => "0.5.2"
   config.gem "RedCloth", :version => "4.1.9"
+  config.gem "chronic", :version => '0.2.3'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
