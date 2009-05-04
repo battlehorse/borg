@@ -27,6 +27,15 @@ BorgConfig = {
   # WARNING: Leaving this list empty will create an open website! Everybody will be able to edit.
   :editors => [ 'http://editor.openid' ],
   
+  # Meta information about the site, that will be used to populate
+  # HTML META tags on top of each page.
+  :meta =>  {
+    :author => 'Your Name - yourmail@domain.com',
+    :robots => 'index,follow',
+    :keywords => 'your, keywords',
+    :description => 'your site description'
+  },  
+  
   # Domain to be searched from the search box (that uses google search)
   :search_domain => "yourdomain.com",
   

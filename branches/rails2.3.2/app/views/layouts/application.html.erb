@@ -3,12 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<meta name="Description" content="Information architecture, Web Design, Web Standards." />
-<meta name="Keywords" content="your, keywords" />
+<meta name="Description" content="<%= borg(:meta)[:description] %>" />
+<meta name="Keywords" content="<%= borg(:meta)[:keywords] %>" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="Distribution" content="Global" />
-<meta name="Author" content="Riccardo Govoni - battlehorse@gmail.com" />
-<meta name="Robots" content="index,follow" />
+<meta name="Author" content="<%= borg(:meta)[:author] %>" />
+<meta name="Robots" content="<%= borg(:meta)[:robots] %>" />
 
 <%= javascript_include_tag "prototype", "application" %>
 <%= stylesheet_link_tag(borg(:css_template)) %>
