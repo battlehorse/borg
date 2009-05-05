@@ -87,6 +87,7 @@ input.search {
   border: none; 
   background: rgb(117, 173, 69) url(../images/InternetSharing/input.gif) no-repeat; 
   padding-left: 5px;
+  padding-top: 5px;
   color: #1E67A8; 
   font-weight: bold; 
 }
