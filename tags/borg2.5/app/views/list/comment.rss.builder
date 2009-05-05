@@ -1,7 +1,7 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Comments on " + borg(:title)
+    xml.title "Comments on " + strip_tags(borg(:title))
     xml.description borg(:tagline)
     xml.link root_url
 
