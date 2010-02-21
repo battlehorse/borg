@@ -1,0 +1,19 @@
+<% content_for :title do -%>
+  <%= @page.title %>
+<% end -%>
+<% content_for :youarehere do -%>
+	<%= render :partial => "shared/youarehere" %>
+<% end -%>
+<% content_for :tags do -%>
+	<%= render :partial => "tags" , :object => @page %>
+<% end -%>
+<% content_for :footer do -%>
+  <% if session[:user_id] && session[:user_id].is_editor -%>
+  | <%= link_to "Edit this page", edit_path({ :path => params[:path] }) %>
+  <% end -%>
+<% end -%>
+<%= render :partial => "shared/content" , :object => @page %>
+<p class="signature">
+  <%= author_link(@page) %>, last modified on <%= last_modified(@page) %>
+</p>
+<%= render :partial => "comments" , :object => @page.comments %>
