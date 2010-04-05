@@ -1,0 +1,339 @@
+/* 
+  project: bigG template
+  author: Riccardo Govoni <battlehorse@gmail.com>
+  
+  G-colors:
+  dark yellow 250, 209, 99
+  yellow 255, 247, 215
+
+  dark green 105, 193, 125
+  green 201, 237, 204
+
+  dark blue 102, 148, 227
+  blue 224, 236, 255
+
+  blue link 42, 93, 176
+
+  search box border: 102 - 204
+
+  grey background 239
+  grey text 119 
+
+  button:
+  gradient 249 -> 227
+  border: 187
+*/
+
+body { 
+  padding: 0; 
+  margin: 0;
+  font-size: 0.8em;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.2em;
+  background: #fff; 
+  color: #000;
+}
+
+/* content holder */
+#wrap { 
+  margin: 10px 5%;
+  max-width: 1160px;
+  min-width: 960px;
+}
+
+/* header */
+#header { height: 60px; }
+#logo-text { 
+  padding: 15px 0 0 0;
+  margin: 0 0 0.2em 0;
+}
+#logo-text A { text-decoration: none; color: #000;}
+#slogan { margin: 0; padding: 0; color: rgb(119,119,119); background: #fff; }
+#header-links { 
+  float: right;
+  width: 570px; 
+  margin: 5px 5px 0 0; 
+  text-align: right;
+  font-size: 10px;
+}
+
+.title { color: rgb(42, 93, 176); background: #fff; }
+
+
+/* horizontal tabbed menu */	
+#menu { 
+  background-color: rgb(224, 236, 255);
+  border-top: 1px solid rgb(102, 148, 227);
+  text-align: right;
+}
+#menu ul {
+  margin: 0;
+  padding: 0.6em 0;
+}
+#menu li { display: inline; }
+#menu li a { 
+  margin: 7px 10px;
+}
+#menu li a.current {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* grey subheader */
+.gbox {
+  background-color: rgb(239, 239, 239);
+  border-bottom: 1px solid rgb(187, 187, 187);
+  margin: 3px 0;
+  padding-left: 2px;
+}
+
+.gbox P {
+  color: rgb(119, 119, 119);
+  padding-top: 2px;
+  margin: 0;
+  font-size: 11px;
+}
+
+.gbox P A {
+  color: rgb(60, 60, 60);
+}
+
+.gboxbottom {
+  clear: both;
+}
+
+/* left and right */
+#main {
+  float: left;
+  width: 78%;
+  margin: 0 0px 10px 0;
+}
+
+#sidebar {
+	float: right;
+	width: 20%;
+	margin: 0 0 10px 0;
+	padding-left: 10px;
+}
+
+/* footer  */
+#footer { 
+  clear: both;
+  text-align: center;
+  line-height: 1.8em;
+  padding: 10px 0 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+/* right side */
+.box {
+  border-top: 1px solid rgb(102, 148, 227);
+  background-color: rgb(224, 236, 255);
+  margin: 0 0 10px 0;
+  padding: 5px;
+}
+
+.box H2 {
+  margin: 0;
+}
+
+/* tags */
+.tags {
+  border-top: 1px solid rgb(250, 209, 99);
+  background-color: rgb(255, 247, 215);
+}
+
+.tags P {
+  margin: 0.2em;
+  padding: 0;
+  font-size: 11px;
+}
+
+.tags H2 {
+  font-size: 1.2em;
+}
+
+/* search form */
+.searchform { 
+  margin: 3px 0 10px 0;
+  padding: 0;
+  border-bottom: 1px solid rgb(105, 193, 125);
+  background: rgb(201, 237, 204);
+}
+
+.searchform p { padding: 0; margin: 0;}
+
+/* lists and form elements */
+form { margin: 0; }
+input.search { 
+  font-weight: bold; 
+  font-size: 11px;
+  width: 65%;
+  margin: 0 5px;
+  border: 1px solid rgb(187, 187, 187);
+  padding: 2px;  
+}
+input.button { 
+  font-size: 11px;
+  background: rgb(249, 249, 249) url(../images/bigG/search_button.png) repeat-x bottom left;
+  border: 1px solid rgb(187, 187, 187);
+  padding: 2px;
+}
+.searchform input.button {
+  width: 23%;
+}
+#newcommentdiv input.button {
+  margin-top: 5px;
+  width: 23%;
+}
+
+/* left side */
+.left_articles {
+	text-align: justify;
+	color: #000;
+	background: #fff;
+}
+
+.left_articles h1 {
+  background-color: rgb(224, 236, 255);
+  border-top: 1px solid rgb(102, 148, 227);
+  font-size: 1.8em;
+  line-height: 1em;
+  padding: 5px 0;
+}
+
+.left_articles h2,
+.left_articles h3 {
+  background-color: rgb(224, 236, 255);
+  border-top: 1px solid rgb(102, 148, 227);
+  font-size: 1.4em;
+  line-height: 1em;
+  padding: 5px 0;
+}
+
+.article-title {
+  margin: 0;
+  margin-left: 45px;
+  padding: 0;
+}
+
+.article-content {
+  clear: both;
+}
+
+/* links */
+a { color: rgb(42, 93, 176); background: inherit; }
+a:visited { color: purple; }
+
+.article-title a, .article-title a:hover, h1 a, h1 a:hover, h1 a:visited { 
+  color: #000;
+  text-decoration: none;
+  padding-left: 3px;
+}
+
+/* calendar */
+.calendar { 
+  float: left; 
+  background: rgb(102, 148, 227);
+  border: 1px solid rgb(102, 148, 227);
+  width: 40px; 
+  text-align: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+}
+.calendar p { padding: 0; margin: 0;}
+
+/* comments */
+.comment, #newcommentdiv FORM {
+  min-height: 90px;
+  background-color: rgb(243, 243, 252);
+  border-top: 1px solid rgb(187, 187, 187);
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.comment p { padding: 0; margin: 0; }
+
+label {
+	display:block;
+	font-weight:bold;
+	margin: 7px 0;
+}
+
+/********************************************
+   BATTLEHORSE ADDITIONS
+********************************************/
+
+/* alignment classes */
+.float-left  { float: left; }
+.float-right { float: right; }
+.align-left  { text-align: left; }
+.align-right { text-align: right; }
+
+/* display and additional classes */
+.clear { clear: both; }
+
+/* images */
+img.articleimg {
+  background: #fff;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 5px;
+}
+
+img.float-right { margin: 5px 0px 10px 10px;  }
+img.float-left { margin: 5px 10px 10px 0px; }
+
+#flash_error, .formError {
+  color: red;
+  font-weight: bold;
+}
+
+.post-footer {
+  color: rgb(119, 119, 119);
+  font-size: 11px;
+}
+
+.blog_archive {
+  font-size: 160%;
+  color: rgb(42, 93, 176);
+  font-weight: normal;
+}
+
+.signature {
+  float: right;
+  color: #003B6E;
+  border: 1px dotted #aaa;
+  background-color: #eee;
+  padding: 0 20px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;  
+}
+
+#translateLink {
+  float:right;
+  padding: 0.3em 0;
+  font-size: 11px;
+}
+
+#translateLink A {
+  color: rgb(119, 119, 119);
+}
+
+#translateBox {
+  float:right;
+  padding: 0.3em 0;
+}
+
+PRE {
+  background-color: rgb(239, 239, 239);
+  border: 1px solid rgb(187, 187, 187);
+  width: 90%;
+  font-size: 12px;
+}
+
+CODE, TT {
+  font-size: 12px;
+}
