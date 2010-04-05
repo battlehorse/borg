@@ -4,6 +4,9 @@
   <div class='article-content'>
     <%= textile(content.titleless_content)%>
   </div>
+<% elsif kind(content) == :page_with_title -%>
+  <h1><%= link_to content.title , page_path({ :path => content.path }) %></h1>
+  <%= textile(content.titleless_content)%>
 <% else -%>
   <%= textile(content) %>
 <% end -%>
