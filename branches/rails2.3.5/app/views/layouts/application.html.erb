@@ -97,10 +97,13 @@
 	<div id="footer">
 			
 		<p>
-		&copy; 2008-2009 <strong>Riccardo Govoni</strong> | 
-		Design by: <a href="http://www.styleshout.com/">styleshout</a>,
-		<a href="http://www.solucija.com">solucija</a> | 
-		Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a> | 
+		&copy; 2008-2010 <strong>Riccardo Govoni</strong> |
+		<% if borg(:css_template) == 'CoolWater' -%> 
+  		Design by: <a href="http://www.styleshout.com/">styleshout</a> |
+    <% elsif borg(:css_template == 'InternetSharing') -%>
+  	  Design by: <a href="http://www.solucija.com">solucija</a> |
+  	<% end -%>
+		Check <a href="http://validator.w3.org/check?uri=referer">XHTML</a> | 
 		<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
 		<%= yield :footer %>  		
    	</p>
