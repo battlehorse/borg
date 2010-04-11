@@ -1,0 +1,45 @@
+<html>
+<head>
+  <%= javascript_include_tag "prototype", "application" %>
+  <%= stylesheet_link_tag(borg(:css_template)) %>
+  <script>
+    var lastContents;
+    function update() {
+      var content = window.opener.getContents();
+      if (content != lastContents) {
+        $('previewupdater').setStyle({display: ''});
+        new Ajax.Updater(
+          'previewmode', 
+          '<%= preview_path( :path => params[:path], :cachebust => Time.now.to_f) %>', {
+          parameters: Object.toQueryString({content: content}),
+          onSuccess: function() {
+            lastContents = content;
+            $('errors').innerHTML = '';
+            $('previewupdater').setStyle({display: 'none'});
+            setTimeout('update()', 2000);
+          },
+          onFailure: function(transport) {
+            $('errors').innerHTML = transport.responseText;
+            $('previewupdater').setStyle({display: 'none'});
+            setTimeout('update()', 2000);         
+          }
+        });
+      } else {
+        setTimeout('update()', 2000);
+      }
+    }
+    
+    Event.observe(window, 'unload', function() {
+      window.opener.livePreviewClosed();
+    });
+  </script>  
+</head>
+<body>
+  <div id="previewupdater" style="display:none">Updating...</div>
+  <div id="errors"></div>
+  <div id="previewmode" class="preview livepreview"></div> 
+  <script>
+    update();
+  </script>
+</body>
+</html>

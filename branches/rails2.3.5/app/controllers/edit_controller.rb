@@ -42,6 +42,10 @@ class EditController < ApplicationController
     render :partial => "shared/content" , :object => p
   end
   
+  def livepreview
+    render :layout => false
+  end
+
   private
   
   def check_permission

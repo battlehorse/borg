@@ -398,6 +398,20 @@ input.button {
    BATTLEHORSE ADDITIONS
 ********************************************/
 
+/* preview mode */
+.livepreview {
+  margin: 1em;
+}
+
+#previewupdater {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  z-index: 1000;
+}
+
 .article-title {
   padding-top: 5px;
 }

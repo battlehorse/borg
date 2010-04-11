@@ -52,9 +52,13 @@ ActionController::Routing::Routes.draw do |map|
     :controller => "edit" ,
     :action => "read"
     
-  map.preview "preview" ,
+  map.preview "preview/*path" ,
     :controller => "edit" ,
     :action => "preview"
+    
+  map.livepreview "livepreview/*path",
+    :controller => "edit",
+    :action => "livepreview"
     
   map.save "save/*path" ,
     :controller => "edit", 

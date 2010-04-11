@@ -3,6 +3,7 @@
 <p>
 	<input type="button" value="Cancel" class="button" id="cancelButton">
 	<input type="button" value="Preview" class="button" id="previewButton">
+	<input type="button" value="Live Preview" class="button" id="livePreviewButton">
 	<input type="button" value="Save" class="button" id="saveButton">
 </p>
 <div id="editmode">
@@ -10,7 +11,7 @@
 		<textarea style="font-family: monospace; font-size: 120%; width: 95%; height: 400px;" id="editAreaId" name="content"><%= raw_content(@page) || boilerplate %></textarea>
 	<% end -%>
 </div>
-<div id="previewmode" style="display:none"></div> 
+<div id="previewmode" style="display:none" class="preview"></div> 
 <div id="errors"></div>
 <div id="edit-intstructions">
   <p>
@@ -32,9 +33,33 @@
   </ul>
 </div>
 <script>
+  function getContents() {
+    return $('editAreaId').value;
+  }
+
+  var livePreviewWindow;  
+  function livePreviewClosed() {  // invoked from the live preview window.
+    livePreviewWindow = null;
+    $('livePreviewButton').value = 'Live Preview';
+  }
+
+  $('livePreviewButton').observe('click', function() {
+    if (livePreviewWindow) {
+      livePreviewWindow.close();
+    } else {
+      livePreviewWindow = window.open(
+          '<%= livepreview_path(:path => params[:path]) %>',
+          'borgLivePreviewWindow',
+          'resizable=yes,scrollbars=yes');
+      $('livePreviewButton').value = 'Stop Live Preview';
+    }
+  });
+  
 	$('previewButton').observe('click', function() {
 		if ($('editmode').visible()) {
-			new Ajax.Updater('previewmode', '<%= preview_path( :path => params[:path]) %>', {
+			new Ajax.Updater(
+			  'previewmode',
+			  '<%= preview_path( :path => params[:path], :cachebust => Time.now.to_f) %>', {
 				parameters: $('editform').serialize(),
 				onSuccess: function() {
 					$('previewmode').show();
