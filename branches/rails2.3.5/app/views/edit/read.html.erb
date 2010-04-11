@@ -1,15 +1,15 @@
 <h1><%= @title %></h1>
 
 <p>
-	<input type="button" value="Cancel" class="button" id="cancelButton">
-	<input type="button" value="Preview" class="button" id="previewButton">
-	<input type="button" value="Live Preview" class="button" id="livePreviewButton">
-	<input type="button" value="Save" class="button" id="saveButton">
+  <input type="button" value="Cancel" class="button" id="cancelButton">
+  <input type="button" value="Preview" class="button" id="previewButton">
+  <input type="button" value="Live Preview" class="button" id="livePreviewButton">
+  <input type="button" value="Save" class="button" id="saveButton">
 </p>
 <div id="editmode">
-	<% form_tag({}, {:id => "editform" })  do |f| -%>
-		<textarea style="font-family: monospace; font-size: 120%; width: 95%; height: 400px;" id="editAreaId" name="content"><%= raw_content(@page) || boilerplate %></textarea>
-	<% end -%>
+  <% form_tag({}, {:id => "editform" })  do |f| -%>
+    <textarea style="font-family: monospace; font-size: 120%; width: 95%; height: 400px;" id="editAreaId" name="content"><%= raw_content(@page) || boilerplate %></textarea>
+  <% end -%>
 </div>
 <div id="previewmode" style="display:none" class="preview"></div> 
 <div id="errors"></div>
@@ -55,61 +55,73 @@
     }
   });
   
-	$('previewButton').observe('click', function() {
-		if ($('editmode').visible()) {
-			new Ajax.Updater(
-			  'previewmode',
-			  '<%= preview_path( :path => params[:path], :cachebust => Time.now.to_f) %>', {
-				parameters: $('editform').serialize(),
-				onSuccess: function() {
-					$('previewmode').show();
-					$('editmode').hide();
-					$('edit-intstructions').hide();
-					$('previewButton').value = "Edit";				
-				},
-				onFailure: function(transport) {
-					$('errors').innerHTML = transport.responseText;
-				}
-			});
-		} else {
-			$('previewmode').hide();
-			$('editmode').show();
-			$('edit-intstructions').show();
-			$('previewButton').value = "Preview";
-		}
-	});
-	
-	$('cancelButton').observe('click', function() {
-	  document.location.href = '<%= @cancel_url %>';
-	});
-	
-	$('saveButton').observe('click', function() {
-	  var proceed = true;
-	  var url = '<%= save_path( :path => params[:path]) %>';
-	  if ($('editAreaId').value.length == 0) {
-	    proceed = confirm("Do you really want to delete the page?");
-	    url = '<%= delete_path( :path => params[:path]) %>';
-	  }
-	  
-	  if (proceed) {
-  	  new Ajax.Request(url, {
-  	    parameters: $('editform').serialize(),
-  	    onSuccess: function(transport) {
-  	      var resp = transport.responseJSON;
+  $('previewButton').observe('click', function() {
+    if ($('editmode').visible()) {
+      new Ajax.Updater(
+        'previewmode',
+        '<%= preview_path( :path => params[:path], :cachebust => Time.now.to_f) %>', {
+        parameters: $('editform').serialize(),
+        onSuccess: function() {
+          $('previewmode').show();
+          $('editmode').hide();
+          $('edit-intstructions').hide();
+          $('previewButton').value = "Edit";        
+        },
+        onFailure: function(transport) {
+          $('errors').innerHTML = transport.responseText;
+        }
+      });
+    } else {
+      $('previewmode').hide();
+      $('editmode').show();
+      $('edit-intstructions').show();
+      $('previewButton').value = "Preview";
+    }
+  });
+  
+  $('cancelButton').observe('click', function() {
+    if (livePreviewWindow) {
+      livePreviewWindow.close();
+    }   
+    document.location.href = '<%= @cancel_url %>';
+  });
+  
+  $('saveButton').observe('click', function() {
+    var proceed = true;
+    var url = '<%= save_path( :path => params[:path]) %>';
+    if ($('editAreaId').value.length == 0) {
+      proceed = confirm("Do you really want to delete the page?");
+      url = '<%= delete_path( :path => params[:path]) %>';
+    }
+    
+    if (proceed) {
+      if (livePreviewWindow) {
+        livePreviewWindow.close();
+      }
+      new Ajax.Request(url, {
+        parameters: $('editform').serialize(),
+        onSuccess: function(transport) {
+          var resp = transport.responseJSON;
 
-  	      if (resp.status == 'OK') {
-  	        document.location.href = '<%= page_path( :path => params[:path]) %>';
+          if (resp.status == 'OK') {
+            document.location.href = '<%= page_path( :path => params[:path]) %>';
           } else if (resp.status == 'DELE') {
             alert("The page has been deleted.");
             document.location.href = '<%= root_path %>';
           } else {
             $('errors').innerHTML = "Status: " + transport.status + ", Message: " + transport.message;
           }
-  	    },
-  	    onFailure: function(transport) {
-  					$('errors').innerHTML = transport.responseText;
-  	    }
-  	  });	    
-	  }
-	});
+        },
+        onFailure: function(transport) {
+            $('errors').innerHTML = transport.responseText;
+        }
+      });     
+    }
+  });
+  
+  Event.observe(window, 'unload', function() {
+    if (livePreviewWindow) {
+      livePreviewWindow.close();
+    }
+  });
 </script>
