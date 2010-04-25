@@ -39,7 +39,9 @@ module ApplicationHelper
   end
   
   def kind(obj)
-    if obj.respond_to?(:date) && obj.respond_to?(:titleless_content) && obj.date && !obj.titleless_content.blank?
+    if obj.respond_to?(:is_special?) && obj.is_special?
+      :page
+    elsif obj.respond_to?(:date) && obj.respond_to?(:titleless_content) && obj.date && !obj.titleless_content.blank?
       :page_with_date
     elsif obj.respond_to?(:title) && !obj.title.blank?
       :page_with_title

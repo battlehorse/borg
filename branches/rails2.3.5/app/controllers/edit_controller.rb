@@ -48,6 +48,10 @@ class EditController < ApplicationController
 
   private
   
+  def sidebar_page_name
+    "editbar.html"
+  end
+  
   def check_permission
     unless session[:user_id] && session[:user_id].is_editor
       flash[:error] = "You don't have the rights to edit this page. Please login with an authorized user."
