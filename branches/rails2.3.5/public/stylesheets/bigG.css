@@ -10,7 +10,7 @@
   green 201, 237, 204
 
   dark blue 102, 148, 227
-  blue 224, 236, 255
+  blue #E5ECF9
 
   blue link 42, 93, 176
 
@@ -47,7 +47,7 @@ body {
   padding: 15px 0 0 0;
   margin: 0 0 0.2em 0;
 }
-#logo-text A { text-decoration: none; color: #000;}
+#logo-text A, #logo-text A:hover { text-decoration: none; color: #000; border: 0;}
 #slogan { margin: 0; padding: 0; color: rgb(119,119,119); background: #fff; }
 #header-links { 
   float: right;
@@ -62,7 +62,7 @@ body {
 
 /* horizontal tabbed menu */	
 #menu { 
-  background-color: rgb(224, 236, 255);
+  background-color: #E5ECF9;
   border-top: 1px solid rgb(102, 148, 227);
   text-align: right;
 }
@@ -129,7 +129,8 @@ body {
 /* right side */
 .box {
   border-top: 1px solid rgb(102, 148, 227);
-  background-color: rgb(224, 236, 255);
+  background-color: #E5ECF9;
+
   margin: 0 0 10px 0;
   padding: 5px;
 }
@@ -193,21 +194,21 @@ input.button {
 	text-align: justify;
 	color: #000;
 	background: #fff;
+	margin-top: 1em;
 }
 
 .left_articles h1 {
-  background-color: rgb(224, 236, 255);
-  border-top: 1px solid rgb(102, 148, 227);
-  font-size: 1.8em;
+  font-size: 1.6em;
   line-height: 1em;
   padding: 5px 0;
+  margin: 0;
 }
 
 .left_articles h2,
 .left_articles h3 {
-  background-color: rgb(224, 236, 255);
+  background-color: #E5ECF9;
   border-top: 1px solid rgb(102, 148, 227);
-  font-size: 1.4em;
+  font-size: 1.3em;
   line-height: 1em;
   padding: 5px 0;
 }
@@ -232,11 +233,17 @@ a:visited { color: purple; }
   padding-left: 3px;
 }
 
+.article-title a:hover, h1 a:hover {
+  border-bottom: 1px solid rgb(102, 148, 227);
+}
+
 /* calendar */
 .calendar { 
   float: left; 
-  background-color: rgb(224, 236, 255);
-  border-top: 1px solid rgb(102, 148, 227);
+  background-color: #E5ECF9;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
   width: 40px; 
   text-align: center;
   color: #000;
@@ -265,6 +272,12 @@ label {
 /********************************************
    BATTLEHORSE ADDITIONS
 ********************************************/
+
+/* edit buttons */
+
+.edit_buttons {
+  margin: 0.2em 0;
+}
 
 /* preview mode */
 .livepreview {
@@ -342,12 +355,13 @@ img.float-left { margin: 5px 10px 10px 0px; }
 }
 
 PRE {
-  background-color: rgb(239, 239, 239);
-  border: 1px solid rgb(187, 187, 187);
+  background-color: #FAFAFA;
+  border: 1px solid #BBB;
   width: 90%;
   font-size: 12px;
 }
 
 CODE, TT {
   font-size: 12px;
+  color: #007000;
 }
