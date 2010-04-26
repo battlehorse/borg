@@ -22,13 +22,13 @@
 </head>
 
 <body>
-<!-- wrap starts here -->
-<div id="wrap">
+<!-- global-wrap starts here -->
+<div id="global-wrap">
 		
 	<!--header -->
 	<div id="header">	
 	
-		<div id="header-links">
+		<div id="site-actions">
 			<p>
 			<%= render :partial => "shared/login" %> |
 			<%= link_to "Contact", borg(:contact_url) %> |
@@ -53,25 +53,25 @@
 	<div id="content-wrap">
 		
 		<div id="main">
-		  <div class="gboxtop"></div>
-  		<div class="gbox">
+		  <div class="boxtop breadcrumbstop"></div>
+  		<div class="box breadcrumbs">
 		    <%= render :partial => "shared/translate" %>
 			  <%= yield :youarehere %>
 			  <% if flash[:error] %><p id="flash_error"><%= flash[:error] %></p><% end %>
-			  <div class="gboxbottom"></div>
-			</div>			
+			  <div class="boxbottom"></div>
+			</div>
+			
 			<%= yield :intro %>
 			<div class="left_articles">
         <%= yield %>
       </div>
 		</div>
-		
 			
-		<div id="sidebar">
+		<div id="secondary-content">
 			
-			<div class="searchboxtop"></div>
-			<div class="searchbox">			
-  			<form action="http://www.google.com/search" class="searchform" method="get">
+			<div class="boxtop searchtop"></div>
+			<div class="box search">
+  			<form action="http://www.google.com/search" method="get">
   				<p>
   				<input name="as_q" class="search textbox" type="text" />
           <input type="hidden" name="as_sitesearch" value="<%= borg(:search_domain) %>">
@@ -109,7 +109,7 @@
 				
 	</div>	
 
-<!-- wrap ends here -->
+<!-- global-wrap ends here -->
 </div>
 
 <%= render(:partial => "shared/urchin") %>

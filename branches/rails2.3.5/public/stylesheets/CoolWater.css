@@ -165,15 +165,15 @@ input.button {
 }
 
 /* search form */
-.searchform {
+.search form {
 	background-color: transparent;
 	border: none;	
 	margin: 0; 
 	padding: 5px 0 5px 0;	
 	width: 180px;	
 }
-.searchform p { margin: 0; padding: 0; }
-.searchform input.textbox { 
+.search p { margin: 0; padding: 0; }
+.search input.textbox { 
 	width: 110px;
 	color: #777; 
 	height: 20px;
@@ -181,7 +181,7 @@ input.button {
 	border: 1px solid #D2E8F7; 
 	vertical-align: top;
 }
-.searchform input.button { 
+.search input.button { 
 	width: 55px;
 	height: 26px;
 	padding: 2px 5px;
@@ -191,7 +191,7 @@ input.button {
 /********************************************
    LAYOUT
 ********************************************/ 
-#wrap {
+#global-wrap {
 	width: 790px;
 	background: #CCC url(../images/CoolWater/content.jpg) repeat-y center top;
 	margin: 0 auto;
@@ -234,18 +234,18 @@ input.button {
 	top: 80px; left: 50px;		
 }
 
-/* header links */
-#header #header-links {
+/* site actions */
+#site-actions {
 	position: absolute;
 	color: #C6DDEE;
 	font: bold 14px"Trebuchet MS", Arial, Tahoma, Sans-serif;
 	top: 20px; right: 20px;	
 }
-#header #header-links a {	
+#site-actions a {	
 	color: #fff;
 	text-decoration: none;	
 }
-#header #header-links a:hover {
+#site-actions a:hover {
 	color: #D4FF55;	
 }
 
@@ -309,48 +309,48 @@ input.button {
 	list-style-image: url(../images/CoolWater/bullet.gif); 
 }
 
-/* Sidebar */	
-#sidebar {
+/* secondary-content */	
+#secondary-content {
 	float: right;
 	width: 195px;
 	padding: 0; margin: 10px 0 0 0;	
 	color: #777;	
 }	
-#sidebar h2 {
+#secondary-content h2 {
 	margin: 15px 5px 10px 5px;
 	font: bold 1.4em 'Trebuchet MS', Tahoma, Sans-serif;
 	color: #555;	
 }
-#sidebar p {
+#secondary-content p {
 	margin-left: 5px;
 }
 
-#sidebar ul.sidemenu {
+#secondary-content ul.sidemenu {
 	list-style: none;
 	text-align: left;
 	margin: 7px 10px 8px 0; padding: 0;
 	text-decoration: none;	
 	border-top: 1px solid #A9D4EF;	
 }
-#sidebar ul.sidemenu li {
+#secondary-content ul.sidemenu li {
 	list-style: none;
 	padding: 4px 0 4px 5px;
 	margin: 0 2px;	
 	color: #777;	
 	border-bottom: 1px solid #D2E8F7; 
 }
-* html body #sidebar ul.sidemenu li {
+* html body #secondary-content ul.sidemenu li {
 	height: 1%;
 }
-#sidebar ul.sidemenu li a {
+#secondary-content ul.sidemenu li a {
 	text-decoration: none;	
 	color: #1773BC;				
 }
-#sidebar ul.sidemenu li a:hover {	
+#secondary-content ul.sidemenu li a:hover {	
 	color: #333;
 }
-#sidebar ul.sidemenu ul { margin: 0 0 0 5px; padding: 0; }
-#sidebar ul.sidemenu ul li { border: none; }
+#secondary-content ul.sidemenu ul { margin: 0 0 0 5px; padding: 0; }
+#secondary-content ul.sidemenu ul li { border: none; }
 
 /* Footer */	
 #footer {

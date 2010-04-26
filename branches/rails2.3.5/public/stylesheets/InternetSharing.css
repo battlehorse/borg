@@ -14,7 +14,7 @@ body { padding: 0; margin: 0; font: 0.7em Tahoma, Arial, sans-serif; line-height
 #logo-text { padding: 15px 0 0 8px; }
 #logo-text A { text-decoration: none; color: #000;}
 #slogan { margin: 0; padding: 0 0 0 10px; color: #808080; background: #fff; }
-#header-links { 
+#site-actions { 
   float: right;
   width: 570px; 
   margin: 5px 5px 0 0; 
@@ -28,31 +28,10 @@ body { padding: 0; margin: 0; font: 0.7em Tahoma, Arial, sans-serif; line-height
 #menu li a:hover { background: #fff url(../images/InternetSharing/barcurrent.gif) no-repeat; color: #000; }	
 #menu li a.current { background: #fff url(../images/InternetSharing/barcurrent.gif) no-repeat; color: #2C71AE; }	
 
-/* grey subheader */
-.gboxtop { 
-  clear: both; 
-  height: 8px; 
-  background: #dedede url(../images/InternetSharing/gboxtop.gif) no-repeat; 
-  color: #000; 
-  margin-top: 10px;
-}
-.gbox { 
-  background: #dedede url(../images/InternetSharing/gbox.gif) no-repeat bottom left; 
-  color: #444; 
-  padding: 1px 13px 7px 13px; 
-  margin: 0 0 20px 0; }
-.gbox p { 
-  padding: 0; 
-  margin: 0;
-}
-
-.gboxbottom {
-  clear: both;
-}
 
 /* left and right */
 #main { float: left; width: 650px; margin: 0 0 10px 0; }
-#sidebar {
+#secondary-content {
 	float: right;
 	width: 295px;
 	margin: 0 0 10px 0;
@@ -66,18 +45,38 @@ body { padding: 0; margin: 0; font: 0.7em Tahoma, Arial, sans-serif; line-height
 .box { background: #fff url(../images/InternetSharing/box.gif) no-repeat bottom left; color: #5b5b5b; padding: 0 10px 15px 10px; margin: 0 0 10px 0; }
 .box p { padding: 0.1em; margin: 0;}
 .box iframe { padding-top: 1em;}
+.boxbottom { clear: both; }
+
+/* grey subheader */
+.breadcrumbstop { 
+  clear: both; 
+  height: 8px; 
+  background: #dedede url(../images/InternetSharing/gboxtop.gif) no-repeat; 
+  color: #000; 
+  margin-top: 10px;
+}
+.breadcrumbs { 
+  background: #dedede url(../images/InternetSharing/gbox.gif) no-repeat bottom left; 
+  color: #444; 
+  padding: 1px 13px 7px 13px; 
+  margin: 0 0 20px 0; }
+.breadcrumbs p { 
+  padding: 0; 
+  margin: 0;
+}
 
 /* search form */
-.searchform { 
+.searchtop { height: 0px; background-image: none; }
+.search { 
   color: #000;
 	background: #fff url(../images/InternetSharing/searchbg2.gif) no-repeat;
-  padding: 8px 0 0 10px;
+  padding: 4px 0 0 10px;
 	width: 295px;
 	height: 45px;
 	margin: 5px 0 0 0;
 }
 
-.searchform p { padding: 0; margin: 0; }
+.search p { padding: 0; margin: 0; }
 
 /* lists and form elements */
 form { margin: 0; }
