@@ -42,19 +42,19 @@ body {
 }
 
 /* header */
-#header { height: 60px; }
+#header { height: 4.2em; }
 #logo-text { 
   padding: 15px 0 0 0;
   margin: 0 0 0.2em 0;
 }
 #logo-text A, #logo-text A:hover { text-decoration: none; color: #000; border: 0;}
-#slogan { margin: 0; padding: 0; color: rgb(119,119,119); background: #fff; }
+#slogan { font-size: 0.9em; margin: 0; padding: 0; color: rgb(119,119,119); background: #fff; }
 #site-actions { 
   float: right;
   width: 570px; 
   margin: 5px 5px 0 0; 
   text-align: right;
-  font-size: 10px;
+  font-size: 0.9em;
 }
 
 .title { color: rgb(42, 93, 176); background: #fff; }
@@ -72,7 +72,7 @@ body {
 }
 #menu li { display: inline; }
 #menu li a { 
-  margin: 7px 10px;
+  margin: 0.8em 1em;
 }
 #menu li a.current {
   text-decoration: none;
@@ -127,14 +127,14 @@ body {
   border-top: 0px;
   border-bottom: 1px solid rgb(187, 187, 187);
   margin: 3px 0;
-  padding: 0 2px;
+  padding: 1px 2px;
 }
 
 .breadcrumbs P {
   color: rgb(119, 119, 119);
   padding-top: 2px;
   margin: 0;
-  font-size: 11px;
+  font-size: 0.9em;
 }
 
 .breadcrumbs P A {
@@ -151,7 +151,7 @@ body {
 .tags P {
   margin: 0.2em;
   padding: 0;
-  font-size: 11px;
+  font-size: 0.9em;
 }
 
 .tags H2 {
@@ -173,7 +173,7 @@ body {
 form { margin: 0; }
 input.search { 
   font-weight: bold; 
-  font-size: 11px;
+  font-size: 0.9em;
   width: 65%;
   margin: 0 5px;
   border: 1px solid rgb(187, 187, 187);
@@ -181,7 +181,7 @@ input.search {
   padding: 2px;  
 }
 input.button { 
-  font-size: 11px;
+  font-size: 0.9em;
   background: rgb(249, 249, 249) url(../images/bigG/search_button.png) repeat-x bottom left;
   border: 1px solid rgb(187, 187, 187);
   padding: 2px;
@@ -249,10 +249,10 @@ a:visited { color: purple; }
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  width: 40px; 
+  width: 4em;
   text-align: center;
   color: #000;
-  font-size: 11px;
+  font-size: 0.8em;
   font-weight: bold;
 }
 .calendar p { padding: 0; margin: 0;}
@@ -322,13 +322,13 @@ img.float-left { margin: 5px 10px 10px 0px; }
   font-weight: bold;
 }
 
-.post-footer {
+.article-meta {
   color: rgb(119, 119, 119);
-  font-size: 11px;
+  font-size: 0.9em;
 }
 
 .blog_archive {
-  font-size: 160%;
+  font-size: 1.6em;
   color: rgb(42, 93, 176);
   font-weight: normal;
 }
@@ -347,7 +347,7 @@ img.float-left { margin: 5px 10px 10px 0px; }
 #translateLink {
   float:right;
   padding: 0.3em 0;
-  font-size: 11px;
+  font-size: 0.9em;
 }
 
 #translateLink A {
@@ -363,10 +363,10 @@ PRE {
   background-color: #FAFAFA;
   border: 1px solid #BBB;
   width: 90%;
-  font-size: 12px;
+  font-size: 1em;
 }
 
 CODE, TT {
-  font-size: 12px;
+  font-size: 1.2em;
   color: #007000;
 }

@@ -14,6 +14,7 @@
 <% end -%>
 <%= render :partial => "shared/content" , :object => @page %>
 <p class="signature">
-  <%= author_link(@page) %>, last modified on <%= last_modified(@page) %>
+  <span class="author"><%= author_link(@page) %>,</span>
+  <span class="lastmodified">last modified on <%= last_modified(@page) %></span>
 </p>
 <%= render :partial => "comments" , :object => @page.comments %>

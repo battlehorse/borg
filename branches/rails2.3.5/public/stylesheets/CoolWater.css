@@ -371,18 +371,16 @@ input.button {
 	text-decoration: none; 
 }
 
-/* post footer */
-.post-footer {
+/* Article metadata (in the list page) */
+.article-meta {
 	background: #F4F8FD;
 	padding: 5px; margin: 20px 25px 0 25px;
 	border: 1px solid #E5F0FB; 
 	font-size: 95%;	
 }
-.post-footer .date {	padding-left: 0px; margin: 0 5px; }
-.post-footer .comments { padding-left: 0px; margin: 0 5px; }
-.post-footer .readmore { padding-left: 0px; margin: 0 5px; }
-
-.post-by { font-size: .95em;	margin-top: 0;	}
+.article-meta .date {	padding-left: 0px; margin: 0 5px; }
+.article-meta .comments { padding-left: 0px; margin: 0 5px; }
+.article-meta .readmore { padding-left: 0px; margin: 0 5px; }
 
 /* alignment classes */
 .float-left  { float: left; }
