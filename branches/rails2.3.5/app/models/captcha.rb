@@ -25,7 +25,7 @@ class Captcha
   
   def validate
     errors.clear
-    if @value.upcase != actualValue
+    if @value != actualValue.upcase
       errors.add(:value,"Captcha does not match!")
       regenerate  # regenerate captcha if it's not valid, so the user will see a new one afterward
     end
