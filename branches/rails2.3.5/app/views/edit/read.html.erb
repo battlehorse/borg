@@ -3,7 +3,9 @@
 <p class="edit_buttons">
   <input type="button" value="Cancel" class="button" id="cancelButton">
   <input type="button" value="Preview" class="button" id="previewButton">
-  <input type="button" value="Live Preview" class="button" id="livePreviewButton">
+  <% if !mobile? -%>
+    <input type="button" value="Live Preview" class="button" id="livePreviewButton">
+  <% end -%>
   <input type="button" value="Save" class="button" id="saveButton">
 </p>
 <div id="editmode">
@@ -24,6 +26,7 @@
     $('livePreviewButton').value = 'Live Preview';
   }
 
+  <% if !mobile? -%>
   $('livePreviewButton').observe('click', function() {
     if (livePreviewWindow) {
       livePreviewWindow.close();
@@ -35,6 +38,7 @@
       $('livePreviewButton').value = 'Stop Live Preview';
     }
   });
+  <% end -%>
   
   $('previewButton').observe('click', function() {
     if ($('editmode').visible()) {
