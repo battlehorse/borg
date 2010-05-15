@@ -1,17 +1,19 @@
 <% content_for :title do -%>
   Login
 <% end -%>
-<% form_tag :controller => "login" , :action => "login"  do |f| -%>
-  <label for="openid_url" >
-		<%= image_tag "borg/openid.png" , :style => "vertical-align: middle" , :class => "articleimg" %>
-    Enter your <%= link_to "OpenId" , "http://www.openid.com" %> to log in :
-  </label>
-  <%= text_field_tag :openid_url , '' , :size => 40 , :style => "font-size: 120%" -%>
-  <%= submit_tag "Login" , :class => "button" -%>
-	<% if flash[:error] -%>
-	  <br /><%= flash[:error] %>
-	<% end -%>
-<% end -%>
+<div id="loginform">
+  <% form_tag :controller => "login" , :action => "login"  do |f| -%>
+    <label for="openid_url" >
+  		<%= image_tag "borg/openid.png" , :style => "vertical-align: middle" , :class => "articleimg" %>
+      Enter your <%= link_to "OpenId" , "http://www.openid.com" %> to log in :
+    </label>
+    <%= text_field_tag :openid_url , '' , :size => 40 , :style => "font-size: 120%" -%>
+    <%= submit_tag "Login" , :class => "button" -%>
+  	<% if flash[:error] -%>
+  	  <br /><%= flash[:error] %>
+  	<% end -%>
+  <% end -%>
+</div>
 <script>
 	document.getElementById('openid_url').focus();
 </script>
