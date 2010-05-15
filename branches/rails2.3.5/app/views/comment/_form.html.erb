@@ -7,7 +7,7 @@
     <div class="hint">(you can also use <strong>name at domain dot com</strong>)</div>
     <%= error_message_on :comment, :author_mail %>    
 
-    <%= label :comment, :content, "Your comment:" %> <%= f.text_area :content %>
+    <%= label :comment, :content, "Your comment:" %> <%= f.text_area :content, :cols => 40, :rows => 5 %>
     <%= error_message_on :comment, :content %>
     
     <% fields_for @captcha do |captcha_fields| -%>
