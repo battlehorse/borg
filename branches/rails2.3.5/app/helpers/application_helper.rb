@@ -3,19 +3,7 @@ require 'borg/util'
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   include Borg::Util
-  
-  def iphone?
-    request.user_agent.downcase =~ /iphone/
-  end
-  
-  def android?
-    request.user_agent.downcase =~ /android/
-  end
-  
-  def mobile?
-    iphone? || android?
-  end
-  
+
   def author_link(page)
     author = page.author || page.author_mail || "unknown author"
     author_mail = page.author_mail

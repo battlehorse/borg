@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <%= render :partial => "shared/layout/headbox" %>
+</head>
+<body onorientationchange="updateOrientation();" onload="updateOrientation();" class="<%= @iphone ? 'iphone' : @android ? 'android' : '' %>">
+<div id="global-wrap">
+  <div id="header"> 
+    <%= render :partial => "shared/layout/logobox" %>
+  </div>
+
+  <div  id="toolbar">
+    <%= render :partial => "shared/content" , :object => @toolbar %>
+  </div>
+  <%= render :partial => "shared/layout/searchbox" %>
+
+  <div id="content-wrap">
+    <div id="main">
+      <%= render :partial => "shared/layout/breadcrumbsbox" %>
+
+      <%= yield :intro %>
+      <div class="left_articles">
+        <%= yield %>
+      </div>
+    </div>
+
+    <div id="secondary-content">
+      <%= yield :tags %>
+  
+      <div class="boxtop"></div>
+      <div class="box">
+        <%= render :partial => "shared/content" , :object => @sidebar %>
+      </div>
+    </div>
+  </div>
+  <%= render :partial => "shared/layout/siteactionsbox" %>  
+  <%= render :partial => "shared/layout/footerbox" %>
+</div>
+<script>
+<% if @android -%>
+  window.addEventListener('resize', updateOrientation, false);
+<% end -%>
+function updateOrientation() {
+  switch(window.orientation) {
+    case 0:  // Portrait
+      $('global-wrap').removeClassName('landscape');
+      $('global-wrap').addClassName('portrait'); 
+      break;
+    case -90:  // Landscape
+      $('global-wrap').addClassName('landscape');
+      $('global-wrap').removeClassName('portrait');
+      break;
+    case 90:
+      $('global-wrap').addClassName('landscape');
+      $('global-wrap').removeClassName('portrait');      
+      break;
+    case 180:
+      $('global-wrap').removeClassName('landscape');
+      $('global-wrap').addClassName('portrait');
+      break;
+  }
+}
+</script>
+<%= render(:partial => "shared/urchin") %>
+</body>
+</html>
