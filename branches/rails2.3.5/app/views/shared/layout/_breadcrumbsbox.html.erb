@@ -1,0 +1,7 @@
+<div class="boxtop breadcrumbstop"></div>
+<div class="box breadcrumbs">
+  <%= render :partial => "shared/translate" %>
+  <%= yield :youarehere %>
+  <% if flash[:error] %><p id="flash_error"><%= flash[:error] %></p><% end %>
+  <div class="boxbottom"></div>
+</div>
