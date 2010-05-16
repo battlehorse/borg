@@ -29,7 +29,6 @@ body {
   margin: 0;
   font-size: 0.8em;
   font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.2em;
   background: #fff; 
   color: #000;
 }
@@ -39,19 +38,19 @@ body {
   margin: 10px 5%;
   max-width: 1160px;
   min-width: 960px;
+  line-height: 1.2em;  
 }
 
 /* header */
 #header { height: 4.2em; }
 #logo-text { 
-  padding: 15px 0 0 0;
+  padding: 0.5em 0 0 0;
   margin: 0 0 0.2em 0;
 }
 #logo-text A, #logo-text A:hover { text-decoration: none; color: #000; border: 0;}
-#slogan { font-size: 0.9em; margin: 0; padding: 0; color: rgb(119,119,119); background: #fff; }
+#slogan { font-size: 0.9em; margin: 0; padding: 0 0 0 0.3em; color: rgb(119,119,119); background: #fff; }
 #site-actions { 
   float: right;
-  width: 570px; 
   margin: 5px 5px 0 0; 
   text-align: right;
   font-size: 0.9em;
@@ -60,21 +59,21 @@ body {
 .title { color: rgb(42, 93, 176); background: #fff; }
 
 
-/* horizontal tabbed menu */	
-#menu { 
+/* horizontal tabbed toolbar */	
+#toolbar { 
   background-color: #E5ECF9;
   border-top: 1px solid rgb(102, 148, 227);
   text-align: right;
 }
-#menu ul {
+#toolbar ul {
   margin: 0;
   padding: 0.6em 0;
 }
-#menu li { display: inline; }
-#menu li a { 
+#toolbar li { display: inline; }
+#toolbar li a { 
   margin: 0.8em 1em;
 }
-#menu li a.current {
+#toolbar li a.current {
   text-decoration: none;
   color: #000;
   font-weight: bold;
@@ -187,11 +186,11 @@ input.button {
   padding: 2px;
 }
 .search input.button {
-  width: 23%;
+  width: 25%;
 }
 #newcommentdiv input.button {
   margin-top: 5px;
-  width: 23%;
+  width: 15.5em;
 }
 
 /* left side */

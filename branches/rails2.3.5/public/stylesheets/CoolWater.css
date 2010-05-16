@@ -250,7 +250,7 @@ input.button {
 }
 
 /* navigation */
-#menu {
+#toolbar {
 	clear: both;	
 	margin: 0 auto; padding: 0;
 	background: #81C524 url(../images/CoolWater/menu.jpg) no-repeat;	
@@ -258,15 +258,15 @@ input.button {
 	height: 40px;
 	width: 790px;	
 }
-#menu ul {
+#toolbar ul {
 	float: left;
 	list-style: none;
 	margin:0; padding: 0 0 0 20px;
 }
-#menu ul li {
+#toolbar ul li {
 	display: inline;
 }
-#menu ul li a {
+#toolbar ul li a {
 	display: block;
 	float: left;
 	padding: 0 12px;
@@ -274,10 +274,10 @@ input.button {
 	text-decoration: none;
 	background: url(../images/CoolWater/sep.jpg) no-repeat 100% 100%;
 }
-#menu ul li a:hover {
+#toolbar ul li a:hover {
 	color: #3b5e0b;	
 }
-#menu ul li#current a {	
+#toolbar ul li#current a {	
 	color: #3b5e0b;
 }
 
