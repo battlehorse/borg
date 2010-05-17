@@ -1,22 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <%= render :partial => "shared/layout/headbox" %>
+  <%= render :partial => "shared/layout/head" %>
 </head>
 <body class="<%= @iphone ? 'iphone' : @android ? 'android' : '' %>">
 <div id="global-wrap">
   <div id="header"> 
-    <%= render :partial => "shared/layout/logobox" %>
+    <%= render :partial => "shared/layout/logo" %>
   </div>
 
   <div  id="toolbar">
     <%= render :partial => "shared/content" , :object => @toolbar %>
   </div>
-  <%= render :partial => "shared/layout/searchbox" %>
+  <%= render :partial => "shared/layout/search" %>
 
   <div id="content-wrap">
     <div id="main">
-      <%= render :partial => "shared/layout/breadcrumbsbox" %>
+      <%= render :partial => "shared/layout/messagebar" %>
 
       <%= yield :intro %>
       <div class="left_articles">
@@ -33,8 +33,8 @@
       </div>
     </div>
   </div>
-  <%= render :partial => "shared/layout/siteactionsbox" %>  
-  <%= render :partial => "shared/layout/footerbox" %>
+  <%= render :partial => "shared/layout/siteactions" %>  
+  <%= render :partial => "shared/layout/footer" %>
 </div>
 <script type="text/javascript" charset="utf-8">
   Event.observe(window, 'load', borg.updateOrientation);
