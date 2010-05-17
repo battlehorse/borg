@@ -5,6 +5,6 @@
  <%= render :partial => "shared/content" , :object => @welcome %>
 <% end %>
 <% for page in @pages %>
-	<%= render :partial => "shared/entry" , :object => page %>
+	<%= render :partial => "shared/summary" , :object => page %>
 <% end %>
 <%= render :partial => "shared/nothing" if @pages.empty? %>
