@@ -7,7 +7,7 @@
 <% content_for :tags do -%>
 	<%= render :partial => "tags" , :object => @page %>
 <% end -%>
-<% content_for :footer do -%>
+<% content_for :inlinefooter do -%>
   <% if session[:user_id] && session[:user_id].is_editor -%>
   | <%= link_to "Edit this page", edit_path({ :path => params[:path] }) %>
   <% end -%>
