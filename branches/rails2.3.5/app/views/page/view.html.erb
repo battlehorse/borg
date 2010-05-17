@@ -2,7 +2,7 @@
   <%= @page.title %>
 <% end -%>
 <% content_for :youarehere do -%>
-	<%= render :partial => "shared/youarehere" %>
+	<%= render :partial => "shared/breadcrumbs" %>
 <% end -%>
 <% content_for :tags do -%>
 	<%= render :partial => "tags" , :object => @page %>

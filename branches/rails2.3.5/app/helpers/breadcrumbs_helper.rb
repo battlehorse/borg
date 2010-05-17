@@ -1,6 +1,6 @@
 module BreadcrumbsHelper
   
-  def breadcrumbs
+  def render_breadcrumbs
     page = get_page
     path = folder_path(page)
     
