@@ -120,8 +120,8 @@ body {
 }
 
 
-/* breadcrumbs subheader */
-.breadcrumbs {
+/* message subheader */
+.message {
   background-color: rgb(239, 239, 239);
   border-top: 0px;
   border-bottom: 1px solid rgb(187, 187, 187);
@@ -129,14 +129,14 @@ body {
   padding: 1px 2px;
 }
 
-.breadcrumbs P {
+.message P {
   color: rgb(119, 119, 119);
   padding-top: 2px;
   margin: 0;
   font-size: 0.9em;
 }
 
-.breadcrumbs P A {
+.message P A {
   color: rgb(60, 60, 60);
 }
 

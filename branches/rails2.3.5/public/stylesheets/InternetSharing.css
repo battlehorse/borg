@@ -48,19 +48,19 @@ body { padding: 0; margin: 0; font: 0.7em Tahoma, Arial, sans-serif; line-height
 .boxbottom { clear: both; }
 
 /* grey subheader */
-.breadcrumbstop { 
+.messagetop { 
   clear: both; 
   height: 8px; 
   background: #dedede url(../images/InternetSharing/gboxtop.gif) no-repeat; 
   color: #000; 
   margin-top: 10px;
 }
-.breadcrumbs { 
+.message { 
   background: #dedede url(../images/InternetSharing/gbox.gif) no-repeat bottom left; 
   color: #444; 
   padding: 1px 13px 7px 13px; 
   margin: 0 0 20px 0; }
-.breadcrumbs p { 
+.message p { 
   padding: 0; 
   margin: 0;
 }
