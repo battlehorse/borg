@@ -3,7 +3,7 @@
 <head>
   <%= render :partial => "shared/layout/headbox" %>
 </head>
-<body onorientationchange="updateOrientation();" onload="updateOrientation();" class="<%= @iphone ? 'iphone' : @android ? 'android' : '' %>">
+<body class="<%= @iphone ? 'iphone' : @android ? 'android' : '' %>">
 <div id="global-wrap">
   <div id="header"> 
     <%= render :partial => "shared/layout/logobox" %>
@@ -36,30 +36,13 @@
   <%= render :partial => "shared/layout/siteactionsbox" %>  
   <%= render :partial => "shared/layout/footerbox" %>
 </div>
-<script>
-<% if @android -%>
-  window.addEventListener('resize', updateOrientation, false);
-<% end -%>
-function updateOrientation() {
-  switch(window.orientation) {
-    case 0:  // Portrait
-      $('global-wrap').removeClassName('landscape');
-      $('global-wrap').addClassName('portrait'); 
-      break;
-    case -90:  // Landscape
-      $('global-wrap').addClassName('landscape');
-      $('global-wrap').removeClassName('portrait');
-      break;
-    case 90:
-      $('global-wrap').addClassName('landscape');
-      $('global-wrap').removeClassName('portrait');      
-      break;
-    case 180:
-      $('global-wrap').removeClassName('landscape');
-      $('global-wrap').addClassName('portrait');
-      break;
-  }
-}
+<script type="text/javascript" charset="utf-8">
+  Event.observe(window, 'load', borg.updateOrientation);
+  <% if @android -%>
+    Event.observe(window, 'resize', borg.updateOrientation);
+  <% elsif @iphone -%>
+    Event.observe(window, 'orientationchange', borg.updateOrientation);
+  <% end -%>
 </script>
 <%= render(:partial => "shared/urchin") %>
 </body>
