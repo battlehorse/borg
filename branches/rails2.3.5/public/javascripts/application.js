@@ -32,3 +32,11 @@ borg.updateOrientation = function() {
       break;
   }
 };
+
+borg.search = function(query, domain, mobile) {
+  var search_url = 
+    (mobile ? 'http://www.google.com/m' : 'http://www.google.com/search') +
+    '?q=' + encodeURIComponent('site:' + domain + ' ' + query);
+  document.location.href = search_url;
+  return false;
+}
