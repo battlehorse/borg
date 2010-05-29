@@ -6,6 +6,10 @@ class Page < Resource
     borg(:data_dir)
   end
   
+  def self.newEmpty(path)
+    return self.fromRawData(path, '')
+  end
+  
   def self.fromRawData(path, raw_data)
     p = Page.new
     p.path = path
