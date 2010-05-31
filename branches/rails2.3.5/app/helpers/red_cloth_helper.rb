@@ -47,7 +47,7 @@ module RedClothHelper
           blog_path({ :year => $1, :month => $2, :day => $3 })
         end
       elsif link == "tags"
-        url_for({:controller => "tags"})
+        url_for({:controller => "tags", :only_path => true})
       end
     end
     

@@ -49,8 +49,8 @@ class Page < Resource
     path[0] =~ /(19|20)\d\d/
   end
   
-  def is_special?
-    path[path.length-1] =~ /(sidebar|editbar|toolbar)\.html/
+  def special?
+    is_special?(path)
   end
   
   def fresh?

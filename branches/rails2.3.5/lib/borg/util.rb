@@ -28,7 +28,11 @@ module Borg
     end
     
     def prune(rpaths)
-      return rpaths.reject { |rpath| rpath =~ /toolbar\.html$/ || rpath =~ /sidebar\.html$/ }
+      return rpaths.reject { |rpath| rpath =~ /(sidebar|editbar|toolbar)\.html$/ }
+    end
+    
+    def is_special?(path)
+      path.length > 0 && path[path.length-1] =~ /(sidebar|editbar|toolbar)\.html/
     end
     
     def is_content?(path)

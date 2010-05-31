@@ -25,6 +25,13 @@ ActionController::Routing::Routes.draw do |map|
     :action => "blog",
     :format => "rss"
   
+  map.connect "robots.txt",
+    :controller => "sitemap",
+    :action => "robots"
+    
+  map.connect "sitemap.xml",
+    :controller => "sitemap",
+    :action => "sitemap"
   
   map.blog "blog/:year/:month/:day" ,
     :controller => "list" ,

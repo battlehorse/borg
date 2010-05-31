@@ -29,7 +29,7 @@ module ApplicationHelper
   def last_modified(page)
     File.new(page.rpath).mtime.strftime("%b %e, %Y - %H:%M")
   end
-  
+
   def last_modified_rss(page)
     File.new(page.rpath).mtime.to_s(:rfc822)
   end
@@ -39,7 +39,7 @@ module ApplicationHelper
   end
   
   def kind(obj)
-    if obj.respond_to?(:is_special?) && obj.is_special?
+    if obj.respond_to?(:special?) && obj.special?
       :page
     elsif obj.respond_to?(:date) && obj.respond_to?(:titleless_content) && obj.date && !obj.titleless_content.blank?
       :page_with_date
