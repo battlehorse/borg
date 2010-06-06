@@ -36,14 +36,15 @@
   <%= render :partial => "shared/layout/siteactions" %>  
   <%= render :partial => "shared/layout/footer" %>
 </div>
-<script type="text/javascript" charset="utf-8">
+<% content_for :onload do -%>
   Event.observe(window, 'load', borg.updateOrientation);
   <% if @android -%>
     Event.observe(window, 'resize', borg.updateOrientation);
   <% elsif @iphone -%>
     Event.observe(window, 'orientationchange', borg.updateOrientation);
   <% end -%>
-</script>
+<% end -%>
+<%= render(:partial => "shared/onloadjavascript") %>
 <%= render(:partial => "shared/urchin") %>
 </body>
 </html>

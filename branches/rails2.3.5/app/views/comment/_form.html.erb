@@ -18,4 +18,12 @@
     <br />
     <%= submit_tag "Send comment" , :class => "button" %>
 <% end -%>
-<script>if ($('comment_author').value == '') { $('comment_author').focus() } else { $('comment_content').focus() }</script>
+<% content_for :onload do -%>
+  (function() {
+    if ($('comment_author').value == '') { 
+      $('comment_author').focus()
+    } else {
+      $('comment_content').focus()
+    }
+  })();
+<% end -%>
