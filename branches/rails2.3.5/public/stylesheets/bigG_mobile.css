@@ -188,16 +188,16 @@ input.search {
   font-weight: bold; 
   font-size: 0.9em;
   width: 65%;
-  margin: 0 5px;
+  margin: 0.2em 0.3em;
   border: 1px solid rgb(187, 187, 187);
   background-color: white;
-  padding: 2px;  
+  padding: 0.2em;
 }
 input.button { 
   font-size: 0.9em;
   background: rgb(249, 249, 249) url(../images/bigG/search_button.png) repeat-x bottom left;
   border: 1px solid rgb(187, 187, 187);
-  padding: 2px;
+  padding: 0.2em;
 }
 .search input.button {
   width: 25%
@@ -355,6 +355,73 @@ img.float-left { margin: 5px 10px 10px 0px; }
   font-size: 1.6em;
   color: rgb(42, 93, 176);
   font-weight: normal;
+}
+
+.socialbuttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  clear: both;
+  float: right;
+}
+
+.socialbuttons LI {
+  display: inline;
+  float: left;
+  height: 20px;
+  padding-right: 0.5em;
+}
+
+.socialbutton-fb {
+  padding-left: 1em;
+  padding-right: 0;
+}
+
+.socialbutton-tweet {
+  margin-top: 0.1em;
+}
+
+a.retweet { 
+  font: 0.8em Helvetica,Arial;
+  color: #000;
+  text-decoration: none;
+  border: 0px;
+}
+
+a.retweet SPAN {
+  color: #FFF;
+  background: #94CC3D;
+  border: 1px solid #43A52A;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+/* vert styles currently unused */
+a.vert {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  float: left;
+  margin: 4px;
+}
+
+a.retweet strong.vert {
+  display: block;
+  margin-bottom: 4px;
+  background: #F5F5F5;
+  border: 1px solid #EEE;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+a.retweet span.vert {
+  display: block;
+  font-size: 12px;
+  margin-left: 0px;
 }
 
 .signature {

@@ -44,6 +44,11 @@ ActionController::Routing::Routes.draw do |map|
   map.tag "tag/:id" ,
     :controller => "tags" ,
     :action => "show"
+  
+  # Social buttons
+  map.socialbuttons "social/buttons/*path",
+    :controller => "social",
+    :action => "buttons"
     
   # OpenID
   map.openid "login", 

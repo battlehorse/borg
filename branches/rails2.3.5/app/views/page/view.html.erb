@@ -17,4 +17,14 @@
   <span class="author"><%= author_link(@page) %>,</span>
   <span class="lastmodified">last modified on <%= last_modified(@page) %></span>
 </p>
+<% if borg(:social_buttons)[:enabled] -%>
+  <div id="socialbuttons_container"></div>
+  <% content_for :onload do -%>
+    (function() {
+      new Ajax.Updater('socialbuttons_container', '<%= socialbuttons_path :path => params[:path], :title => @page.title %>', {
+        evalScripts: true
+      });
+    })();
+  <% end -%>
+<% end -%>
 <%= render :partial => "comments" , :object => @page.comments %>
