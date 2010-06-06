@@ -4,18 +4,18 @@
 <div id="loginform">
   <% form_tag :controller => "login" , :action => "login"  do |f| -%>
     <label for="openid_url" >
-  		<%= image_tag "borg/openid.png" , :style => "vertical-align: middle" , :class => "articleimg" %>
+      <%= image_tag "borg/openid.png" , :style => "vertical-align: middle" , :class => "articleimg" %>
       Enter your <%= link_to "OpenId" , "http://www.openid.com" %> to log in :
     </label>
     <%= text_field_tag :openid_url , '' , :size => 40 , :style => "font-size: 120%" -%>
     <%= submit_tag "Login" , :class => "button" -%>
-  	<% if flash[:error] -%>
-  	  <br /><%= flash[:error] %>
-  	<% end -%>
+    <% if flash[:error] -%>
+      <br /><%= flash[:error] %>
+    <% end -%>
   <% end -%>
 </div>
 <% content_for :onload do -%>
   (function() {
-  	document.getElementById('openid_url').focus();
-	})();
+    document.getElementById('openid_url').focus();
+  })();
 <% end -%>
