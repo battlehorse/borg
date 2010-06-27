@@ -10,7 +10,7 @@
 </p>
 <div id="editmode">
   <% form_tag({}, {:id => "editform" })  do -%>
-    <textarea style="font-family: monospace; font-size: 120%; width: 95%; height: 400px;" id="editAreaId" name="content"><%= raw_content(@page) || boilerplate %></textarea>
+    <textarea id="editAreaId" name="content"><%= raw_content(@page) || boilerplate(@kind) %></textarea>
   <% end -%>
 </div>
 <div id="previewmode" style="display:none" class="preview"></div> 
@@ -53,7 +53,8 @@
         },
         onFailure: function(transport) {
           $('errors').innerHTML = transport.responseText;
-        }
+        },
+        evalScripts: true
       });
     } else {
       $('previewmode').hide();
