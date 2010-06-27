@@ -2,9 +2,21 @@ class EditController < ApplicationController
   
   before_filter :check_permission
   
+  # Show 
+  def new
+    @path = Time.now.strftime('%Y/%m/%d/yourpage.html')
+  end
+  
   # Creates a new borg page
   def create
-    @title = "Create Page #{params["path"].join('/')}"
+    @kind = params[:kind] ||= 'page'
+    if @kind == 'page'
+      @title = "Create Page #{params["path"].join('/')}"
+    elsif @kind == 'wave'
+      @title = "Embed Wave in #{params["path"].join('/')}"
+    else
+      raise "Invalid page kind #{@kind}"
+    end
     @cancel_url = root_path
     load_page_if_any
     render :action => "read"

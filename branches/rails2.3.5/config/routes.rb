@@ -56,7 +56,11 @@ ActionController::Routing::Routes.draw do |map|
     :requirements => { :method => :get }    
   
   # CRUD Actions
-  map.create "create/*path" ,
+  map.new "edit/new",
+    :controller => "edit",
+    :action => "new"
+  
+  map.create "create/*path",
     :controller => "edit" ,
     :action => "create"    
     
