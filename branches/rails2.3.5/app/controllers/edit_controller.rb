@@ -12,8 +12,6 @@ class EditController < ApplicationController
     @kind = params[:kind] ||= 'page'
     if @kind == 'page'
       @title = "Create Page #{params["path"].join('/')}"
-    elsif @kind == 'wave'
-      @title = "Embed Wave in #{params["path"].join('/')}"
     else
       raise "Invalid page kind #{@kind}"
     end
