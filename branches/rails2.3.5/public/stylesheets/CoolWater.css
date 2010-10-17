@@ -173,7 +173,8 @@ input.button {
 	width: 180px;	
 }
 .search p { margin: 0; padding: 0; }
-.search input.textbox { 
+.search input.textbox,
+input.edit { 
 	width: 110px;
 	color: #777; 
 	height: 20px;
@@ -396,7 +397,15 @@ input.button {
    BATTLEHORSE ADDITIONS
 ********************************************/
 
-/* preview mode */
+/* Editing styles */
+
+#editmode TEXTAREA {
+  font-family: monospace;
+  font-size: 120%;
+  width: 95%;
+  height: 400px;
+}
+
 .livepreview {
   margin: 1em;
 }

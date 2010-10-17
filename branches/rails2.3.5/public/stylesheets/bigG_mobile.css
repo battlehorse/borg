@@ -184,7 +184,8 @@ body {
 
 /* lists and form elements */
 form { margin: 0; }
-input.search { 
+input.search,
+input.edit { 
   font-weight: bold; 
   font-size: 0.9em;
   width: 65%;
@@ -302,13 +303,19 @@ label {
    BATTLEHORSE ADDITIONS
 ********************************************/
 
-/* edit buttons */
+/* Editing styles */
 
 .edit_buttons {
   margin: 0.2em 0;
 }
 
-/* preview mode */
+#editmode TEXTAREA {
+  font-family: monospace;
+  font-size: 120%;
+  width: 95%;
+  height: 400px;
+}
+
 .livepreview {
   margin: 1em;
 }
