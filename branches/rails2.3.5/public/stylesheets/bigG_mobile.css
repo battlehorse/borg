@@ -309,6 +309,10 @@ label {
   margin: 0.2em 0;
 }
 
+.edit_buttons .saveButton {
+  font-weight: bold;
+}
+
 #editmode TEXTAREA {
   font-family: monospace;
   font-size: 120%;
