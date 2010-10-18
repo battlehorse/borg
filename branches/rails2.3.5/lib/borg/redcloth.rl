@@ -15,7 +15,8 @@ class BorgRedCloth
       list_url = "{" (any - "}")+ "}";
       blog_url = "<" (digit{4} ("/" [01] digit ("/" [0-3] digit)?)?)? ">";
       tag_url = "tags";
-      link = '"' (any - '"')+ '":' (page_url|list_url|blog_url|tag_url) > {
+      attach_url = "#" (any - "#")+ "#";
+      link = '"' (any - '"')+ '":' (page_url|list_url|blog_url|tag_url|attach_url) > {
         @mark_link = p
       };
       clipart = "__" [A-Z\-]+ "__";

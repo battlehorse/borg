@@ -31,11 +31,12 @@ module RedClothHelper
     data = replace(data, br.cliparts) do |text|
       BorgConfig[:default_img_url] + text[2..(text.length-3)].downcase + ".png"
     end
-
+    
     # Fix internal links
     # plain pages use square [] brackets
     # list pages use curly {} brackets
     # blog pages use angled <> brackets
+    # attachments are wrapped within ##
     # tag pages just use "tags"
     data = replace(data, br.links) do |link|
       if link.start_with? '['
@@ -46,6 +47,8 @@ module RedClothHelper
         link.gsub(/<(\d\d\d\d)?\/?([01]\d)?\/?([0-3]\d)?>/) do 
           blog_path({ :year => $1, :month => $2, :day => $3 })
         end
+      elsif link.start_with? '#'
+        attach_path({:path => link[1, link.length-2].split('/')})
       elsif link == "tags"
         url_for({:controller => "tags", :only_path => true})
       end

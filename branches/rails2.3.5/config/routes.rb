@@ -19,6 +19,10 @@ ActionController::Routing::Routes.draw do |map|
     :controller => "list" ,
     :action => "list"
     
+  map.attach "attach/*path",
+    :controller => "attach",
+    :action => "read"
+
   map.connect "blog.rss",
     :controller => "list",
     :year => Time.now.year.to_s,
