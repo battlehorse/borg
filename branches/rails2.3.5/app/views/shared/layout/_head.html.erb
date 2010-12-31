@@ -9,6 +9,7 @@
 <% end -%>
 
 <%= javascript_include_tag "prototype", "application" %>
+<%= yield :javascriptlibs %>
 
 <% if !@mobile -%>
   <%= stylesheet_link_tag(borg(:css_template)) %>
