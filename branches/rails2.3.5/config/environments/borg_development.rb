@@ -12,7 +12,9 @@ BorgConfig = {
   # DIrectory where all the comments are stored
   :comment_dir => "/path/to/comment/dir/",
   
-  # CSS Template: 'InternetSharing', 'CoolWater'
+  # CSS Template: 'InternetSharing', 'CoolWater', 'bigG',
+  # NOTE: bigG is the only template currently supporting mobile devices:
+  # iphone, ipod touch, android (nexus one).
   :css_template => "InternetSharing",  
   
   # DEFIMG url
@@ -43,5 +45,6 @@ BorgConfig = {
   :google_analytics => "UA-123456-1",
   
   # Googla chatback. Paste here the content as generated from http://www.google.com/talk/service/badge/New, if you want to use it.
+  # Note that Google chatback is not enabled when accessing the site from mobile devices.
   :google_chatback => ''
 }
