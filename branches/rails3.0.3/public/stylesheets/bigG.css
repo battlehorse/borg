@@ -1,0 +1,448 @@
+/* 
+  project: bigG template
+  author: Riccardo Govoni <battlehorse@gmail.com>
+  
+  G-colors:
+  dark yellow 250, 209, 99
+  yellow 255, 247, 215
+
+  dark green 105, 193, 125
+  green 201, 237, 204
+
+  dark blue 102, 148, 227
+  blue #E5ECF9
+
+  blue link 42, 93, 176
+
+  search box border: 102 - 204
+
+  grey background 239
+  grey text 119 
+
+  button:
+  gradient 249 -> 227
+  border: 187
+*/
+
+body { 
+  padding: 0; 
+  margin: 0;
+  font-size: 0.8em;
+  font-family: Helvetica, Arial, sans-serif;
+  background: #fff; 
+  color: #000;
+}
+
+/* content holder */
+#global-wrap { 
+  margin: 10px 5%;
+  max-width: 1160px;
+  min-width: 960px;
+  line-height: 1.2em;  
+}
+
+/* header */
+#header { height: 4.2em; }
+#logo-text { 
+  padding: 0.5em 0 0 0;
+  margin: 0 0 0.2em 0;
+}
+#logo-text A, #logo-text A:hover { text-decoration: none; color: #000; border: 0;}
+#slogan { font-size: 0.9em; margin: 0; padding: 0 0 0 0.3em; color: rgb(119,119,119); background: #fff; }
+#site-actions { 
+  float: right;
+  margin: 5px 5px 0 0; 
+  text-align: right;
+  font-size: 0.9em;
+}
+
+.title { color: rgb(42, 93, 176); background: #fff; }
+
+
+/* horizontal tabbed toolbar */	
+#toolbar { 
+  background-color: #E5ECF9;
+  border-top: 1px solid rgb(102, 148, 227);
+  text-align: right;
+}
+#toolbar ul {
+  margin: 0;
+  padding: 0.6em 0;
+}
+#toolbar li { display: inline; }
+#toolbar li a { 
+  margin: 0.8em 1em;
+}
+#toolbar li a.current {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* left and right */
+#main {
+  float: left;
+  width: 78%;
+  margin: 0 0px 10px 0;
+}
+
+#secondary-content {
+	float: right;
+	width: 20%;
+	margin: 0 0 10px 0;
+	padding-left: 10px;
+}
+
+/* footer  */
+#footer { 
+  clear: both;
+  text-align: center;
+  line-height: 1.8em;
+  padding: 10px 0 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+/* right side */
+.box {
+  border-top: 1px solid rgb(102, 148, 227);
+  background-color: #E5ECF9;
+
+  margin: 0 0 10px 0;
+  padding: 5px;
+}
+
+.box H2 {
+  margin: 0;
+}
+
+.boxbottom {
+  clear: both;
+}
+
+
+/* message subheader */
+.message {
+  background-color: rgb(239, 239, 239);
+  border-top: 0px;
+  border-bottom: 1px solid rgb(187, 187, 187);
+  margin: 3px 0;
+  padding: 1px 2px;
+}
+
+.message P {
+  color: rgb(119, 119, 119);
+  padding-top: 2px;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.message P A {
+  color: rgb(60, 60, 60);
+}
+
+
+/* tags */
+.tags {
+  border-top: 1px solid rgb(250, 209, 99);
+  background-color: rgb(255, 247, 215);
+}
+
+.tags P {
+  margin: 0.2em;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.tags H2 {
+  font-size: 1.2em;
+}
+
+/* search form */
+.search { 
+  margin: 3px 0 10px 0;
+  padding: 0;
+  border-top: 0;
+  border-bottom: 1px solid rgb(105, 193, 125);
+  background: rgb(201, 237, 204);
+}
+
+.search p { padding: 0; margin: 0;}
+
+/* lists and form elements */
+form { margin: 0; }
+input.search,
+input.edit { 
+  font-weight: bold; 
+  font-size: 0.9em;
+  width: 65%;
+  margin: 0.2em 0.3em;
+  border: 1px solid rgb(187, 187, 187);
+  background-color: white;
+  padding: 0.2em;
+}
+input.button { 
+  font-size: 0.9em;
+  background: rgb(249, 249, 249) url(../images/bigG/search_button.png) repeat-x bottom left;
+  border: 1px solid rgb(187, 187, 187);
+  padding: 0.2em;
+}
+.search input.button {
+  width: 25%;
+}
+#newcommentdiv input.button {
+  margin-top: 5px;
+  width: 15.5em;
+}
+
+/* left side */
+.left_articles {
+	text-align: justify;
+	color: #000;
+	background: #fff;
+	margin-top: 1em;
+}
+
+.left_articles h1 {
+  font-size: 1.6em;
+  line-height: 1em;
+  padding: 5px 0;
+  margin: 0;
+}
+
+.left_articles h2,
+.left_articles h3 {
+  background-color: #E5ECF9;
+  border-top: 1px solid rgb(102, 148, 227);
+  font-size: 1.3em;
+  line-height: 1em;
+  padding: 5px 0;
+}
+
+.article-title {
+  margin: 0;
+  margin-left: 45px;
+  padding: 0;
+}
+
+.article-content {
+  clear: both;
+}
+
+/* links */
+a { color: rgb(42, 93, 176); background: inherit; }
+a:visited { color: purple; }
+
+.article-title a, .article-title a:hover, h1 a, h1 a:hover, h1 a:visited { 
+  color: #000;
+  text-decoration: none;
+  padding-left: 3px;
+}
+
+.article-title a:hover, h1 a:hover {
+  border-bottom: 1px solid rgb(102, 148, 227);
+}
+
+/* calendar */
+.calendar { 
+  float: left; 
+  background-color: #E5ECF9;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  width: 4em;
+  text-align: center;
+  color: #000;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.calendar p { padding: 0; margin: 0;}
+
+/* comments */
+.comment, #newcommentdiv FORM {
+  min-height: 90px;
+  background-color: rgb(243, 243, 252);
+  border-top: 1px solid rgb(187, 187, 187);
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.comment p { padding: 0; margin: 0; }
+
+label {
+	display:block;
+	font-weight:bold;
+	margin: 7px 0;
+}
+
+/********************************************
+   BATTLEHORSE ADDITIONS
+********************************************/
+
+/* Editing styles */
+
+.edit_buttons {
+  margin: 0.2em 0;
+}
+
+.edit_buttons .saveButton {
+  font-weight: bold;
+}
+
+#editmode TEXTAREA {
+  font-family: monospace;
+  font-size: 120%;
+  width: 95%;
+  height: 400px;
+}
+
+.livepreview {
+  margin: 1em;
+}
+
+#previewupdater {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  z-index: 1000;
+}
+
+/* alignment classes */
+.float-left  { float: left; }
+.float-right { float: right; }
+.align-left  { text-align: left; }
+.align-right { text-align: right; }
+
+/* display and additional classes */
+.clear { clear: both; }
+
+/* images */
+img.articleimg {
+  background: #fff;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 5px;
+}
+
+img.float-right { margin: 5px 0px 10px 10px;  }
+img.float-left { margin: 5px 10px 10px 0px; }
+
+#flash_error, .formError {
+  color: red;
+  font-weight: bold;
+}
+
+.article-meta {
+  color: rgb(119, 119, 119);
+  font-size: 0.9em;
+}
+
+.blog_archive {
+  font-size: 1.6em;
+  color: rgb(42, 93, 176);
+  font-weight: normal;
+}
+
+.socialbuttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.socialbuttons LI {
+  display: inline;
+  float: left;
+  height: 20px;
+  padding-right: 0.5em;
+}
+
+.socialbutton-fb {
+  padding-left: 1em;
+  padding-right: 0;
+}
+
+.socialbutton-tweet {
+  margin-top: 0.1em;
+}
+
+a.retweet { 
+  font: 0.8em Helvetica,Arial;
+  color: #000;
+  text-decoration: none;
+  border: 0px;
+}
+
+a.retweet SPAN {
+  color: #FFF;
+  background: #94CC3D;
+  border: 1px solid #43A52A;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+/* vert styles currently unused */
+a.vert {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  float: left;
+  margin: 4px;
+}
+
+a.retweet strong.vert {
+  display: block;
+  margin-bottom: 4px;
+  background: #F5F5F5;
+  border: 1px solid #EEE;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+a.retweet span.vert {
+  display: block;
+  font-size: 12px;
+  margin-left: 0px;
+}
+
+.signature {
+  float: right;
+  color: #003B6E;
+  border: 1px dotted #aaa;
+  background-color: #eee;
+  padding: 0 20px;
+  margin: 0;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;  
+}
+
+#translateLink {
+  float:right;
+  padding: 0.3em 0;
+  font-size: 0.9em;
+}
+
+#translateLink A {
+  color: rgb(119, 119, 119);
+}
+
+#translateBox {
+  float:right;
+  padding: 0.3em 0;
+}
+
+PRE {
+  background-color: #FAFAFA;
+  border: 1px solid #BBB;
+  width: 90%;
+  font-size: 1em;
+}
+
+CODE, TT {
+  font-size: 1.2em;
+  color: #007000;
+}

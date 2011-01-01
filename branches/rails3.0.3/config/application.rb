@@ -3,8 +3,8 @@ require File.expand_path('../boot', __FILE__)
 # Pick the frameworks you want:
 # require "active_record/railtie"
 require "action_controller/railtie"
-require "action_mailer/railtie"
-require "active_resource/railtie"
+# require "action_mailer/railtie"
+# require "active_resource/railtie"
 require "rails/test_unit/railtie"
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -45,3 +45,9 @@ module Rails303
     config.filter_parameters += [:password]
   end
 end
+
+# store OpenId sessions to file instead of database
+OpenIdAuthentication.store = :file
+
+# Change this parameter if your application is being served from a subdomain
+# ActionController::Base.relative_url_root = '/subdomain'

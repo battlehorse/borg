@@ -1,0 +1,17 @@
+<p class="article-meta align-left">
+  <span class="readmore">
+  	<%= image_tag "borg/readmore.png" , :alt => "Read more" , :style => "vertical-align: middle" %>
+  	<%= link_to "Read more..." , page_path({ :path => meta.path }) %> | 
+  </span>
+  <span class="author">
+  	<%= author_link(meta) %> |
+  </span>
+  <span class="lastmodified">
+  	<%= last_modified(meta) %><% if meta.comments.size > 0 -%> | <% end -%>
+  </span>
+	<% if meta.comments.size > 0 -%>
+	  <span class="comments">
+	    <%= image_tag "borg/comment.png", :alt => "Comments" , :style => "vertical-align: middle" %> <%= meta.comments.size %> comment(s)
+	  </span>
+  <% end -%>
+</p>

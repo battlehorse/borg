@@ -1,0 +1,10 @@
+<% content_for :youarehere do %>
+	<%= render :partial => "shared/breadcrumbs" %>
+<% end %>
+<% content_for :intro do %>
+ <%= render :partial => "shared/content" , :object => @welcome %>
+<% end %>
+<% for page in @pages %>
+	<%= render :partial => "shared/summary" , :object => page %>
+<% end %>
+<%= render :partial => "shared/nothing" if @pages.empty? %>

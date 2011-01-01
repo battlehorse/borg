@@ -1,0 +1,10 @@
+<div class="boxtop tagstop"></div>
+<div class="box tags">
+  <h2><%= image_tag "borg/tags.png" , :alt => "tags" , :style => "vertical-align: middle" %> Tags</h2>
+  <p>
+  	This page is tagged as:&nbsp;
+  	<% for t in tags.h(:tags, []) -%>
+  		<%= link_to t, tag_path(t) %>
+  	<% end -%>
+  </p>
+</div>
