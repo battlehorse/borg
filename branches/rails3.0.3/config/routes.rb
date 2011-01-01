@@ -1,58 +1,40 @@
 Borg2::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => "welcome#index"
-
   # See how all your routes lay out with "rake routes"
 
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  # Website root
+  root :to => "list#welcome"
+  
+  # Main URLs
+  match 'page/*path' => 'page#view', :as => :page
+  match 'list/*path' => 'list#list', :as => :list
+  match 'attach/*path' => 'attach#read', :as => :attach
+  match 'tag/:id' => 'tags#show', :as => :tag
+  match 'blog/:year/:month/:day' => 'list#blog',
+    :constraints => { :year => /(19|20)\d\d/ , :month => /[01]\d/ , :day => /[0-3]\d/ },
+    :defaults => {:year => Time.now.year.to_s, :day => nil, :month => nil}
+
+  # Feeds
+  match 'comments.rss' => 'list#comment', :defaults => { :format => 'rss' }
+  match 'blog.rss' => 'list#blog' , :defaults => { :format => 'rss', :year => Time.now.year.to_s }
+
+  # Single files
+  match 'robots.txt' => 'sitemap#robots'
+  match 'sitemap.xml' => 'sitemap#sitemap'
+
+  # Social buttons
+  match 'social/buttons/*path' => 'social#buttons', :as => :socialbuttons
+
+  # OpenID
+  get 'login'
+
+  # CRUD Actions
+  match 'edit/new' => 'edit#new', :as => :new
+  match 'create/*path' => 'edit#create', :as => :create
+  match 'edit/*path' => 'edit#read', :as => :edit
+  match 'preview/*path' => 'edit#preview', :as => :preview
+  match 'livepreview/*path' => 'edit#livepreview', :as => :livepreview
+  match 'save/*path' => 'edit#save', :as => :save
+  match 'delete/*path' => 'edit#delete', :as => :delete
+  match 'saveComment/*path' => 'comment#save', :as => :saveComment
+
 end
