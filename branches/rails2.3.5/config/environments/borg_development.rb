@@ -11,7 +11,10 @@ BorgConfig = {
   
   # DIrectory where all the comments are stored
   :comment_dir => "/path/to/comment/dir/",
-  
+
+  # Directory where all the attachments are stored
+  :attach_dir => "/path/to/attachments/dir/",
+
   # CSS Template: 'InternetSharing', 'CoolWater', 'bigG',
   # NOTE: bigG is the only template currently supporting mobile devices:
   # iphone, ipod touch, android (nexus one).
@@ -36,11 +39,25 @@ BorgConfig = {
     :robots => 'index,follow',
     :keywords => 'your, keywords',
     :description => 'your site description'
-  },  
+  },
   
   # Domain to be searched from the search box (that uses google search)
   :search_domain => "yourdomain.com",
-  
+
+  # Social buttons. Decide whether you want to have buttons for Google Buzz,
+  # Facebook and Twitter at the end of every article.
+  :social_buttons => {
+    :enabled => true,  # set to false to disable social buttons altogether.
+    
+    # You must have a bit.ly account for Twitter buttons to work.
+    :bitly_user => 'your_bitly_user', 
+    :bitly_key => 'your_bitly_key',
+    
+    # Optional: Prefix to use when retweeting (such as: 'RT @yourtwitterid ').
+    # Page title and shortened url are already included in retweets.
+    :retweet_prefix => ''
+  },
+
   # Google analytics account. Comment this line if you don't have any
   :google_analytics => "UA-123456-1",
   
