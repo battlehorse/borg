@@ -9,9 +9,10 @@ Borg2::Application.routes.draw do
   match 'list/*path' => 'list#list', :as => :list
   match 'attach/*path' => 'attach#read', :as => :attach
   match 'tag/:id' => 'tags#show', :as => :tag
-  match 'blog/:year/:month/:day' => 'list#blog',
+  match 'blog(/:year(/:month(/:day)))' => 'list#blog',
     :constraints => { :year => /(19|20)\d\d/ , :month => /[01]\d/ , :day => /[0-3]\d/ },
-    :defaults => {:year => Time.now.year.to_s, :day => nil, :month => nil}
+    :defaults => {:year => Time.now.year.to_s, :day => nil, :month => nil},
+    :as => :blog
 
   # Feeds
   match 'comments.rss' => 'list#comment', :defaults => { :format => 'rss' }
@@ -36,5 +37,8 @@ Borg2::Application.routes.draw do
   match 'save/*path' => 'edit#save', :as => :save
   match 'delete/*path' => 'edit#delete', :as => :delete
   match 'saveComment/*path' => 'comment#save', :as => :saveComment
+  
+  # Default routing
+  match ':controller(/:action(/:id(.:format)))'
 
 end
