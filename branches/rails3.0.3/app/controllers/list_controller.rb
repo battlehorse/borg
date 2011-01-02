@@ -31,16 +31,20 @@ class ListController < ApplicationController
   def get_blog_pages
     pages = Page.allFromPath(path_from_params).each { |page| page.summarize }
     
+    if yearly_path? && path_from_params[0].to_i < Time.now.year
+      return pages
+    end
+    
     # If a year-like path has been requested (like /2009 ) and not enough
     # pages where returned, fall back to the previous year.
     #
     # This is a dirty trick to avoid having the homepage and blog sections
     # empty at the beginning of every new year.
-    year_ago = 1
+    year = (yearly_path? ? path_from_params[0].to_i : Time.now.year) - 1
     while pages.size < 10 && yearly_path? do
-      pages << Page.allFromPath([ (Time.now.year - year_ago).to_s ]).each { |page| page.summarize }
+      pages << Page.allFromPath([ year.to_s ]).each { |page| page.summarize }
       pages.flatten!
-      year_ago += 1
+      year -= 1
     end
     apply_blog_time_ordering(pages)
     return pages
