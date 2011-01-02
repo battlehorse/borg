@@ -45,6 +45,3 @@ module Borg2
     config.filter_parameters += [:password]
   end
 end
-
-# Change this parameter if your application is being served from a subdomain
-# ActionController::Base.relative_url_root = '/subdomain'
