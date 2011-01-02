@@ -12,7 +12,7 @@ xml.rss :version => "2.0" do
         xml.pubDate last_modified_rss(page)
         xml.description textile(page.titleless_content)
         xml.link page_url({ :path => page.path })
-        page.h(:tags).each { |tag| xml.category tag } unless page.h(:tags).nil?
+        ([] << page.h(:tags)).flatten.each { |tag| xml.category tag } unless page.h(:tags).nil?
       end
     end
   end
