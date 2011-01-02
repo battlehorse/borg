@@ -11,10 +11,10 @@ module RedClothHelper
       outdata << data[checkpoint..(snip[:start]-1)]
       outdata << (replacement = yield snip[:text])
       checkpoint = snip[:end]+1
-      RAILS_DEFAULT_LOGGER.debug "Replacing #{snip[:text]}(#{snip[:start]}, #{snip[:end]}): #{replacement}"
+      ::Rails.logger.debug "Replacing #{snip[:text]}(#{snip[:start]}, #{snip[:end]}): #{replacement}"
     end
     outdata << data[checkpoint..(data.length-1)]
-    # RAILS_DEFAULT_LOGGER.debug outdata
+    # ::Rails.logger.debug outdata
     return outdata
   end
   

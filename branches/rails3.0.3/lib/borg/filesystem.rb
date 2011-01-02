@@ -7,12 +7,12 @@ module Borg
     include Borg::Util
     
     def load(rpath)
-      RAILS_DEFAULT_LOGGER.debug "Physically loading #{rpath}"
+      ::Rails.logger.debug "Physically loading #{rpath}"
       File.new(rpath).read
     end
     
     def save(rpath, content)
-      RAILS_DEFAULT_LOGGER.debug "Storing #{content.size} bytes to #{rpath}"
+      ::Rails.logger.debug "Storing #{content.size} bytes to #{rpath}"
       
       # create folder if needed
       create_folder(rpath)
@@ -23,14 +23,14 @@ module Borg
     end
     
     def delete(rpath)
-      RAILS_DEFAULT_LOGGER.debug "Deleting #{rpath}"
+      ::Rails.logger.debug "Deleting #{rpath}"
       
       raise "Page #{rpath} to be deleted is not a page" if !is_content?(rpath.split("/"))
       File.delete(rpath) # may raise an error if file cannot be deleted
       
       folder_path = rpath.split("/")
       while folder_path.pop && dir_empty?(folder = folder_path.join('/'))
-        RAILS_DEFAULT_LOGGER.debug "Deleting #{folder}"
+        ::Rails.logger.debug "Deleting #{folder}"
         Dir.delete(folder)
       end
     end

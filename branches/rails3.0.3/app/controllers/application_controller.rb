@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   private
   
   def load_configs
-    require 'config/environments/borg_' + RAILS_ENV
+    require 'borg/config/borg_' + ::Rails.env
   end
   
   def layout_for_device
