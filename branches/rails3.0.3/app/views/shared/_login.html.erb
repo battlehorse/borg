@@ -1,9 +1,10 @@
 <span id="login">
   <% if session[:user_id] -%>
     Hello <%= session[:user_id].nickname || session[:user_id].fullname %>, 
-    <%= link_to_remote "Logout", 
-                       :update => "login" ,
-                       :url => { :controller => "login" , :action => "logout" } %>
+    <%= link_to "Logout", 
+                :remote => true,
+                :update => "login" ,
+                :url => { :controller => "login" , :action => "logout" } %>
     <% if session[:user_id].is_editor -%>
       | <%= link_to "Create", :controller => 'edit', :action => 'new'%>
     <% end -%>

@@ -1,4 +1,4 @@
-<% remote_form_for :comment, @comment , :url => saveComment_path( :path => params[:path]) do |f| -%>
+<%= form_for :comment, @comment, :url => saveComment_path( :path => params[:path]), :remote => true do |f| -%>
     <%= label :comment, :author, "Your name:" %> <%= f.text_field :author %>
     <%= error_message_on :comment, :author %>
 
