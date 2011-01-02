@@ -7,7 +7,7 @@ class ListController < ApplicationController
     
   def blog
     path = [] << params["year"] << params["month"] << params["day"]
-    params["path"] = path.compact
+    params[:path] = path.compact
     
     # recursive listing
     @pages = get_blog_pages
@@ -17,7 +17,7 @@ class ListController < ApplicationController
     
   def welcome
     @welcome = Page.fromPath(["index.html"])
-    params["path"] =  [ Time.now.year.to_s ]
+    params[:path] =  [ Time.now.year.to_s ]
     
     @pages = get_blog_pages[0..9] # only 10 items in the homepage
     render :action => "list"
@@ -36,9 +36,11 @@ class ListController < ApplicationController
     #
     # This is a dirty trick to avoid having the homepage and blog sections
     # empty at the beginning of every new year.
-    if pages.size < 10 && yearly_path? 
-      pages << Page.allFromPath([ (Time.now.year - 1).to_s ]).each { |page| page.summarize }
+    year_ago = 1
+    while pages.size < 10 && yearly_path? do
+      pages << Page.allFromPath([ (Time.now.year - year_ago).to_s ]).each { |page| page.summarize }
       pages.flatten!
+      year_ago += 1
     end
     apply_blog_time_ordering(pages)
     return pages
