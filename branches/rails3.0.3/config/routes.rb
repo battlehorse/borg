@@ -25,7 +25,7 @@ Borg2::Application.routes.draw do
   match 'social/buttons/*path' => 'social#buttons', :as => :socialbuttons
 
   # OpenID
-  get 'login'
+  get 'login' => 'login#login'
 
   # CRUD Actions
   match 'edit/new' => 'edit#new', :as => :new

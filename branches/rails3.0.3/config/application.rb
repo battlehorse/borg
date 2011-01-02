@@ -46,8 +46,5 @@ module Borg2
   end
 end
 
-# store OpenId sessions to file instead of database
-OpenIdAuthentication.store = :file
-
 # Change this parameter if your application is being served from a subdomain
 # ActionController::Base.relative_url_root = '/subdomain'
