@@ -25,11 +25,11 @@ module BreadcrumbsHelper
   private
   
   def append(buffer, breadcrumb)
-    buffer << spacer_img << breadcrumb << "&nbsp;"
+    buffer << spacer_img << breadcrumb << "&nbsp;".html_safe
   end
   
   def spacer_img
-    image_tag("borg/arrow.png") << "&nbsp;"
+    image_tag("borg/arrow.png") << "&nbsp;".html_safe
   end
   
   def link_to_blog(year, month = nil, day = nil)

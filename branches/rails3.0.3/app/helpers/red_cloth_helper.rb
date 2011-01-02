@@ -55,6 +55,6 @@ module RedClothHelper
     end
     
     r = RedCloth.new data
-    r.to_html
+    r.to_html.html_safe
   end  
 end

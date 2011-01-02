@@ -5,7 +5,7 @@
 <% if @tags.size > 0 -%>
 	<p>The following tags have been found on the site:</p>
 	<div>
-		<%= cloud(@tags) %>
+		<%= raw cloud(@tags) %>
 	</div>
 <% else -%>
 	<p>No tags have been found.</p>
