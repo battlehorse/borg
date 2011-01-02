@@ -11,7 +11,7 @@ class EditController < ApplicationController
   def create
     @kind = params[:kind] ||= 'page'
     if @kind == 'page'
-      @title = "Create Page #{params["path"].join('/')}"
+      @title = "Create Page #{path_from_params.join('/')}"
     else
       raise "Invalid page kind #{@kind}"
     end
@@ -22,12 +22,12 @@ class EditController < ApplicationController
   
   def read
     @title = "Edit Page"
-    @cancel_url = page_path :path => params["path"]
+    @cancel_url = page_path :path => params[:path]
     load_page_if_any
   end
   
   def save
-    p = Page.fromRawData(params["path"], params["content"])
+    p = Page.fromRawData(path_from_params, params[:content])
     if p.nil?
       render :json => { :status => "ERR", :message => "Page not found" }.to_json
     else
@@ -37,8 +37,8 @@ class EditController < ApplicationController
   end
   
   def delete
-    raise "You tried to delete a folder" unless is_content? params["path"]
-    p = Page.fromPath(params["path"])
+    raise "You tried to delete a folder" unless is_content? path_from_params
+    p = Page.fromPath(path_from_params)
     if p.nil?
       render :json => { :status => "ERR" , :message => "Page not found"}.to_json
     else
@@ -48,7 +48,7 @@ class EditController < ApplicationController
   end
   
   def preview
-    p = Page.fromRawData(params["path"], params["content"])
+    p = Page.fromRawData(path_from_params, params[:content])
     render :partial => "shared/content" , :object => p
   end
   
@@ -70,7 +70,7 @@ class EditController < ApplicationController
   end
   
   def load_page_if_any
-    raise "You tried editing a list page" unless is_content? params["path"]
-    @page = Page.fromPath(params["path"]) || Page.new
+    raise "You tried editing a list page" unless is_content? path_from_params
+    @page = Page.fromPath(path_from_params) || Page.new
   end
 end

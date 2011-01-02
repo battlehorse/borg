@@ -19,8 +19,16 @@ class ApplicationController < ActionController::Base
     else
       super
     end
-  end  
-    
+  end
+
+  def path_from_params
+    if params[:path]
+      params[:path].class == String ? params[:path].split('/') : params[:path]
+    else
+      []
+    end
+  end
+
   private
   
   def load_configs
@@ -60,7 +68,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_sidebar_and_toolbar
-    path = params["path"] || []
+    path = path_from_params
     path = path[0..(path.length-2)] if is_content?(path) 
     
     @sidebar = Page.fromPath(path.clone << sidebar_page_name)

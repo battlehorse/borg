@@ -2,7 +2,7 @@ class ListController < ApplicationController
   
   def list
     # non-recursive listing
-    @pages = Page.allFromPath(params["path"] || [], false).each { |page| page.summarize }
+    @pages = Page.allFromPath(path_from_params, false).each { |page| page.summarize }
   end
     
   def blog
@@ -25,11 +25,11 @@ class ListController < ApplicationController
   
   def comment
     # recursive listing of comments ( but show only the last 20 )
-    @comments = Comment.allFromPath(params["path"] || [])[0..19]
+    @comments = Comment.allFromPath(path_from_params)[0..19]
   end
   
   def get_blog_pages
-    pages = Page.allFromPath(params["path"]).each { |page| page.summarize }
+    pages = Page.allFromPath(path_from_params).each { |page| page.summarize }
     
     # If a year-like path has been requested (like /2009 ) and not enough
     # pages where returned, fall back to the previous year.
@@ -48,12 +48,12 @@ class ListController < ApplicationController
   # For blog entries, order items by blog folder (aka, blog entry time)
   # rather than modification date  
   def apply_blog_time_ordering(pages)
-    pages.sort_by { |page| page.path.join('') }.reverse
+    pages.sort_by { |page| page.path.join('/') }.reverse
   end
   private :apply_blog_time_ordering
   
   def yearly_path?
-    params["path"].size == 1 && params["path"][0] =~ /(19|20)\d\d/
+    path_from_params.size == 1 && path_from_params[0] =~ /(19|20)\d\d/
   end
   private :yearly_path?
   

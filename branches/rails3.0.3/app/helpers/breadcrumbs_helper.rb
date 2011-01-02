@@ -39,7 +39,7 @@ module BreadcrumbsHelper
   
   def get_page
     p = Page.new
-    p.path = params["path"] || []
+    p.path = path_from_params
     return p
   end
   
@@ -50,5 +50,13 @@ module BreadcrumbsHelper
     end
     return path    
   end
+  
+  def path_from_params
+    if params[:path]
+      params[:path].class == String ? params[:path].split('/') : params[:path]
+    else
+      []
+    end
+  end  
   
 end

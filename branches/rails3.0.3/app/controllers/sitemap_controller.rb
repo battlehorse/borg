@@ -59,7 +59,7 @@ class SitemapController < ApplicationController
     
     # Contact URL (might inherit :lastmod from previous page scan)
     add_sitemap_url(
-      page_url(:path => borg(:contact_url).gsub(/^\//,'').split('/'), :only_path => false),
+      page_url(:path => borg(:contact_url).gsub(/^\//,''), :only_path => false),
       :priority => "0.9")
     
     # URLs extracted from the top-level toolbar, if any.
