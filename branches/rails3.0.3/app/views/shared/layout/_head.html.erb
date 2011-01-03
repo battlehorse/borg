@@ -12,14 +12,6 @@
 <%= javascript_include_tag "prototype", "rails", "application" %>
 <%= yield :javascriptlibs %>
 
-<% if borg(:google_translate)[:enabled] -%>
-  <%= javascript_tag do %>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: "<%= borg(:google_translate)[:source_language] %>"}, "google_translate_element");
-  };
-  <% end %>
-  <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<% end -%>
 
 <% if !@mobile -%>
   <%= stylesheet_link_tag(borg(:css_template)) %>
