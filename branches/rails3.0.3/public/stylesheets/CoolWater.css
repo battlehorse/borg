@@ -452,9 +452,18 @@ input.edit {
   margin: 5px 0 0 6px;
 }
 
-#flash_error, .formError {
+#flash_error, .formError LI {
   color: red;
   font-weight: bold;
+}
+
+UL.formError {
+  padding: 0;
+  margin: 0;
+}
+
+.formError LI {
+  list-style-type: none;
 }
 
 .hint {

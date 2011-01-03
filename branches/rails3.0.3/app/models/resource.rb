@@ -5,6 +5,7 @@ require 'borg/finder'
 
 class Resource
   include Borg::Util
+  include ActiveModel::Validations
 
   @@finder = Borg::Finder.new
   @@fs = Borg::FileSystem.new
@@ -31,11 +32,7 @@ class Resource
   def raw_data=(data)
     @raw_data = data
   end
-  
-  def errors
-    @errors ||= Errors.new
-  end
-    
+
   def store
     @@fs.save(@rpath, @raw_data)
   end

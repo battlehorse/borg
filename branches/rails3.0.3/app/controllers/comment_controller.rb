@@ -9,7 +9,7 @@ class CommentController < ApplicationController
   def save
     @comment = Comment.fromParams(path_from_params, params["comment"])
   
-    if check_captcha & @comment.validate
+    if check_captcha & @comment.valid?
       @comment.store
       @numcomments = Comment.allFromPath(path_from_params, false).size
       render :layout => false
@@ -22,7 +22,7 @@ class CommentController < ApplicationController
     valid_captcha = false
     if session[:captcha]
       (@captcha = session[:captcha]).actualValue = params["captcha"]["actualValue"]
-      valid_captcha = @captcha.validate
+      valid_captcha = @captcha.valid?
     end
     return valid_captcha    
   end

@@ -1,24 +1,30 @@
-<%= form_for :comment, @comment, :url => saveComment_path( :path => params[:path]), :remote => true do |f| -%>
+<%= form_for @comment, :as => :comment, :url => saveComment_path( :path => params[:path]), :remote => true do |f| -%>
     <%= label :comment, :author, "Your name:" %> <%= f.text_field :author %>
-    <%= error_message_on :comment, :author %>
 
     <%= label :comment, :author_mail , "Your mail address:" %>
     <%= f.text_field :author_mail %>
     <div class="hint">(you can also use <strong>name at domain dot com</strong>)</div>
-    <%= error_message_on :comment, :author_mail %>    
 
     <%= label :comment, :content, "Your comment:" %> <%= f.text_area :content, :cols => 40, :rows => 5 %>
-    <%= error_message_on :comment, :content %>
-    
-    <% fields_for @captcha do |captcha_fields| -%>
+
+    <%= fields_for @captcha do |captcha_fields| -%>
       <%= captcha_fields.label :actualValue, "Are you human? Please type #{@captcha.value}" %>
       <%= captcha_fields.text_field :actualValue %>
-      <%= error_message_on @captcha, :value %>
     <% end -%>
     <br />
     <%= submit_tag "Send comment" , :class => "button" %>
+    <% unless @comment.errors.empty? && @captcha.errors.empty? %>
+      <ul class="formError">
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        <% @captcha.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>    
 <% end -%>
-<% content_for :onload do -%>
+<%= javascript_tag do -%>
   (function() {
     if ($('comment_author').value == '') { 
       $('comment_author').focus()

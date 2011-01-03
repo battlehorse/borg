@@ -1,4 +1,14 @@
 class Comment < Page
+
+  class EmailValidator < ActiveModel::EachValidator
+    def validate_each(record, attribute, value)
+      record.errors[attribute] << (options[:message] || "is not a valid email address") unless
+        (value || '').sub(/ at /,"@").sub(/ dot /,".") =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+    end
+  end 
+
+  validates_presence_of :author, :content
+  validates :author_mail, :presence => true, :email => true
   
   def self.base_folder
     borg(:comment_dir)
@@ -44,21 +54,6 @@ class Comment < Page
   def page
     Page.fromPath(getPagePath)
   end
-      
-  def validate
-    errors.add(:author, "field cannot be empty") if author.blank? || author =~ /^\s*$/
-    errors.add(:author_mail,"field must be a valid e-mail address") if author_mail.blank? || author_mail.sub(/ at /,"@").sub(/ dot /,".") !~ /^[^@]+@[^\.]+\..+$/
-    
-    non_empty_content = false
-    if !@content.blank?
-      @content.each_line { |l| non_empty_content ||= l !~ /^\s*$/ }
-    end
-    unless non_empty_content
-      errors.add(:content,"field cannot be empty")
-    end
-    
-    return errors.empty?
-  end  
   
   def getPagePath
     ppath = path.clone

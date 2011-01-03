@@ -1,6 +1,9 @@
 class Captcha
+  include ActiveModel::Validations
     
   attr_accessor :value, :actualValue
+  
+  validate :must_match_captcha
   
   def initialize
     regenerate
@@ -18,19 +21,12 @@ class Captcha
 
     return c
   end
-  
-  def errors
-    @errors ||= Errors.new
-  end
-  
-  def validate
-    errors.clear
+
+  def must_match_captcha
     if @value != actualValue.upcase
-      errors.add(:value,"Captcha does not match!")
+      errors.add(:captcha, "does not match!")
       regenerate  # regenerate captcha if it's not valid, so the user will see a new one afterward
     end
-
-    return errors.empty?
   end
   
 end
