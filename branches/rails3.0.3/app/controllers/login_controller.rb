@@ -1,10 +1,12 @@
 class LoginController < ApplicationController
   
   def index
+    @jumpto = params[:jumpto] || root_path
     redirect_to root_path if session[:user_id]
   end
   
   def login
+    session[:jumpto] ||= params[:jumpto]
     if using_open_id?
       authenticate
     else
@@ -14,6 +16,7 @@ class LoginController < ApplicationController
   end
   
   def logout
+    @jumpto = params[:jumpto] || root_path
     session[:user_id] = nil
     render :layout => false
   end

@@ -7,6 +7,7 @@
       <%= image_tag "borg/openid.png" , :style => "vertical-align: middle" , :class => "articleimg" %>
       Enter your <%= link_to "OpenId" , "http://www.openid.com" %> to log in :
     </label>
+    <%= hidden_field_tag :jumpto, @jumpto %>
     <%= text_field_tag :openid_url , '' , :size => 40 , :style => "font-size: 120%" -%>
     <%= submit_tag "Login" , :class => "button" -%>
     <% if flash[:error] -%>
