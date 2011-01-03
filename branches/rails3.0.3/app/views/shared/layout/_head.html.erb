@@ -31,4 +31,4 @@
 <link rel="alternate" href="<%= root_path + "comments.rss" %>" type="application/rss+xml" title="Comments RSS" />
 <%= yield :head %>
 
-<title><%= strip_tags(borg(:title)) %> :: <%= yield(:title) || "#{strip_tags(borg(:tagline))}" %></title>
+<title><%= strip_tags(borg(:title)) %> :: <%= yield(:title).empty? ? "#{strip_tags(borg(:tagline))}" : yield(:title) %></title>
