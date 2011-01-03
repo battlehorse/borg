@@ -1,8 +1,8 @@
-<% content_for :title do -%>
+<%= content_for :title do -%>
   Login
 <% end -%>
 <div>
-  <% form_tag({:controller => "login" , :action => "login"}, {:id => 'loginform'})  do |f| -%>
+  <%= form_tag({:controller => "login" , :action => "login"}, {:id => 'loginform'})  do |f| -%>
     <label for="openid_url" >
       <%= image_tag "borg/openid.png" , :style => "vertical-align: middle" , :class => "articleimg" %>
       Enter your <%= link_to "OpenId" , "http://www.openid.com" %> to log in :
@@ -21,7 +21,7 @@
     </a>
   </p>
 </div>
-<% content_for :onload do -%>
+<%= content_for :onload do -%>
   (function() {
     document.getElementById('openid_url').focus();
     Event.observe(document.getElementById('google-account-login'), 'click', function() {

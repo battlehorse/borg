@@ -1,13 +1,13 @@
-<% content_for :title do -%>
+<%= content_for :title do -%>
   <%= @page.title %>
 <% end -%>
-<% content_for :youarehere do -%>
+<%= content_for :youarehere do -%>
 	<%= render :partial => "shared/breadcrumbs" %>
 <% end -%>
-<% content_for :tags do -%>
+<%= content_for :tags do -%>
 	<%= render :partial => "tags" , :object => @page %>
 <% end -%>
-<% content_for :inlinefooter do -%>
+<%= content_for :inlinefooter do -%>
   <% if session[:user_id] && session[:user_id].is_editor -%>
   <span id="edit_this_page">
     | <%= link_to "Edit this page", edit_path({ :path => params[:path] }) %>
@@ -21,7 +21,7 @@
 </p>
 <% if borg(:social_buttons)[:enabled] -%>
   <div id="socialbuttons_container"></div>
-  <% content_for :onload do -%>
+  <%= content_for :onload do -%>
     (function() {
       new Ajax.Updater('socialbuttons_container', '<%= socialbuttons_path :path => params[:path], :title => @page.title %>', {
         evalScripts: true

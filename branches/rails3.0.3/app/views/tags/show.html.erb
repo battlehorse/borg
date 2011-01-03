@@ -1,4 +1,4 @@
-<% content_for :youarehere do %>
+<%= content_for :youarehere do %>
 	<p style="margin-top: 0">
 		<%= image_tag "borg/youarehere.png" , :style => "float:left" %> You are here:
 		<%= link_to "Home" , root_path %>
@@ -8,7 +8,7 @@
 		<%= @tag %>
 	</p>	
 <% end %>
-<% content_for :intro do %>
+<%= content_for :intro do %>
 	<h1>Tag: <%= @tag %></h1>
 
 	<p>The following articles match the tag <strong><%= @tag %></strong>:</p>

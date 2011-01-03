@@ -9,7 +9,7 @@
   <input type="button" value="Save" class="button saveButton" id="saveButton">
 </p>
 <div id="editmode">
-  <% form_tag({}, {:id => "editform" })  do -%>
+  <%= form_tag({}, {:id => "editform" })  do -%>
     <textarea id="editAreaId" name="content"><%= raw_content(@page) || boilerplate(@kind) %></textarea>
   <% end -%>
 </div>
