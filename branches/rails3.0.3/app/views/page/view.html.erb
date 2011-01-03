@@ -7,10 +7,10 @@
 <%= content_for :tags do -%>
 	<%= render :partial => "tags" , :object => @page %>
 <% end -%>
-<%= content_for :inlinefooter do -%>
+<%= content_for :siteactions do -%>
   <% if session[:user_id] && session[:user_id].is_editor -%>
   <span id="edit_this_page">
-    | <%= link_to "Edit this page", edit_path({ :path => params[:path] }) %>
+    | <%= link_to "Edit page", edit_path({ :path => params[:path] }) %>
   </span>
   <% end -%>
 <% end -%>

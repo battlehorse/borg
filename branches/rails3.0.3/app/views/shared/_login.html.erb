@@ -5,7 +5,7 @@
                 :id => 'logout_link',
                 :remote => true %>
     <% if session[:user_id].is_editor -%>
-      | <%= link_to "Create", :controller => 'edit', :action => 'new'%>
+      | <%= link_to "New page", :controller => 'edit', :action => 'new'%>
     <% end -%>
   <% else -%>
     <%= link_to "Login", login_path(:jumpto => @jumpto || request.fullpath) %>
