@@ -15,7 +15,7 @@ class LoginController < ApplicationController
   
   def logout
     session[:user_id] = nil
-    render :partial => "shared/login"
+    render :layout => false
   end
   
   protected
@@ -42,9 +42,6 @@ class LoginController < ApplicationController
       end
     end
   end  
-    
-  def root_url
-    openid_url
-  end  
+
   
 end
