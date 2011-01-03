@@ -67,7 +67,7 @@ body {
   width: 570px; */
   margin: 5px 5px 0 0; 
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1.1em;
 }
 
 .title { color: rgb(42, 93, 176); background: #fff; }
@@ -137,9 +137,11 @@ body {
 /* message subheader */
 .message {
   background-color: rgb(239, 239, 239);
-  border-top: 0px;
-  border-bottom: 1px solid rgb(187, 187, 187);
-  margin: 3px 0;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border: 1px solid rgb(187, 187, 187);
+  margin: 0;
   padding: 0 2px;
 }
 
@@ -173,9 +175,9 @@ body {
 
 /* search form */
 .search { 
-  margin: 3px 0 10px 0;
+  margin: 0 0 5px 0;
   padding: 0;
-  border-top: 0;
+  border-top: 1px solid rgb(105, 193, 125);
   border-bottom: 1px solid rgb(105, 193, 125);
   background: rgb(201, 237, 204);
 }
@@ -307,6 +309,7 @@ label {
 
 .edit_buttons {
   margin: 0.2em 0;
+  font-size: 140%;
 }
 
 .edit_buttons .saveButton {
