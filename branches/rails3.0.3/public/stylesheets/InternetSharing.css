@@ -314,11 +314,3 @@ a.retweet span.vert {
   -webkit-border-radius: 2px;
   border-radius: 2px;  
 }
-
-#translateLink {
-  float:right; margin-right: 15px;
-}
-
-#translateBox {
-  float:right; margin-right: 15px;
-}

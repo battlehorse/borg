@@ -31,6 +31,10 @@
       <div class="box">
         <%= render :partial => "shared/content" , :object => @sidebar %>
       </div>
+      
+      <% if borg(:google_translate)[:enabled] -%>
+        <div id="google_translate_element" style="display:block"></div>
+      <% end -%>      
     </div>
   </div>
   <%= render :partial => "shared/layout/siteactions" %>  
