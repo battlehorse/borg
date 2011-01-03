@@ -33,7 +33,7 @@ Borg2::Application.routes.draw do
   
     # CRUD Actions
     match 'edit/new' => 'edit#new', :as => :new
-    match 'create/*path' => 'edit#create', :as => :create
+    match 'create(/*path)' => 'edit#create', :as => :create
     match 'edit/*path' => 'edit#read', :as => :edit
     match 'preview/*path' => 'edit#preview', :as => :preview
     match 'livepreview/*path' => 'edit#livepreview', :as => :livepreview
