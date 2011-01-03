@@ -53,7 +53,7 @@ module BreadcrumbsHelper
   
   def path_from_params
     if params[:path]
-      params[:path].class == String ? params[:path].split('/') : params[:path]
+      params[:path].is_a?(String) ? params[:path].split('/') : params[:path]
     else
       []
     end
