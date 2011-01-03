@@ -25,15 +25,30 @@ class LoginController < ApplicationController
   
   def authenticate(identity_url = "")
     authenticate_with_open_id(
-    params[:openid_url], :required => [:nickname, :email ], :optional => [:fullname]) do 
-      |result, identity_url, registration|
-      
+      params[:openid_url], 
+      :required => [:nickname, :email,  # sreg fields
+                    "http://axschema.org/contact/email",
+                    "http://axschema.org/namePerson/first",
+                    "http://axschema.org/namePerson/last"], 
+      :optional => [:fullname]) do 
+        |result, identity_url, registration|
+
       if result.successful?
+        sreg_response = registration
+        ax_response = OpenID::AX::FetchResponse.from_success_response(
+            request.env[Rack::OpenID::RESPONSE])
+        
         @user = User.new
-        @user.identity_url = identity_url
-        @user.nickname = registration["nickname"]
-        @user.email = registration["email"]
-        @user.fullname = registration["fullname"]
+        @user.identity_url = identity_url        
+        if ax_response
+          @user.email = ax_response['http://axschema.org/contact/email'][0]
+          @user.fullname = ax_response['http://axschema.org/namePerson/first'][0] + ' ' +
+              ax_response['http://axschema.org/namePerson/last'][0]
+        else
+          @user.nickname = sreg_response["nickname"]
+          @user.email = sreg_response["email"]
+          @user.fullname = sreg_response["fullname"]
+        end
         session[:user_id] = @user
         
         jumpto = session[:jumpto] || root_url

@@ -1,8 +1,8 @@
 <% content_for :title do -%>
   Login
 <% end -%>
-<div id="loginform">
-  <% form_tag :controller => "login" , :action => "login"  do |f| -%>
+<div>
+  <% form_tag({:controller => "login" , :action => "login"}, {:id => 'loginform'})  do |f| -%>
     <label for="openid_url" >
       <%= image_tag "borg/openid.png" , :style => "vertical-align: middle" , :class => "articleimg" %>
       Enter your <%= link_to "OpenId" , "http://www.openid.com" %> to log in :
@@ -10,13 +10,24 @@
     <%= hidden_field_tag :jumpto, @jumpto %>
     <%= text_field_tag :openid_url , '' , :size => 40 , :style => "font-size: 120%" -%>
     <%= submit_tag "Login" , :class => "button" -%>
-    <% if flash[:error] -%>
-      <br /><%= flash[:error] %>
-    <% end -%>
   <% end -%>
+  <p>
+    Or select one of your existing accounts:
+  </p>
+  <p>
+    <a href="javascript:;" id="google-account-login">
+      <%= image_tag "borg/google-icon.png" , :style => "vertical-align: middle; border: 0" %>
+      Google Accounts
+    </a>
+  </p>
 </div>
 <% content_for :onload do -%>
   (function() {
     document.getElementById('openid_url').focus();
+    Event.observe(document.getElementById('google-account-login'), 'click', function() {
+      document.getElementById('openid_url').value = 'google.com/accounts/o8/id';
+      document.getElementById('loginform').submit();
+    });
+    
   })();
 <% end -%>
