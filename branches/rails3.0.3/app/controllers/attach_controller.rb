@@ -4,7 +4,9 @@ class AttachController < ApplicationController
   before_filter :check_permission, :except => [:read]
 
   def fetch
-    render :text => params[:path], :layout => false
+    @attachment = Attachment.fromParams(:upload_path => path_from_params.join('/'))
+    render_404 and return unless @attachment.exists?
+    render :text => @attachment.raw_data, :layout => false, :content_type => @attachment.content_type
   end
   
   def show

@@ -45,6 +45,16 @@ class Attachment < Resource
     return att
   end
   
+  def load_uploaded_file
+    @file_size = @file.tempfile.size
+    if !is_file?(path)
+      self.upload_path +=  @file.original_filename
+    end
+    if @file_size < BorgConfig[:max_upload_size]
+      @raw_data = IO.read(@file.tempfile)
+    end
+  end  
+  
   def initialize(rpath=nil)
     super()
     @rpath = rpath
@@ -57,15 +67,16 @@ class Attachment < Resource
   def upload_path=(uppath)
     self.path = uppath.split('/')
   end
-    
-  def load_uploaded_file
-    @file_size = @file.tempfile.size
-    if !is_file?(path)
-      self.upload_path +=  @file.original_filename
-    end
-    if @file_size < BorgConfig[:max_upload_size]
-      @raw_data = IO.read(@file.tempfile)
-    end
+  
+  def exists?
+    File.exists?(@rpath)
   end
+  
+  def content_type
+    extension = File.extname(@rpath)[1..-1]
+    mime_type = Mime::Type.lookup_by_extension(extension)
+    mime_type.nil? ? nil : mime_type.to_s
+  end
+
   
 end
