@@ -4,17 +4,16 @@
 # ragel -R redcloth.rl
 #
 class BorgRedCloth
-  attr_reader :links, :cliparts
+  attr_reader :links
 
   def initialize
     @links = []
-    @cliparts = []
 
     
-# line 56 "redcloth.rl"
+# line 55 "redcloth.rl"
 
     
-# line 18 "redcloth.rb"
+# line 17 "redcloth.rb"
 class << self
 	attr_accessor :_borg_parser_actions
 	private :_borg_parser_actions, :_borg_parser_actions=
@@ -229,7 +228,7 @@ end
 self.borg_parser_en_main = 53;
 
 
-# line 58 "redcloth.rl"
+# line 57 "redcloth.rl"
   end
   
   def parse(data)
@@ -238,7 +237,7 @@ self.borg_parser_en_main = 53;
     eof = data.length
 
     
-# line 242 "redcloth.rb"
+# line 241 "redcloth.rb"
 begin
 	p ||= 0
 	pe ||= data.length
@@ -248,9 +247,9 @@ begin
 	act = 0
 end
 
-# line 66 "redcloth.rl"
+# line 65 "redcloth.rl"
     
-# line 254 "redcloth.rb"
+# line 253 "redcloth.rb"
 begin
 	_klen, _trans, _keys, _acts, _nacts = nil
 	_goto_level = 0
@@ -280,7 +279,7 @@ begin
 		begin
 ts = p
 		end
-# line 284 "redcloth.rb"
+# line 283 "redcloth.rb"
 		end # from state action switch
 	end
 	if _trigger_goto
@@ -348,13 +347,13 @@ ts = p
 			_acts += 1
 			case _borg_parser_actions[_acts - 1]
 when 0 then
-# line 19 "redcloth.rl"
+# line 18 "redcloth.rl"
 		begin
 
         @mark_link = p
       		end
 when 1 then
-# line 22 "redcloth.rl"
+# line 21 "redcloth.rl"
 		begin
  @mark_link = p 		end
 when 4 then
@@ -363,24 +362,24 @@ when 4 then
 te = p+1
 		end
 when 5 then
-# line 30 "redcloth.rl"
+# line 29 "redcloth.rl"
 		begin
 act = 1;		end
 when 6 then
-# line 31 "redcloth.rl"
+# line 30 "redcloth.rl"
 		begin
 act = 2;		end
 when 7 then
-# line 54 "redcloth.rl"
+# line 53 "redcloth.rl"
 		begin
 act = 7;		end
 when 8 then
-# line 32 "redcloth.rl"
+# line 31 "redcloth.rl"
 		begin
 te = p+1
 		end
 when 9 then
-# line 33 "redcloth.rl"
+# line 32 "redcloth.rl"
 		begin
 te = p+1
  begin 
@@ -392,7 +391,7 @@ te = p+1
          end
 		end
 when 10 then
-# line 40 "redcloth.rl"
+# line 39 "redcloth.rl"
 		begin
 te = p+1
  begin 
@@ -404,11 +403,11 @@ te = p+1
          end
 		end
 when 11 then
-# line 47 "redcloth.rl"
+# line 46 "redcloth.rl"
 		begin
 te = p+1
  begin  
-          @cliparts << {
+          @links << {
             :start => ts,
             :end => te-1,
             :text => source[ts..(te-1)]
@@ -416,27 +415,27 @@ te = p+1
          end
 		end
 when 12 then
-# line 54 "redcloth.rl"
+# line 53 "redcloth.rl"
 		begin
 te = p+1
 		end
 when 13 then
-# line 30 "redcloth.rl"
+# line 29 "redcloth.rl"
 		begin
 te = p
 p = p - 1;		end
 when 14 then
-# line 31 "redcloth.rl"
+# line 30 "redcloth.rl"
 		begin
 te = p
 p = p - 1;		end
 when 15 then
-# line 54 "redcloth.rl"
+# line 53 "redcloth.rl"
 		begin
 te = p
 p = p - 1;		end
 when 16 then
-# line 54 "redcloth.rl"
+# line 53 "redcloth.rl"
 		begin
  begin p = ((te))-1; end
 		end
@@ -455,7 +454,7 @@ end
 end
 end 
 			end
-# line 459 "redcloth.rb"
+# line 458 "redcloth.rb"
 			end # action switch
 		end
 	end
@@ -475,7 +474,7 @@ when 2 then
 # line 1 "NONE"
 		begin
 ts = nil;		end
-# line 479 "redcloth.rb"
+# line 478 "redcloth.rb"
 		end # to state action switch
 	end
 	if _trigger_goto
@@ -502,7 +501,7 @@ end
 	end
 	end
 
-# line 67 "redcloth.rl"
+# line 66 "redcloth.rl"
   end
 
 end

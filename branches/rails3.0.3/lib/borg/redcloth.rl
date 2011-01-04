@@ -2,11 +2,10 @@
 # ragel -R redcloth.rl
 #
 class BorgRedCloth
-  attr_reader :links, :cliparts
+  attr_reader :links
 
   def initialize
     @links = []
-    @cliparts = []
 
     %%{
       machine borg_parser;
@@ -45,7 +44,7 @@ class BorgRedCloth
           }
         };
         clipart { 
-          @cliparts << {
+          @links << {
             :start => ts,
             :end => te-1,
             :text => source[ts..(te-1)]

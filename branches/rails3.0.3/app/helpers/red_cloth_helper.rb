@@ -26,20 +26,21 @@ module RedClothHelper
     
     br = BorgRedCloth.new
     br.parse(data)
-    
-    # Replace 'default' (or 'clipart') images
-    data = replace(data, br.cliparts) do |text|
-      BorgConfig[:default_img_url] + text[2..(text.length-3)].downcase + ".png"
-    end
-    
-    # Fix internal links
+
+    # Fix internal links and replace 'default' (or 'clipart') images:
+    #
     # plain pages use square [] brackets
     # list pages use curly {} brackets
     # blog pages use angled <> brackets
     # attachments are wrapped within ##
     # tag pages just use "tags"
+    #
+    # Cliparts use '__' prefix and suffix.
     data = replace(data, br.links) do |link|
-      if link.start_with? '['
+      if link.start_with? '__'
+        # clipart
+        BorgConfig[:default_img_url] + link[2..(link.length-3)].downcase + ".png"
+      elsif link.start_with? '['
         page_path({:path => link[1, link.length-2].split('/')})
       elsif link.start_with? '{'
         list_path({:path => link[1, link.length-2].split('/')})
@@ -57,7 +58,7 @@ module RedClothHelper
         url_for({:controller => "tags", :only_path => true})
       end
     end
-    
+
     r = RedCloth.new data
     r.to_html.html_safe
   end  
