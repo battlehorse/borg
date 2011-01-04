@@ -1,6 +1,9 @@
 <%= content_for :head do -%>
 	<%= stylesheet_link_tag "cloud" %>
 <% end -%>
+<%= content_for :youarehere do %>
+  <%= render :partial => "shared/breadcrumbs", :locals => {:crumbs => [["Tags", {:controller => "tags"}]]} %>
+<% end %>
 <h1>Tags</h1>
 <% if @tags.size > 0 -%>
 	<p>The following tags have been found on the site:</p>

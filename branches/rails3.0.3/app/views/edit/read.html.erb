@@ -1,3 +1,6 @@
+<%= content_for :youarehere do %>
+  <%= render :partial => "shared/breadcrumbs", :locals => {:crumbs => [["Edit page", edit_path({ :path => params[:path] })]]} %>
+<% end %>
 <h1><%= @title %></h1>
 
 <p class="edit_buttons">

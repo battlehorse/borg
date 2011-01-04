@@ -1,6 +1,9 @@
 <%= content_for :title do -%>
   Sitemap
 <% end -%>
+<%= content_for :youarehere do %>
+  <%= render :partial => "shared/breadcrumbs", :locals => {:crumbs => [["Sitemap", {:controller => "sitemap", :action => "view"}]]} %>
+<% end %>
 
 <h1>Sitemap and Blog archives</h1>
 <p>

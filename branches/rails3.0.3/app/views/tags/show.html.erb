@@ -1,12 +1,5 @@
 <%= content_for :youarehere do %>
-	<p style="margin-top: 0">
-		<%= image_tag "borg/youarehere.png" , :style => "float:left" %> You are here:
-		<%= link_to "Home" , root_path %>
-		<%= image_tag "borg/arrow.png" %>
-		<%= link_to "Tags" , :controller => "tags" %>
-		<%= image_tag "borg/arrow.png" %>
-		<%= @tag %>
-	</p>	
+  <%= render :partial => "shared/breadcrumbs", :locals => {:crumbs => [["Tags", {:controller => "tags"}], [@tag, tag_path(@tag)]]} %>
 <% end %>
 <%= content_for :intro do %>
 	<h1>Tag: <%= @tag %></h1>

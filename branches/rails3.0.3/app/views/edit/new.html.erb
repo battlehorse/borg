@@ -1,3 +1,6 @@
+<%= content_for :youarehere do %>
+  <%= render :partial => "shared/breadcrumbs", :locals => {:crumbs => [["New page", new_path]]} %>
+<% end %>
 <h1>Create a new site entry</h1>
 <%= form_tag create_path, :method => :get, :id => 'new_site_entry_form' do -%>
   Kind: 

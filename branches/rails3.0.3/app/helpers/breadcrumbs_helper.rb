@@ -22,6 +22,14 @@ module BreadcrumbsHelper
     return content
   end
   
+  def render_explicit_breadcrumbs(breadcrumbs)
+    content = ""
+    breadcrumbs.each do |breadcrumb|
+      append(content, link_to(breadcrumb[0], breadcrumb[1]))
+    end
+    return content
+  end
+  
   private
   
   def append(buffer, breadcrumb)

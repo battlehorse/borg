@@ -1,3 +1,6 @@
+<%= content_for :youarehere do %>
+  <%= render :partial => "shared/breadcrumbs", :locals => {:crumbs => [["Upload", {:controller => "attach", :action => "show"}]]} %>
+<% end %>
 <h1>Manage Uploads</h1>
 <% if flash[:upload] %>
   <% if flash[:upload][:status] == :ok %>
