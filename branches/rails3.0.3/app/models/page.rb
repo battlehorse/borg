@@ -24,14 +24,14 @@ class Page < Resource
   end
   
   def self.fromPath(path)
-    rpath = @@finder.find(path, base_folder)
+    rpath = @@finder.find(path, base_folder, true)
     rpath.blank? ? nil : Page.new(rpath[0])
   end
   
   def self.allFromPath(path, recursive=true)
     rpaths = recursive  ?
-             @@lister.list(path, base_folder) :
-             @@finder.find_and_prune(path, base_folder)
+             @@lister.list(path, base_folder, true, true) :
+             @@finder.find_and_prune(path, base_folder, true)
     
     rpaths = [] if rpaths.blank?
     rpaths.map { |rpath| Page.new(rpath) }

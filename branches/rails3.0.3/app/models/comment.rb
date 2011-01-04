@@ -21,8 +21,8 @@ class Comment < Page
   def self.allFromPath(path, recursive=true)
     path = toCommentPath(path)
     rpaths = recursive  ?
-             @@lister.list(path, base_folder) :
-             @@finder.find_and_prune(path, base_folder)
+             @@lister.list(path, base_folder, true, true) :
+             @@finder.find_and_prune(path, base_folder, true)
     
     rpaths = [] if rpaths.blank?
     rpaths.map { |rpath| Comment.new(rpath) }
@@ -48,7 +48,7 @@ class Comment < Page
   end
   
   def self.toCommentPath(path)
-    path.map { |token| token.gsub(/\.html/,".comments") }
+    path.map { |token| token.gsub(/\.html/,"_comments") }
   end
   
   def page
@@ -58,7 +58,7 @@ class Comment < Page
   def getPagePath
     ppath = path.clone
     ppath.slice!(ppath.length-1)
-    ppath.last.gsub!(/\.comments$/, ".html")
+    ppath.last.gsub!(/\_comments$/, ".html")
     
     return ppath
   end
