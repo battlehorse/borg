@@ -15,6 +15,15 @@ BorgConfig = {
   # Directory where all the attachments are stored
   :attach_dir => "/path/to/attachments/dir/",
 
+  # Maximum size of uploaded files (in bytes)
+  :max_upload_size => 1 * 1024 * 1024,  # 1 Mb
+  
+  # URL prefix to serve attachments.
+  # If empty, Rails will serve all attachments directly.
+  # If defined (e.g.: http://static.yourhost.com/files/) the url prefix will be
+  # prepended to all attachments links. 
+  :attach_serving_url => '',  
+
   # CSS Template: 'InternetSharing', 'CoolWater', 'bigG',
   # NOTE: bigG is the only template currently supporting mobile devices:
   # iphone, ipod touch, android (nexus one).
@@ -63,5 +72,12 @@ BorgConfig = {
 
   # Google chatback. Paste here the content as generated from http://www.google.com/talk/service/badge/New, if you want to use it.
   # Note that Google chatback is not enabled when accessing the site from mobile devices.
-  :google_chatback => ''
+  :google_chatback => '',
+  
+  # Whether to enable the Google translation widget or not.
+  # See http://www.google.com/webelements/#show-translate
+  :google_translate => {
+    :enabled => true,
+    :source_language => 'en'
+  }
 }
