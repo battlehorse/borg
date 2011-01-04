@@ -48,7 +48,11 @@ module RedClothHelper
           blog_path({ :year => $1, :month => $2, :day => $3 })
         end
       elsif link.start_with? '#'
-        attach_path({:path => link[1, link.length-2].split('/')})
+        if BorgConfig[:attach_serving_url].empty?
+          attach_path({:path => link[1, link.length-2].split('/')})
+        else
+          BorgConfig[:attach_serving_url] + link[1, link.length-2]
+        end
       elsif link == "tags"
         url_for({:controller => "tags", :only_path => true})
       end
