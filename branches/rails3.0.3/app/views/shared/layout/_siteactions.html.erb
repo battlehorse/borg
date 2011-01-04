@@ -1,7 +1,7 @@
 <div id="site-actions">
 	<p>
 	<%= render :partial => "shared/login" %>
-  <%= yield :siteactions %>	
+  <%= yield :pageactions %>	
 	| <%= link_to "Contact", page_url(:path => borg(:contact_url)) %>
 	| <%= link_to "Site Map", :controller => :sitemap, :action => :view %>
 	| <%= image_tag "borg/feed.png" , :style => "vertical-align: middle" %>
