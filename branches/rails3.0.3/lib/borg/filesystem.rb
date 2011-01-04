@@ -25,7 +25,7 @@ module Borg
     def delete(rpath)
       ::Rails.logger.debug "Deleting #{rpath}"
       
-      raise "Page #{rpath} to be deleted is not a page" if !is_content?(rpath.split("/"))
+      raise "Page #{rpath} to be deleted is not a file" if !is_file?(rpath.split("/"))
       File.delete(rpath) # may raise an error if file cannot be deleted
       
       folder_path = rpath.split("/")
@@ -43,7 +43,7 @@ module Borg
       tokens = rpath.split("/")
       tokens = tokens[0..(tokens.length-2)]
       
-      raise "Destination folder #{tokens.join('/')} appears to be a file?" if is_content?(tokens)
+      raise "Destination folder #{tokens.join('/')} appears to be a file?" if is_file?(tokens)
       
       f = "/"
       tokens.each do |t|

@@ -8,12 +8,12 @@ module Borg
     include Borg::Util
 
     # Locates a borg page given its path ( such as ["programming","java","myfile.html"]).
-    # A borg page can be a 'content' page or a 'list' page. 
-    # A content page should end with the '.html' extension. If the content page is not found
-    # in its path, the higher level folders are searched.
+    # A borg page can be a 'content' page or a 'list' page.
+    # A content page can be a generic file or be restricted to have the '.html' extension.
+    # If the content page is not found in its path, the higher level folders are searched.
     # A list page contains all the content pages in the requested folder.
-    def find(path, base_folder=nil)
-      if is_content?(path)
+    def find(path, base_folder=nil, strict_html_content=false)
+      if strict_html_content ? is_content?(path) : is_file?(path)
         # This is expected to be a content page
         folderpath = path[0, path.length-1]
         fname = path.last
@@ -32,7 +32,7 @@ module Borg
         
         rpath = root(path, base_folder)
         if File.directory?(rpath)
-          return Dir.entries(rpath).reject { |file| !is_content?([file]) }.map { |file| rpath + "/" + file }
+          return Dir.entries(rpath).reject { |file| strict_html_content ? !is_content?([file]) : !is_file?([file]) }.map { |file| rpath + "/" + file }
         end
       end
       
@@ -40,8 +40,8 @@ module Borg
       return nil
     end
     
-    def find_and_prune(path, base_folder=nil)
-      res = find(path, base_folder)
+    def find_and_prune(path, base_folder=nil, strict_html_content=false)
+      res = find(path, base_folder, strict_html_content=false)
       unless res.nil?
         res = prune(res)
       end

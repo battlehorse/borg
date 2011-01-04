@@ -8,13 +8,13 @@ module Borg
     class Lister
       include Borg::Util
       
-      def list(path,base_folder, recursive = true)
+      def list(path,base_folder, recursive = true, strict_html_content=false)
         finder = Borg::Finder.new
         
         res = []
         rpath = root(path, base_folder)
         if File.directory?(rpath)
-          res << finder.find_and_prune(path, base_folder)
+          res << finder.find_and_prune(path, base_folder, strict_html_content)
             
           if recursive
             Dir.new(rpath).

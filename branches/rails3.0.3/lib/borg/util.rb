@@ -37,6 +37,10 @@ module Borg
     
     def is_content?(path)
       path.length > 0 && path.last.downcase =~ /\.html$/
-    end    
+    end
+    
+    def is_file?(path)
+      path.length > 0 && path.last.downcase =~ /[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+/
+    end
   end
 end
