@@ -1,0 +1,51 @@
+<h1>Manage Uploads</h1>
+<% if flash[:upload] %>
+  <% if flash[:upload][:status] == :ok %>
+    <p><%= flash[:upload][:message] %></p>
+  <% else %>
+    <ul class="formError">
+      <% flash[:upload][:errors].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>    
+  <% end %>
+<% end %>
+
+<%= form_for @attachment, :as => :attachment, :url => upload_path, :html => {:multipart => true}  do |f| %>
+  <%= label :attachment, :upload_path, "Upload path:" %> <%= f.text_field :upload_path %>
+  
+  <%= label :attachment, :file, "File:" %> <%= f.file_field :file %>
+  <%= submit_tag "Upload" , :class => "button" %>
+<% end %>
+<p>
+  You can include a filename in the path or not. If present, the uploaded file will be renamed.
+  The filename must have an extension (e.g.: foo.png)
+</p>
+
+<h2>Uploaded files</h2>
+<% if @all_attachments.empty? %>
+  <p>No uploaded files yet.</p>
+<% end %>
+<ul class='delete_upload'>
+  <% @all_attachments.each do |att| %>
+    <li><%= link_to att.upload_path, attach_path(:path => att.path) %>
+      <%= form_for att, :as => :attachment, :url => deleteUpload_path(:path => att.path), :html => {:class => 'delete_upload_form'} do %>
+        <%= submit_tag "Delete", :class => "button" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= content_for :onload do -%>
+  (function() {
+    $$('.delete_upload_form').each(function(form) {
+      form.observe('submit', function(ev) {
+        var do_submit = confirm("Do you really want to delete this file?");
+        if (!do_submit) {
+          Event.stop(ev);
+        }
+        return do_submit;
+      });
+    });
+  })();
+<% end -%>

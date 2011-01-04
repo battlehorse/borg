@@ -10,7 +10,10 @@ Borg2::Application.routes.draw do
     # Main URLs
     match 'page/*path' => 'page#view', :as => :page
     match 'list/*path' => 'list#list', :as => :list
-    match 'attach/*path' => 'attach#read', :as => :attach
+    match 'attach/show' => 'attach#show'
+    match 'upload' => 'attach#upload', :as => :upload
+    match 'deleteUpload/*path' => 'attach#delete', :as => :deleteUpload
+    match 'attach/*path' => 'attach#fetch', :as => :attach
     match 'tag/:id' => 'tags#show', :as => :tag
     match 'blog(/:year(/:month(/:day)))' => 'list#blog',
       :constraints => { :year => /(19|20)\d\d/ , :month => /[01]\d/ , :day => /[0-3]\d/ },
