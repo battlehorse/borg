@@ -19,6 +19,7 @@ class BorgRedCloth
       link = '"' (any - '"')+ '":' (page_url|list_url|blog_url|tag_url|attach_url) > {
         @mark_link = p
       };
+      image = '!' (any - '#')+ (attach_url) > { @mark_link = p } '!';
       clipart = "__" [A-Z\-]+ "__";
 
       codeblock = "<code>" any+ "</code>";
@@ -34,6 +35,13 @@ class BorgRedCloth
             :start => @mark_link,
             :end => te-1,
             :text => source[@mark_link..(te-1)]
+          }
+        };
+        image {
+          @links << {
+            :start => @mark_link,
+            :end => te-2,
+            :text => source[@mark_link..(te-2)]
           }
         };
         clipart { 
