@@ -1,7 +1,7 @@
 <h1>Manage Uploads</h1>
 <% if flash[:upload] %>
   <% if flash[:upload][:status] == :ok %>
-    <p><%= flash[:upload][:message] %></p>
+    <p class="formSuccess"><%= flash[:upload][:message] %></p>
   <% else %>
     <ul class="formError">
       <% flash[:upload][:errors].each do |msg| %>

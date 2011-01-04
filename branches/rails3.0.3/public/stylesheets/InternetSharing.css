@@ -93,6 +93,27 @@ input.edit {
 }
 input.button { padding: 3px; }
 
+/* Upload management form */
+UL.delete_upload {
+  padding: 0;
+  margin: 0 0 0.5em 0;
+}
+
+.delete_upload LI {
+  list-style-type: none;
+  border-top: 1px dotted #ccc;
+  clear: both;
+}
+
+.delete_upload LI:first-child {
+  border: 0px;
+}
+
+.delete_upload_form { 
+  display: inline;
+  float: right;
+}
+
 /* left side */
 .left_articles {
 	text-align: justify;
@@ -229,6 +250,10 @@ UL.formError {
 
 .formError LI {
   list-style-type: none;
+}
+
+.formSuccess {
+  color: green;
 }
 
 .blog_archive {

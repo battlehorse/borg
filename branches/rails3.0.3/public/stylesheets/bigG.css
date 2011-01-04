@@ -194,6 +194,27 @@ input.button {
   width: 15.5em;
 }
 
+/* Upload management form */
+UL.delete_upload {
+  padding: 0;
+  margin: 0 0 0.5em 0;
+}
+
+.delete_upload LI {
+  list-style-type: none;
+  border-top: 1px solid rgb(187, 187, 187);
+  clear: both;
+}
+
+.delete_upload LI:first-child {
+  border: 0px;
+}
+
+.delete_upload_form { 
+  display: inline;
+  float: right;
+}
+
 /* left side */
 .left_articles {
 	text-align: justify;
@@ -339,6 +360,10 @@ UL.formError {
 
 .formError LI {
   list-style-type: none;
+}
+
+.formSuccess {
+  color: green;
 }
 
 .article-meta {

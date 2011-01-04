@@ -241,6 +241,8 @@ input.edit {
 	color: #C6DDEE;
 	font: bold 14px"Trebuchet MS", Arial, Tahoma, Sans-serif;
 	top: 20px; right: 20px;	
+	max-width: 400px;
+	text-align: right;
 }
 #site-actions a {	
 	color: #fff;
@@ -558,4 +560,30 @@ a.retweet span.vert {
 object {
 	margin: 10px 15px;
 	padding: 0;
+}
+
+/* Upload management form */
+UL.delete_upload {
+  margin-bottom: 0.5em;
+}
+
+.delete_upload LI {
+  list-style-type: none;
+  border-top: 1px solid rgb(187, 187, 187);
+  clear: both;
+}
+
+.delete_upload LI:first-child {
+  border: 0px;
+}
+
+#main .delete_upload_form { 
+  display: inline;
+  float: right;
+  margin: 0.2em 0;
+  padding: 0;
+}
+
+.delete_upload_form INPUT {
+  height: auto;
 }
