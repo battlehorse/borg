@@ -80,8 +80,8 @@ class SitemapController < ApplicationController
   
   private
   
-  def make_absolute_url(relative_url)
-    "#{request.protocol}#{request.host}#{request.port == 80 ? '' : ':' + request.port.to_s}#{root_url}#{relative_url}"    
+  def make_absolute_url(relative_path)
+    root_url.chomp('/') + relative_path
   end
   
   def add_sitemap_url(url, attributes)
