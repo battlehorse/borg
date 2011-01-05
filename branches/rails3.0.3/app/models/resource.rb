@@ -1,3 +1,4 @@
+require 'borg/config/borg_' + ::Rails.env
 require 'borg/util'
 require 'borg/lister'
 require 'borg/filesystem'
