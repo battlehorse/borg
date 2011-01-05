@@ -5,9 +5,7 @@ class SocialController < ApplicationController
   end
   
   def retweet
-    respond_to do |format|
-      format.js { render :layout => false }
-    end
+    render :template => 'social/retweet.js.erb', :content_type => 'application/javascript'
   end
 
 end

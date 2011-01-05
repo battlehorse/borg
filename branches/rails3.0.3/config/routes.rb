@@ -30,6 +30,7 @@ Borg2::Application.routes.draw do
   
     # Social buttons
     match 'social/buttons/*path' => 'social#buttons', :as => :socialbuttons
+    match 'social/retweet.js' => 'social#retweet'
   
     # OpenID
     get 'login' => 'login#index'
