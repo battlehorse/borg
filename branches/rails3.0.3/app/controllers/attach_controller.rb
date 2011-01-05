@@ -1,7 +1,7 @@
 class AttachController < ApplicationController
   include ActionView::Helpers::NumberHelper
   
-  before_filter :check_permission, :except => [:read]
+  before_filter :check_permission, :except => [:fetch]
 
   def fetch
     @attachment = Attachment.fromParams(:upload_path => path_from_params.join('/'))
