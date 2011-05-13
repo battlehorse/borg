@@ -36,3 +36,48 @@
 * Support for the latest serving stack: Rails 3.0.3 + Ruby 1.9.2,
 * works on all major browsers ( Firefox, Safari, Opera, IE, Chrome )
 * Full support for high-end mobile devices (iPhone, Android phones like the Nexus One and Nexux S)(new in version _3.0_)
+
+## Screenshots ##
+
+**bigG** template
+
+**InternetSharing** template
+<a href="http://www.battlehorse.net/borg-att/screenshots/internet_sharing_list.png">
+  <img style='float:left; border: 0'
+       src='http://www.battlehorse.net/borg-att/screenshots/internet_sharing_list_tb.png'>
+</a>
+<a href="http://www.battlehorse.net/borg-att/screenshots/internet_sharing_tags.png">
+  <img style='float:left; border: 0'
+       src='http://www.battlehorse.net/borg-att/screenshots/internet_sharing_tags_tb.png'>
+</a>
+
+<br style="clear:both" />
+
+**CoolWater** template
+<img style='float:left; border: 0'
+     src="http://www.battlehorse.net/borg-att/screenshots/borg1_tb.png">
+<img style='float:left; border: 0'
+     src="http://www.battlehorse.net/borg-att/screenshots/borg2_tb.png">
+<img style='float:left; border: 0'
+     src="http://www.battlehorse.net/borg-att/screenshots/borg3_tb.png">
+
+<br style="clear:both" />
+
+## Versions and Branches ##
+
+* **rails3.0.3** branch: borg version tuned for rails 3.0.3 and ruby 1.9.2. Currently developed.
+* **rails2.3.5** , **rails2.3.2**, **rails2.1.1** : borg versions tuned for previous rails versions. No longer maintained.
+
+#### Releases ####
+
+* **v3.0** tag : current (recommended) borg version, targeting rails 3.0.3.
+  * deps: as declared in Gemfile.lock
+* **v2.5** tag : targets rails 2.3.2
+  * deps: rails/2.3.2 , RedCloth/4.1.9 , ruby-openid/2.1.6 , rubytree/0.5.2 , chronic/0.2.3
+* **v2.0** tag : targs rails 2.1.2
+  * deps: rails/2.1.2 , RedCloth/3.0.4 , ruby-openid/2.1.2 , rubytree/0.5.2
+
+## Deployment ##
+
+## Development ##
+
