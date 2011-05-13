@@ -1,4 +1,0 @@
-page.replace_html :login, :partial => 'shared/login'
-page << "if ($('edit_this_page')) {"
-  page.remove :edit_this_page
-page << "}"
