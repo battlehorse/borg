@@ -1,9 +1,0 @@
-<p class="post-footer align-left">
-	<%= image_tag "borg/readmore.png" , :alt => "Read more" , :style => "vertical-align: middle" %>
-	<%= link_to "Read more..." , page_path({ :path => meta.path }) %> | 
-	<%= author_link(meta) %> |
-	<%= last_modified(meta) %>
-	<% if meta.comments.size > 0 -%>
-	  | <%= image_tag "borg/comment.png", :alt => "Comments" , :style => "vertical-align: middle" %> <%= meta.comments.size %> comment(s)
-  <% end -%>
-</p>
