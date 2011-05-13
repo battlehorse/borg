@@ -1,7 +1,0 @@
-page.insert_html :bottom, :comments, :partial => 'shared/comment' , :object => @comment
-page.replace_html :newcommentdiv, :partial => 'shared/newcomment'
-if @numcomments == 1
-  page.insert_html :top, :comments, "<h2 id='numcomments'>1 Comment to this page</h2>" # first comment
-else
-  page.replace_html :numcomments, "#{@numcomments} Comments to this page"   # subsequent comments
-end    
