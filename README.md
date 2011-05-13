@@ -42,6 +42,7 @@
 **bigG** template
 
 **InternetSharing** template
+
 <a href="http://www.battlehorse.net/borg-att/screenshots/internet_sharing_list.png">
   <img style='float:left; border: 0'
        src='http://www.battlehorse.net/borg-att/screenshots/internet_sharing_list_tb.png'>
@@ -54,6 +55,7 @@
 <br style="clear:both" />
 
 **CoolWater** template
+
 <img style='float:left; border: 0'
      src="http://www.battlehorse.net/borg-att/screenshots/borg1_tb.png">
 <img style='float:left; border: 0'
