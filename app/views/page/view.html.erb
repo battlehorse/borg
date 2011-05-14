@@ -24,6 +24,7 @@
   <%= content_for :onload do -%>
     (function() {
       new Ajax.Updater('socialbuttons_container', '<%= socialbuttons_path :path => params[:path], :title => @page.title %>', {
+        method: 'GET',
         evalScripts: true
       });
     })();
