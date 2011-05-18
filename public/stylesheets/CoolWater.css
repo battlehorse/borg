@@ -67,7 +67,7 @@ ul, ol {
 	padding: 0 25px;
 }
 
-code {
+pre {
   margin: 5px 0;
   padding: 15px;
   text-align: left;
@@ -77,6 +77,10 @@ code {
   /* white-space: pre; */
   border: 1px solid #E5F0FB;  
   background: #F4F8FD;
+}
+code {
+  font: 500 1em/1.5em 'Lucida Console', 'courier new', monospace ;
+  background: #F4F8FD;  
 }
 acronym {
   cursor: help;
