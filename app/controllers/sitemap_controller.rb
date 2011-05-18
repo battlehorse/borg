@@ -14,6 +14,10 @@ class SitemapController < ApplicationController
     render :layout => false, :content_type => "text/plain"
   end
   
+  def humans # for humans.txt
+    render :layout => false, :content_type => "text/plain"
+  end
+  
   def sitemap  # for sitemap.xml
     # Priorities explained:
     # 1.0 : Home

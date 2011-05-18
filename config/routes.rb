@@ -26,6 +26,7 @@ Borg2::Application.routes.draw do
   
     # Single files
     match 'robots.txt' => 'sitemap#robots'
+    match 'humans.txt' => 'sitemap#humans'
     match 'sitemap.xml' => 'sitemap#sitemap'
   
     # Social buttons
