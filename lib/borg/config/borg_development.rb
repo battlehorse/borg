@@ -7,12 +7,15 @@ BorgConfig = {
   :tagline =>  "This is really your site",
 
   # Directory where all the pages are stored
+  # Use https://github.com/battlehorse/borg-data-empty as a bootstrap
   :data_dir => "/path/to/data/dir/",
 
   # DIrectory where all the comments are stored
+  # Use https://github.com/battlehorse/borg-data-empty as a bootstrap  
   :comment_dir => "/path/to/comment/dir/",
 
   # Directory where all the attachments are stored
+  # Use https://github.com/battlehorse/borg-data-empty as a bootstrap  
   :attach_dir => "/path/to/attachments/dir/",
 
   # Maximum size of uploaded files (in bytes)
@@ -26,11 +29,20 @@ BorgConfig = {
 
   # CSS Template: 'InternetSharing', 'CoolWater', 'bigG',
   # NOTE: bigG is the only template currently supporting mobile devices:
-  # iphone, ipod touch, android (nexus one).
-  :css_template => "InternetSharing",
+  # iphone, ipod touch, android (nexus one, nexus S, Xoom).
+  :css_template => "bigG",
 
-  # DEFIMG url
+  # DEFIMG url, used by the clipart system.
   :default_img_url => "http://url.for.default.images",
+  
+  # License information for your content. You can use here a raw HTML snippet
+  # that will be placed in the footer of each site page.
+  :license => (<<-heredoc
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img alt="Creative Commons License" style="border-width:0; vertical-align:text-bottom" 
+           src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a>
+    heredoc
+  ),  
 
   # Url for the contact link that appears on top of every page
   :contact_url => "http://url.for.the.contact.page",
@@ -49,6 +61,12 @@ BorgConfig = {
     :keywords => 'your, keywords',
     :description => 'your site description'
   },
+  
+  # Contents for the humans.txt file (see http://humanstxt.org/)
+  :humans_txt => (<<-heredoc
+    Put the contents of your humans.txt here.
+    heredoc
+  ),
 
   # Domain to be searched from the search box (that uses google search)
   :search_domain => "yourdomain.com",
@@ -58,13 +76,8 @@ BorgConfig = {
   :social_buttons => {
     :enabled => true,  # set to false to disable social buttons altogether.
 
-    # You must have a bit.ly account for Twitter buttons to work.
-    :bitly_user => 'your_bitly_user',
-    :bitly_key => 'your_bitly_key',
-
-    # Optional: Prefix to use when retweeting (such as: 'RT @yourtwitterid ').
-    # Page title and shortened url are already included in retweets.
-    :retweet_prefix => ''
+    # Optional: Twitter username that should appear as tweet source. Leave empty if unused.
+    :retweet_via => ''
   },
 
   # Google analytics account. Comment this line if you don't have any
