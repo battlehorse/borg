@@ -42,21 +42,22 @@ class ApplicationController < ActionController::Base
   def detect_mobile
     # check whether the current theme supports mobile rendering.
     if borg(:css_template) != 'bigG'
-      @mobile, @android, @iphone = false, false, false
+      @mobile, @android, @iphone, @ipad = false, false, false, false
       return
     end
     
     # check whether the mobile setting has been overriden from url parameters.
-    @android, @iphone = params[:android], params[:iphone]
+    @android, @iphone, @ipad = params[:android], params[:iphone], params[:ipad]
     
-    if @android || @iphone
+    if @android || (@iphone && !@ipad)
       @mobile = true
       return
     end
 
-    @iphone = request.user_agent.downcase =~ /iphone/  # iphone and ipad
-    @android = request.user_agent.downcase =~ /android/
-    @mobile = @android || @iphone
+    @iphone = request.user_agent.downcase =~ /iphone/  # iphone and (possibly) ipad
+    @ipad = request.user_agent.downcase =~ /ipad/  # ipad
+    @android = request.user_agent.downcase =~ /android/ && request.user_agent.downcase =~ /mobile/
+    @mobile = @android || (@iphone && !@ipad)
   end
   
   def render_404
