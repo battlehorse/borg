@@ -1,6 +1,8 @@
 <span id="login">
   <% if session[:user_id] -%>
-    Hello <%= session[:user_id].nickname || session[:user_id].fullname %>, 
+    Hello <span title="<%= session[:user_id].identity_url %>">
+      <%= session[:user_id].nickname || session[:user_id].fullname %>
+    </span>, 
     <%= link_to "Logout", { :controller => "login" , :action => "logout", :jumpto => request.fullpath },
                 :id => 'logout_link',
                 :remote => true %>

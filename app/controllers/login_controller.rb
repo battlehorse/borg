@@ -6,6 +6,9 @@ class LoginController < ApplicationController
   end
   
   def login
+    # TODO: :jumpto doesn't work. Since the session is cookie-based
+    # and authenticate redirects to the openid provider, the :jumpto
+    # parameter won't be stored for later use, I think.
     session[:jumpto] ||= params[:jumpto]
     if using_open_id?
       authenticate
