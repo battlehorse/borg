@@ -256,6 +256,12 @@ UL.formError {
   color: green;
 }
 
+/* drafts */
+.article-draft {
+  background-color: rgba(255, 255, 0, 0.1);
+  border-radius: 5px;
+}
+
 .blog_archive {
   font-size: 160%;
   color: #003B6E;

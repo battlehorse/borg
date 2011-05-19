@@ -4,7 +4,11 @@ class SitemapController < ApplicationController
   include RedClothHelper
   
   def view  # for HTML sitemap page
-    @pages = Page.allFromPath([]).sort_by { |page| page.path.join('/') }.reverse
+    can_see_drafts = session[:user_id] && session[:user_id].is_editor
+    @pages = Page.allFromPath(
+        [], 
+        :recursive => true, 
+        :include_drafts => can_see_drafts).sort_by { |page| page.path.join('/') }.reverse
     
     build_sitemap
     build_blogmap    

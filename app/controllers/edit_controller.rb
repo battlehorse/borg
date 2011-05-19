@@ -38,7 +38,7 @@ class EditController < ApplicationController
   
   def delete
     raise "You tried to delete a folder" unless is_content? path_from_params
-    p = Page.fromPath(path_from_params)
+    p = Page.fromPath(path_from_params, :include_drafts => true)
     if p.nil?
       render :json => { :status => "ERR" , :message => "Page not found"}.to_json
     else
@@ -71,6 +71,6 @@ class EditController < ApplicationController
   
   def load_page_if_any
     raise "You tried editing a list page" unless is_content? path_from_params
-    @page = Page.fromPath(path_from_params) || Page.new
+    @page = Page.fromPath(path_from_params, :include_drafts => true) || Page.new
   end
 end

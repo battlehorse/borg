@@ -23,18 +23,31 @@ class Page < Resource
     end
   end
   
-  def self.fromPath(path)
+  def self.fromPath(path, params = {:include_drafts => false})
     rpath = @@finder.find(path, base_folder, true)
-    rpath.blank? ? nil : Page.new(rpath[0])
+    if rpath.blank?
+      nil
+    else
+      p = Page.new(rpath[0])
+      if !params[:include_drafts] && p.draft?
+        nil
+      else
+        p
+      end
+    end
   end
   
-  def self.allFromPath(path, recursive=true)
-    rpaths = recursive  ?
+  def self.allFromPath(path, params = {:recursive => true, :include_drafts => false})
+    rpaths = params[:recursive]  ?
              @@lister.list(path, base_folder, true, true) :
              @@finder.find_and_prune(path, base_folder, true)
     
     rpaths = [] if rpaths.blank?
-    rpaths.map { |rpath| Page.new(rpath) }
+    rpaths.map! { |rpath| Page.new(rpath) }
+    if !params[:include_drafts]
+      rpaths.delete_if { |p| p.draft? }
+    end
+    return rpaths
   end
   
   def initialize(rpath=nil)
@@ -57,6 +70,10 @@ class Page < Resource
     @fresh
   end
   
+  def draft?
+    !['true', 'yes', '1'].index(h(:draft)).nil?
+  end
+  
   def headers
     parse if fresh?
     @headers
@@ -76,7 +93,7 @@ class Page < Resource
   end
   
   def enable_sidebar?
-    !['enabled', 'enable', 'true', 'yes', 1].index(h(:sidebar, 'enabled')).nil?
+    !['enabled', 'enable', 'true', 'yes', '1'].index(h(:sidebar, 'enabled')).nil?
   end
   
   def title

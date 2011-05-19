@@ -395,6 +395,12 @@ UL.formError {
   font-size: 0.9em;
 }
 
+/* drafts */
+.article-draft {
+  background-color: rgba(255, 255, 0, 0.1);
+  border-radius: 5px;
+}
+
 .blog_archive {
   font-size: 1.6em;
   color: rgb(42, 93, 176);

@@ -17,7 +17,6 @@ Borg2::Application.routes.draw do
     match 'tag/:id' => 'tags#show', :as => :tag
     match 'blog(/:year(/:month(/:day)))' => 'list#blog',
       :constraints => { :year => /(19|20)\d\d/ , :month => /[01]\d/ , :day => /[0-3]\d/ },
-      :defaults => {:year => Time.now.year.to_s, :day => nil, :month => nil},
       :as => :blog
   
     # Feeds

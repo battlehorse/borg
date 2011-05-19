@@ -2,13 +2,17 @@ class ListController < ApplicationController
   
   def list
     # non-recursive listing
-    @pages = Page.allFromPath(path_from_params, false).each { |page| page.summarize }
+    can_see_drafts = session[:user_id] && session[:user_id].is_editor
+    @pages = Page.allFromPath(
+        path_from_params, 
+        :recursive => false, :include_drafts => can_see_drafts).each { |page| page.summarize }
   end
     
   def blog
+    params["year"] ||= Time.now.year.to_s
     path = [] << params["year"] << params["month"] << params["day"]
     params[:path] = path.compact
-    
+
     # recursive listing
     @pages = get_blog_pages
     
@@ -29,7 +33,10 @@ class ListController < ApplicationController
   end
   
   def get_blog_pages
-    pages = Page.allFromPath(path_from_params).each { |page| page.summarize }
+    can_see_drafts = session[:user_id] && session[:user_id].is_editor
+    pages = Page.allFromPath(
+        path_from_params, 
+        :recursive => true, :include_drafts => can_see_drafts).each { |page| page.summarize }
     
     if yearly_path? && path_from_params[0].to_i < Time.now.year
       return pages
@@ -42,7 +49,9 @@ class ListController < ApplicationController
     # empty at the beginning of every new year.
     year = (yearly_path? ? path_from_params[0].to_i : Time.now.year) - 1
     while pages.size < 10 && yearly_path? do
-      pages << Page.allFromPath([ year.to_s ]).each { |page| page.summarize }
+      pages << Page.allFromPath(
+        [ year.to_s ], 
+        :recursive => true, :include_drafts => can_see_drafts).each { |page| page.summarize }
       pages.flatten!
       year -= 1
     end

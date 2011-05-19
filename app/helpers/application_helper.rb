@@ -51,5 +51,9 @@ module ApplicationHelper
       :generic
     end
   end
+  
+  def is_draft(obj)
+    obj.respond_to?(:draft?) && obj.draft?
+  end
 
 end

@@ -389,6 +389,12 @@ input.edit {
 .article-meta .comments { padding-left: 0px; margin: 0 5px; }
 .article-meta .readmore { padding-left: 0px; margin: 0 5px; }
 
+/* drafts */
+.article-draft {
+  background-color: rgba(255, 255, 0, 0.1);
+  border-radius: 5px;
+}
+
 /* alignment classes */
 .float-left  { float: left; }
 .float-right { float: right; }
