@@ -37,6 +37,7 @@ class ListController < ApplicationController
     pages = Page.allFromPath(
         path_from_params, 
         :recursive => true, :include_drafts => can_see_drafts).each { |page| page.summarize }
+    pages = apply_blog_time_ordering(pages)
     
     if yearly_path? && path_from_params[0].to_i < Time.now.year
       return pages
@@ -55,8 +56,7 @@ class ListController < ApplicationController
       pages.flatten!
       year -= 1
     end
-    apply_blog_time_ordering(pages)
-    return pages
+    return apply_blog_time_ordering(pages)
   end
   private :get_blog_pages
   
