@@ -1,17 +1,21 @@
 <html>
 <head>
-  <%= javascript_include_tag "prototype", "application" %>
-  <%= stylesheet_link_tag(borg(:css_template)) %>
+  <%= render :partial => "shared/layout/head" %>
   <script>
     var lastContents;
     function update() {
       var content = window.opener.getContents();
       if (content != lastContents) {
         $('previewupdater').setStyle({display: ''});
+        var parameters = {
+          content: content
+        }
+        parameters[$$('meta[name="csrf-param"]')[0].getAttribute('content')] =
+          $$('meta[name="csrf-token"]')[0].getAttribute('content');
         new Ajax.Updater(
           'previewmode', 
           '<%= preview_path( :path => params[:path], :cachebust => Time.now.to_f) %>', {
-          parameters: Object.toQueryString({content: content}),
+          parameters: Object.toQueryString(parameters),
           onSuccess: function() {
             lastContents = content;
             $('errors').innerHTML = '';
