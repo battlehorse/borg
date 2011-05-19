@@ -27,10 +27,12 @@
     <div id="secondary-content">
       <%= yield :tags %>
   
-      <div class="boxtop"></div>
-      <div class="box">
-        <%= render :partial => "shared/content" , :object => @sidebar %>
-      </div>
+      <% if @show_sidebar %>
+        <div class="boxtop"></div>
+        <div class="box">
+          <%= render :partial => "shared/content" , :object => @sidebar %>
+        </div>
+      <% end %>
       
       <% if borg(:google_translate)[:enabled] -%>
         <div id="google_translate_element" style="display:block"></div>

@@ -71,6 +71,7 @@ class ApplicationController < ActionController::Base
     path = path_from_params
     path = path[0..(path.length-2)] if is_content?(path) 
     
+    @show_sidebar = true
     @sidebar = Page.fromPath(path.clone << sidebar_page_name)
     @toolbar = Page.fromPath(path.clone << toolbar_page_name)    
   end

@@ -75,6 +75,10 @@ class Page < Resource
     h(:author_mail)
   end
   
+  def enable_sidebar?
+    !['enabled', 'enable', 'true', 'yes', 1].index(h(:sidebar, 'enabled')).nil?
+  end
+  
   def title
     parse if fresh?
     @title

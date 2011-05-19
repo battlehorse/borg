@@ -28,15 +28,19 @@
       <%= render :partial => "shared/layout/search" %>
       <%= yield :tags %>
 
-      <div class="boxtop"></div>
-      <div class="box">
-        <%= render :partial => "shared/content" , :object => @sidebar %>
-        <%= raw borg :google_chatback %>
+      <% if @show_sidebar || borg(:google_translate)[:enabled] || !borg(:google_chatback).empty? -%>
+        <div class="boxtop"></div>
+        <div class="box">
+          <% if @show_sidebar %>
+            <%= render :partial => "shared/content" , :object => @sidebar %>
+          <% end %>
+          <%= raw borg :google_chatback %>
         
-        <% if borg(:google_translate)[:enabled] -%>
-          <div id="google_translate_element" style="display:block"></div>
-        <% end -%>
-      </div>
+          <% if borg(:google_translate)[:enabled] -%>
+            <div id="google_translate_element" style="display:block"></div>
+          <% end -%>
+        </div>
+      <% end -%>
     </div>
   </div>
   <%= render :partial => "shared/layout/footer" %>
