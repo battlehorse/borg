@@ -137,3 +137,20 @@ You can now start your local borg instance:
 and point your browser to [http://localhost:3000](http://localhost:3000/).
 
 ## Deployment ##
+
+Deploying borg to a production setup is not much different from the development setup. Clone the repository, switch to a tag or stable branch of your choice and update your gems:
+
+    $ git clone git://github.com/battlehorse/borg.git borg
+    $ cd borg
+    $ git checkout branch_or_tag_you_want_to_use
+    $ bundle install
+
+Initialize your content repository as specified above. Then create a configuration file for your
+production environment:
+
+    $ cp lib/borg/config/borg_development.rb lib/borg/config/borg_production.rb
+    
+And edit <code>borg_production.rb</code> to match your production configuration.
+
+You can then hook the <code>public/</code> directory of your borg installation to your production
+serving system (such as, for example, nginx and mod_passenger)
