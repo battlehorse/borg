@@ -44,12 +44,12 @@ class ListController < ApplicationController
     end
     
     # If a year-like path has been requested (like /2009 ) and not enough
-    # pages where returned, fall back to the previous year.
+    # pages where returned, fall back to the previous year, for at most 10 years.
     #
     # This is a dirty trick to avoid having the homepage and blog sections
     # empty at the beginning of every new year.
     year = (yearly_path? ? path_from_params[0].to_i : Time.now.year) - 1
-    while pages.size < 10 && yearly_path? do
+    while pages.size < 10 && yearly_path? && year > Time.now.year - 10 do
       pages << Page.allFromPath(
         [ year.to_s ], 
         :recursive => true, :include_drafts => can_see_drafts).each { |page| page.summarize }
