@@ -1,10 +1,6 @@
 <ul class="socialbuttons">
-  <li class="socialbutton-buzz">
-    <a title="Post to Google Buzz" id="google-buzz-button" 
-       class="google-buzz-button" 
-       href="http://www.google.com/buzz/post" 
-       data-button-style="small-count" 
-       data-url="<%= page_url(:path => params[:path]) %>"></a>
+  <li class="socialbutton-plusone">
+    <g:plusone size="medium" href="<%= page_url(:path => params[:path]) %>"></g:plusone>
   </li>
   <li class="socialbutton-fb">
     <iframe src="http://www.facebook.com/plugins/like.php?href=<%=u page_url(:path => params[:path]) %>&amp;layout=button_count&amp;show_faces=false&amp;width=70&amp;action=like&amp;font&amp;colorscheme=light&amp;height=20"
@@ -17,15 +13,9 @@
   </li>
 </ul>
 <script type="text/javascript" charset="utf-8">
-  // Find the first img in the article.
-  var imgs = $$('DIV.left_articles IMG');
-  if (imgs.length > 0) {
-    $('google-buzz-button').setAttribute('data-imageurl', imgs[0].src);
-  }
-  
-  var buzz_js = document.createElement('SCRIPT');
-  buzz_js.setAttribute('src', 'http://www.google.com/buzz/api/button.js');
-  document.getElementsByTagName("head")[0].appendChild(buzz_js);
+  var plusone_js = document.createElement('SCRIPT');
+  plusone_js.setAttribute('src', 'https://apis.google.com/js/plusone.js');
+  document.getElementsByTagName("head")[0].appendChild(plusone_js);
   
   var twitter_js = document.createElement('SCRIPT');
   twitter_js.setAttribute('src', 'http://platform.twitter.com/widgets.js');
