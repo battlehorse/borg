@@ -25,12 +25,13 @@
 */
 
 body { 
-  padding: 0; 
+  padding: 0 0 10px 0; 
   margin: 0;
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   background: #fff; 
   color: #000;
+  background: #F5F6F7 url(../images/bigG/background_texture.jpg) repeat-x 0 0;
 }
 
 /* content holder */
@@ -38,7 +39,16 @@ body {
   margin: 10px 5%;
   max-width: 1160px;
   min-width: 960px;
-  line-height: 1.2em;  
+  line-height: 1.2em; 
+  padding: 0.2em 1em 1em 1em;
+  border: 1px solid #999;
+  background-color: #fff;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 /* header */
