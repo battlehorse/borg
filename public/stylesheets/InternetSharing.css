@@ -92,7 +92,6 @@ input.search {
   border: none; 
   background: rgb(117, 173, 69) url(../images/InternetSharing/input.gif) no-repeat; 
   padding-left: 5px;
-  padding-top: 5px;
   color: #1E67A8; 
   font-weight: bold; 
 }
@@ -188,6 +187,12 @@ h2 { font: bold 2em Arial, Sans-Serif; margin: 0; padding: 0; }
   background-repeat: no-repeat;
   padding-left: 18px;
   height: 16px;
+}
+
+/* tags */
+.tags H2 {
+  background: url('../images/borg/tags.png') no-repeat left 50%;
+  padding-left: 18px; 
 }
 
 /* comments */

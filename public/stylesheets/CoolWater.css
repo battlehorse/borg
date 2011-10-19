@@ -381,6 +381,12 @@ input.edit {
 #secondary-content ul.sidemenu ul { margin: 0 0 0 5px; padding: 0; }
 #secondary-content ul.sidemenu ul li { border: none; }
 
+/* tags */
+.tags H2 {
+  background: url('../images/borg/tags.png') no-repeat left 50%;
+  padding-left: 18px; 
+}
+
 /* Footer */	
 #footer {
 	color: #C6DDEE;

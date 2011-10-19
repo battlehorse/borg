@@ -171,7 +171,6 @@ body {
   color: rgb(60, 60, 60);
 }
 
-
 /* tags */
 .tags {
   border-top: 1px solid rgb(250, 209, 99);
@@ -185,6 +184,8 @@ body {
 }
 
 .tags H2 {
+  background: url('../images/borg/tags.png') no-repeat left 50%;
+  padding-left: 18px;  
   font-size: 1.2em;
 }
 

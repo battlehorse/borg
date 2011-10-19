@@ -181,6 +181,8 @@ body {
 
 .tags H2 {
   font-size: 1.2em;
+  background: url('../images/borg/tags.png') no-repeat left 50%;
+  padding-left: 18px;   
 }
 
 /* search form */
