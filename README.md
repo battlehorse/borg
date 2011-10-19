@@ -39,6 +39,19 @@
 
 ## Screenshots ##
 
+**kennedy** template (new in version _3.2_)
+
+<a href="http://www.battlehorse.net/borg-att/screenshots/kennedy_desktop.png">
+  <img style='float:left; border: 0'
+       src='http://www.battlehorse.net/borg-att/screenshots/kennedy_desktop_tb.png'>
+</a>
+<a href="http://www.battlehorse.net/borg-att/screenshots/kennedy_galaxynexus_white.png">
+  <img style='float:left; border: 0'
+       src='http://www.battlehorse.net/borg-att/screenshots/kennedy_galaxynexus_white_tb.png'>
+</a>
+
+<br style="clear:both" />
+
 **bigG** template
 
 <a href="http://www.battlehorse.net/borg-att/screenshots/bigg_list.png">
@@ -83,8 +96,10 @@
 
 #### Releases ####
 
-* **v3.1** tag : current (recommended) borg version, targeting rails 3.0.7.
+* **v3.2** tag : current (recommended) borg version, targeting rails 3.0.7.
   * deps: as declared in Gemfile.lock
+  * minor fixes over the previous v3.1 and v3.1.1.
+  * Introduces the _kennedy_ template.
 * **v3.0** tag : targets rails 3.0.3.
   * deps: as declared in Gemfile.lock
 * **v2.5** tag : targets rails 2.3.2
@@ -153,4 +168,4 @@ production environment:
 And edit <code>borg_production.rb</code> to match your production configuration.
 
 You can then hook the <code>public/</code> directory of your borg installation to your production
-serving system (such as, for example, nginx and mod_passenger)
+serving system (such as, for example, nginx and mod_passenger).
