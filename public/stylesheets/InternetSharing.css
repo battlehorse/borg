@@ -20,6 +20,12 @@ body { padding: 0; margin: 0; font: 0.7em Tahoma, Arial, sans-serif; line-height
   margin: 5px 5px 0 0; 
   text-align: right; 
 }
+#site-actions li {
+  list-style-type: none;
+  display: inline;
+  padding: 0 0.4em;
+  white-space: nowrap;
+}
 
 /* horizontal tabbed toolbar */	
 #toolbar { background: #fff url(../images/InternetSharing/bigbox.gif) no-repeat top left; color: #000;  height: 64px; text-align: center; padding: 0 0 0 210px; }

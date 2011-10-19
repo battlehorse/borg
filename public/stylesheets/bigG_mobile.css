@@ -63,11 +63,20 @@ body {
 #logo-text A, #logo-text A:hover { text-decoration: none; color: #000; border: 0;}
 #slogan { font-size: 0.9em; margin: 0; padding: 0 0 0 0.3em; color: rgb(119,119,119); background: #fff; }
 #site-actions { 
-/*  float: right;
-  width: 570px; */
   margin: 5px 5px 0 0; 
   text-align: center;
-  font-size: 1.1em;
+  font-size: 0.9em;
+}
+
+#site-actions li {
+  list-style-type: none;
+  display: inline;
+  padding: 0 0.4em;
+  border-right: 1px solid #666;
+}
+
+#site-actions li:last-child {
+  border: 0;
 }
 
 .title { color: rgb(42, 93, 176); background: #fff; }

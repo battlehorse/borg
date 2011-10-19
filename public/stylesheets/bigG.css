@@ -66,6 +66,13 @@ body {
   font-size: 0.9em;
 }
 
+#site-actions li {
+  list-style-type: none;
+  display: inline;
+  padding: 0 0.4em;
+  border-right: 1px solid #666;
+}
+
 .title { color: rgb(42, 93, 176); background: #fff; }
 
 

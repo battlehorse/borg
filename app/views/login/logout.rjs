@@ -2,3 +2,11 @@ page.replace_html :login, :partial => 'shared/login'
 page << "if ($('edit_this_page')) {"
   page.remove :edit_this_page
 page << "}"
+
+page << "if ($('upload_attachment')) {"
+  page.remove :upload_attachment
+page << "}"
+
+page << "if ($('create_new_page')) {"
+  page.remove :create_new_page
+page << "}"

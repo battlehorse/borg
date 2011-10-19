@@ -248,6 +248,12 @@ input.edit {
 	max-width: 400px;
 	text-align: right;
 }
+#site-actions li {
+  list-style-type: none;
+  display: inline;
+  padding: 0 0.4em;
+  white-space: nowrap;
+}
 #site-actions a {	
 	color: #fff;
 	text-decoration: none;	

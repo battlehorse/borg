@@ -1,11 +1,18 @@
 <div id="site-actions">
-	<p>
-	<%= render :partial => "shared/login" %>
+	<ul id="site-actions-list">
+  <li id="login">
+	  <%= render :partial => "shared/login" %>
+	</li>
+  <% if session[:user_id] and session[:user_id].is_editor -%>
+    <li id="upload_attachment"><%= link_to "Upload", :controller => 'attach', :action => 'show' %></li>
+    <li id="create_new_page"><%= link_to "New page", :controller => 'edit', :action => 'new'%></li>
+  <% end -%>	
   <%= yield :pageactions %>	
-	| <%= link_to "Contact", page_url(:path => borg(:contact_url)) %>
-	| <%= link_to "Site Map", :controller => :sitemap, :action => :view %>
-	| <%= image_tag "borg/feed.png" , :style => "vertical-align: middle" %>
+	<li><%= link_to "Contact", page_url(:path => borg(:contact_url)) %></li>
+	<li><%= link_to "Site Map", :controller => :sitemap, :action => :view %></li>
+	<li>
+	  <%= image_tag "borg/feed.png" , :style => "vertical-align: middle" %>
 	  <%= link_to "Feed", :controller => :list, :action => :blog, :format => :rss %>
-	| <%= link_to "Home" , root_path %>
-	</p>
+	</li>
+	</ul>
 </div>
