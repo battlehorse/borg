@@ -27,10 +27,10 @@ BorgConfig = {
   # prepended to all attachments links. 
   :attach_serving_url => '',  
 
-  # CSS Template: 'InternetSharing', 'CoolWater', 'bigG',
-  # NOTE: bigG is the only template currently supporting mobile devices:
+  # CSS Template: 'InternetSharing', 'CoolWater', 'bigG', 'kennedy'
+  # NOTE: bigG and kennedy are the only templates currently supporting mobile devices:
   # iphone, ipod touch, android (nexus one, nexus S, Xoom).
-  :css_template => "bigG",
+  :css_template => "kennedy",
 
   # DEFIMG url, used by the clipart system.
   :default_img_url => "http://url.for.default.images",
