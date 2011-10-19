@@ -3,10 +3,17 @@
 <% end %>
 <h1>Create a new site entry</h1>
 <%= form_tag create_path, :method => :get, :id => 'new_site_entry_form' do -%>
-  Kind: 
-  standard page <%= radio_button_tag 'kind', 'page', true %><br />
-  Path: <%= text_field_tag 'path', @path, :class => "edit" %><br />
-  <%= submit_tag 'Create entry', :class => "button" %>
+  <p class='new_site_entry_kind'>
+    <label>Kind:</label>
+    standard page <%= radio_button_tag 'kind', 'page', true %>
+  </p>
+  <p class='new_site_entry_path'>
+    <label>Path:</label>
+    <%= text_field_tag 'path', @path, :class => "edit" %>
+  </p>
+  <p>
+    <%= submit_tag 'Create', :class => "button" %>
+  </p>
 <% end -%>
 <%= content_for :onload do -%>
   (function() {

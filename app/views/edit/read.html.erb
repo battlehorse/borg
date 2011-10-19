@@ -13,12 +13,24 @@
 </p>
 <div id="editmode">
   <%= form_tag({}, {:id => "editform" })  do -%>
-    <textarea id="editAreaId" name="content"><%= raw_content(@page) || boilerplate(@kind) %></textarea>
+    <textarea id="editAreaId" name="content" onkeyup="grow();"><%= raw_content(@page) || boilerplate(@kind) %></textarea>
   <% end -%>
 </div>
 <div id="previewmode" style="display:none" class="preview"></div> 
 <div id="errors"></div>
 <script>
+  var TEXTAREA_LINE_HEIGHT = 14;
+  function grow() {
+    var textarea = document.getElementById('editAreaId');
+    var newHeight = textarea.scrollHeight;
+    var currentHeight = textarea.clientHeight;
+
+    if (newHeight > currentHeight) {
+       textarea.style.height = newHeight + 5 * TEXTAREA_LINE_HEIGHT + 'px';
+    }    
+  }
+  grow();
+
   function getContents() {
     return $('editAreaId').value;
   }

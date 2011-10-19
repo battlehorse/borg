@@ -177,9 +177,16 @@ input.button {
 	width: 180px;	
 }
 .search p { margin: 0; padding: 0; }
-.search input.textbox,
-input.edit { 
+.search input.textbox { 
 	width: 110px;
+	color: #777; 
+	height: 20px;
+	padding: 2px;	
+	border: 1px solid #D2E8F7; 
+	vertical-align: top;
+}
+input.edit { 
+	width: 400px;
 	color: #777; 
 	height: 20px;
 	padding: 2px;	

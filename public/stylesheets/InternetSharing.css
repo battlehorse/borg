@@ -86,8 +86,7 @@ body { padding: 0; margin: 0; font: 0.7em Tahoma, Arial, sans-serif; line-height
 
 /* lists and form elements */
 form { margin: 0; }
-input.search,
-input.edit { 
+input.search { 
   width: 183px;
   height: 26px;
   border: none; 
@@ -95,6 +94,13 @@ input.edit {
   padding-left: 5px;
   padding-top: 5px;
   color: #1E67A8; 
+  font-weight: bold; 
+}
+input.edit { 
+  width: 400px;
+  height: 26px;
+  padding-left: 5px;
+  padding-top: 5px;
   font-weight: bold; 
 }
 input.button { padding: 3px; }
