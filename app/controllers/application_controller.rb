@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   
   def detect_mobile
     # check whether the current theme supports mobile rendering.
-    if borg(:css_template) != 'bigG'
+    if borg(:css_template) != 'bigG' and borg(:css_template) != 'kennedy'
       @mobile, @android, @iphone, @ipad = false, false, false, false
       return
     end
