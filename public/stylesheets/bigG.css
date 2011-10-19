@@ -120,6 +120,19 @@ body {
   border-top: 1px solid #ccc;
 }
 
+/* breadcrumbs */
+.breadcrumbs { 
+  margin-top: 0
+}
+
+.breadcrumbs .intro_blurb {
+  display: inline-block;
+  background-image: url(../images/borg/youarehere.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
 /* right side */
 .box {
   border-top: 1px solid rgb(102, 148, 227);
@@ -291,7 +304,7 @@ UL.delete_upload {
 }
 
 /* links */
-a { color: rgb(42, 93, 176); background: inherit; }
+a { color: rgb(42, 93, 176); }
 a:visited { color: purple; }
 
 .article-title a, .article-title a:hover, h1 a, h1 a:hover, h1 a:visited { 
@@ -320,6 +333,14 @@ a:visited { color: purple; }
 .calendar p { padding: 0; margin: 0;}
 
 /* comments */
+.newcommentlink A {
+  display: inline-block;
+  background-image: url(../images/borg/comment.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
 .comment, #newcommentdiv FORM {
   min-height: 90px;
   background-color: rgb(243, 243, 252);
@@ -410,6 +431,22 @@ UL.formError {
 .article-meta {
   color: rgb(119, 119, 119);
   font-size: 0.9em;
+}
+
+.article-meta .readmore {
+  display: inline-block;
+  background-image: url(../images/borg/readmore.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
+.article-meta .comments {
+  display: inline-block;
+  background-image: url(../images/borg/comment.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
 }
 
 /* drafts */

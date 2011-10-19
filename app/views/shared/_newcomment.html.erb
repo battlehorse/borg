@@ -1,5 +1,4 @@
-<p>
-  <%= image_tag "borg/comment.png", :alt => "Add a new comment" , :style => "vertical-align: middle" %>
+<p class="newcommentlink">
   <%= link_to "Add a new comment", 
               {:controller => 'comment' , :action => 'new', :path => params[:path]},
               :remote => true %>

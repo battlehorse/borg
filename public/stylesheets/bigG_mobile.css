@@ -35,9 +35,6 @@ body {
 
 /* content holder */
 #global-wrap { 
-/*  margin: 10px 5%;
-  max-width: 1160px;
-  min-width: 960px;*/
   line-height: 1.2em;
 }
 
@@ -104,16 +101,10 @@ body {
 
 /* left and right */
 #main {
-/*  float: left;
-  width: 78%;*/
   margin: 0 0px 10px 0;
 }
 
 #secondary-content {
-/*  float: right;
-  width: 20%;*/
-/*  margin: 0 0 10px 0;*/
-/*  padding-left: 10px;*/
 }
 
 /* footer  */
@@ -124,6 +115,16 @@ body {
   padding: 10px 0 10px 0;
   border-top: 1px solid #ccc;
 }
+
+/* breadcrumbs */
+.breadcrumbs .intro_blurb {
+  display: inline-block;
+  background-image: url(../images/borg/youarehere.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
 
 /* right side */
 .box {
@@ -304,7 +305,7 @@ UL.delete_upload {
 }
 
 /* links */
-a { color: rgb(42, 93, 176); background: inherit; }
+a { color: rgb(42, 93, 176); }
 a:visited { color: purple; }
 
 .article-title a, .article-title a:hover, h1 a, h1 a:hover, h1 a:visited { 
@@ -319,12 +320,10 @@ a:visited { color: purple; }
 
 /* calendar */
 .calendar { 
-/*  float: left; */
   background-color: #E5ECF9;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-/*  width: 40px; */
   text-align: center;
   color: #000;
   font-size: 0.8em;
@@ -337,6 +336,14 @@ a:visited { color: purple; }
 }
 
 /* comments */
+.newcommentlink A {
+  display: inline-block;
+  background-image: url(../images/borg/comment.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
 .comment, #newcommentdiv FORM {
   min-height: 90px;
   background-color: rgb(243, 243, 252);
@@ -434,6 +441,23 @@ UL.formError {
   color: rgb(119, 119, 119);
   font-size: 0.9em;
 }
+
+.article-meta .readmore {
+  display: inline-block;
+  background-image: url(../images/borg/readmore.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
+.article-meta .comments {
+  display: inline-block;
+  background-image: url(../images/borg/comment.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
 
 /* drafts */
 .article-draft {

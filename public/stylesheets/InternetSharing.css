@@ -176,9 +176,23 @@ h2 { font: bold 2em Arial, Sans-Serif; margin: 0; padding: 0; }
 .greenbtn { background: #488EB2 url(../images/InternetSharing/greenbtn.gif) no-repeat; padding: 1px 17px 5px 16px; color: #fff; text-decoration: none; }
 .bluebtn:hover, .greenbtn:hover { background: #488EB2 url(../images/InternetSharing/hoverbtn.gif) no-repeat; color: #fff; }
 
-
+.breadcrumbs .intro_blurb {
+  display: inline-block;
+  background-image: url(../images/borg/youarehere.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
 
 /* comments */
+.newcommentlink A {
+  display: inline-block;
+  background-image: url(../images/borg/comment.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
+}
+
 .commenttop { 
   height: 14px; 
   background: #fff url(../images/InternetSharing/commentboxtop.gif) no-repeat; 

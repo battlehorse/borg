@@ -1,5 +1,5 @@
-<p style="margin-top: 0">
-	<%= image_tag "borg/youarehere.png" , :style => "float:left" %> You are here:
+<p class="breadcrumbs">
+  <span class="intro_blurb">You are here:</span>
 	<%= link_to "Home" , root_path %>
 	<% if defined? crumbs %>
 	  <%= raw render_explicit_breadcrumbs(crumbs) %>

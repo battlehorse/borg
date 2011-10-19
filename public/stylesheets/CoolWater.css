@@ -245,7 +245,7 @@ input.edit {
 	color: #C6DDEE;
 	font: bold 14px"Trebuchet MS", Arial, Tahoma, Sans-serif;
 	top: 20px; right: 20px;	
-	max-width: 400px;
+	max-width: 450px;
 	text-align: right;
 }
 #site-actions li {
@@ -320,6 +320,15 @@ input.edit {
 }
 #main ul li {
 	list-style-image: url(../images/CoolWater/bullet.gif); 
+}
+
+/* breadcrumbs */
+.breadcrumbs .intro_blurb {
+  display: inline-block;
+  background-image: url(../images/borg/youarehere.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
 }
 
 /* secondary-content */	
@@ -486,6 +495,14 @@ UL.formError {
 
 .hint {
   font-size: 90%;
+}
+
+.newcommentlink A {
+  display: inline-block;
+  background-image: url(../images/borg/comment.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  height: 16px;
 }
 
 .comment {
