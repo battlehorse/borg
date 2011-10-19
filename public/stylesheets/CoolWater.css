@@ -406,6 +406,7 @@ input.edit {
 	padding: 5px; margin: 20px 25px 0 25px;
 	border: 1px solid #E5F0FB; 
 	font-size: 95%;	
+	clear: both;
 }
 .article-meta .date {	padding-left: 0px; margin: 0 5px; }
 .article-meta .comments { padding-left: 0px; margin: 0 5px; }
