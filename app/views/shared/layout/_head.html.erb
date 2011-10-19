@@ -13,7 +13,11 @@
 <%= javascript_include_tag "prototype", "rails", "application" %>
 <%= yield :javascriptlibs %>
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<% if borg(:css_template) == 'bigG' %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<% elsif borg(:css_template) == 'kennedy' %>
+  <link href='http://fonts.googleapis.com/css?family=Maven+Pro|Inconsolata' rel='stylesheet' type='text/css'>
+<% end %>
 <% if !@mobile -%>
   <%= stylesheet_link_tag(borg(:css_template)) %>
 <% else -%>
