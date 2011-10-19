@@ -43,6 +43,7 @@
   <%= render :partial => "shared/layout/footer" %>
 </div>
 <%= content_for :onload do -%>
+  borg.updateOrientation();
   Event.observe(window, 'load', borg.updateOrientation);
   <% if @android -%>
     Event.observe(window, 'resize', borg.updateOrientation);
