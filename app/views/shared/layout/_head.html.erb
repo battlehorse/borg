@@ -16,10 +16,17 @@
 <% if borg(:css_template) == 'bigG' %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <% elsif borg(:css_template) == 'kennedy' %>
-  <link href='http://fonts.googleapis.com/css?family=Maven+Pro|Inconsolata' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Inconsolata' rel='stylesheet' type='text/css'>
 <% end %>
 <% if !@mobile -%>
   <%= stylesheet_link_tag(borg(:css_template)) %>
+  <!-- Some IE specific hacks to fix the kennedy template -->
+  <!--[if IE]>
+    <style>
+      .search input.button { text-indent: 0 !important; }
+      .socialbuttons {opacity: 1;}
+    </style>
+  <![endif]-->
 <% else -%>
   <%= stylesheet_link_tag(borg(:css_template) + "_mobile") %>
 <% end -%>

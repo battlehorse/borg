@@ -84,6 +84,10 @@ body {
   -webkit-transition-duration: 0.15s;
   -o-transition-property: all;
   -o-transition-duration: 0.15s;
+  
+  /* IE7 fix */
+  zoom: 1;
+  *display: inline;
 }
 
 #site-actions li:hover {
@@ -127,6 +131,10 @@ body {
   -webkit-transition-duration: 0.15s;
   -o-transition-property: all;
   -o-transition-duration: 0.15s;
+  
+  /* IE7 fix */
+  zoom: 1;
+  *display: inline;
 }
 
 #toolbar li:hover {
