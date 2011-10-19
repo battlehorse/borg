@@ -2,8 +2,8 @@
 <div class="box search">
 	<form onsubmit="return borg.search($('q').value, '<%= borg(:search_domain) %>', <%= @mobile ? 'true' : 'false' %>)">
 		<p>
-		<input id="q" class="search textbox" type="text" />
+		<input id="q" class="search textbox" type="text" placeholder="Search site"/>
 		<input class="button" value="Search" type="submit" />
-		</p>			
+		</p>
 	</form>
 </div>
