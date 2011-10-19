@@ -18,7 +18,9 @@
     <div id="main">
       <%= render :partial => "shared/layout/messagebar" %>
 
-      <%= yield :intro %>
+      <div class="intro">
+        <%= yield :intro %>
+      </div>
       <div class="left_articles">
         <%= yield %>
       </div>
